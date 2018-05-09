@@ -22,7 +22,7 @@ class Login extends CI_Controller{
 				redirect('Login');
 			}
 		}else{
-			$this->load->view('Login_view', ['model'=>$this->model]);
+			$this->load->view('welcome_message', ['model'=>$this->model]);
 		}
 	}
 

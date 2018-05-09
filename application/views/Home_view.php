@@ -29,9 +29,17 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="index.html">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="navbar.html">Pusat</a>
+            </li>
+            <li>
+              <a href="cards.html">Sales</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="charts.html">
