@@ -65,6 +65,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
             <div class="dropdown-divider"></div>
               <span class="text-danger">
