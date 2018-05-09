@@ -1,6 +1,6 @@
 <?php
 class Login_model extends CI_Model{
-	public $user;
+	public $username;
 	public $password;
 
 	public $labels = [];
@@ -12,8 +12,8 @@ class Login_model extends CI_Model{
 	}
 
 	public function cek_log(){
-		$sql = sprintf("SELECT COUNT(*) AS hitung FROM user WHERE user='%s' AND password='%s'",
-			$this->user,
+		$sql = sprintf("SELECT COUNT(*) AS hitung FROM tabel_pegawai WHERE username='%s' AND password='%s'",
+			$this->username,
 			$this->password);
 		$query = $this->db->query($sql);
 		$row = $query->row_array();
@@ -22,7 +22,7 @@ class Login_model extends CI_Model{
 
 	private function _attributeLabels(){
 		return [
-			'user'=>'User :',
+			'username'=>'User :',
 			'password'=>'Password :'];
 	}
 }

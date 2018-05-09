@@ -13,10 +13,10 @@ class Login extends CI_Controller{
 
 	public function index (){
 		if (isset($_POST['btn_log'])) {
-			$this->model->user = $_POST['txt_user'];
+			$this->model->username = $_POST['txt_user'];
 			$this->model->password = $_POST['txt_pass'];
 			if ($this->model->cek_log()==TRUE) {
-				$this->session->set_userdata('user', $this->model->user);
+				$this->session->set_userdata('username', $this->model->username);
 				$this->load->view('Home_view', ['model'=>$this->model]);
 			}else{
 				redirect('Login');
