@@ -150,16 +150,50 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>No/th>
+                  <th>Nama</th>
+                  <th>Tanggal Pesan</th>
+                  <th>Nama Roti</th>
+                  <th>Jumlah</th>
+                  <th>Tanggal Ambil</th>
                 </tr>
               </thead>
+              <?php session_start();
+      require_once("admin/koneksi.php");
+      $id_roti = $_GET['id_roti'];
+      $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
+
+        if (mysqli_num_rows($query) == 0) {
+        
+          echo '<div class="table-responsive">';
+          echo '</div>';
+        else
+        {
+        while($data=mysqli_fetch_array($query))
+        {
+          echo '<div class="table-responsive">';
+
+            echo "<center><hr class='divider'>";
+            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['jenis_panen'];
+            echo '</h2>';
+            echo "<hr class='divider'></center>";
+            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['foto']."' ></td></center><br>";  
+            echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
+            echo '</p>';
+
+            
+
+          // echo '</div>';
+          echo '</div>';
+          echo '<br><a href="panen.php?" class="btn btn-secondary">Kembali</a>';
+          echo '</div>';
+
+        }
+        }
+      ?>
+             
               <tfoot>
                 <tr>
                   <th>Name</th>
