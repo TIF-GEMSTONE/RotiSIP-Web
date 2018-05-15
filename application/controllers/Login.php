@@ -22,12 +22,12 @@ class Login extends CI_Controller{
 				redirect('Login');
 			}
 		}else{
-			$this->load->view('welcome_message', ['model'=>$this->model]);
+			$this->load->view('Login_view', ['model'=>$this->model]);
 		}
 	}
 
 	public function Logout(){
-		if ($this->session->has_userdata('user')) {
+		if ($this->session->has_userdata('username')) {
 			$this->session->sess_destroy();
 		redirect('Login');
 		}

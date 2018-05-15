@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2018 at 08:51 AM
+-- Generation Time: May 15, 2018 at 04:22 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -51,6 +51,13 @@ CREATE TABLE `tabel_pegawai` (
   `password` varchar(10) NOT NULL,
   `level` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_pegawai`
+--
+
+INSERT INTO `tabel_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password`, `level`) VALUES
+('p01', 'Mukriono', 'admin', 'admin', '2');
 
 -- --------------------------------------------------------
 

@@ -161,7 +161,7 @@
                 </tr>
               </thead>
               <?php session_start();
-      require_once("admin/koneksi.php");
+     
       $id_roti = $_GET['id_roti'];
       $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
@@ -169,7 +169,7 @@
         
           echo '<div class="table-responsive">';
           echo '</div>';
-        else
+        }else
         {
         while($data=mysqli_fetch_array($query))
         {
@@ -183,11 +183,7 @@
             echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
             echo '</p>';
 
-            
-
-          // echo '</div>';
           echo '</div>';
-          echo '<br><a href="panen.php?" class="btn btn-secondary">Kembali</a>';
           echo '</div>';
 
         }
