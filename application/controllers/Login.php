@@ -25,6 +25,9 @@ class Login extends CI_Controller{
 			$this->load->view('Login_view', ['model'=>$this->model]);
 		}
 	}
+	function Home(){
+		$this->load->view('Home_view');
+	}
 
 	public function Logout(){
 		if ($this->session->has_userdata('username')) {
