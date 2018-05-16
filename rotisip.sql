@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 09:13 AM
+-- Generation Time: May 16, 2018 at 10:04 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -119,7 +119,7 @@ CREATE TABLE `tabel_sales` (
   `id_sales` int(10) NOT NULL,
   `nama_sales` varchar(30) NOT NULL,
   `alamat` varchar(100) NOT NULL,
-  `no_telepon` varchar(13) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

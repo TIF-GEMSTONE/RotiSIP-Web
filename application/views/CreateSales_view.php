@@ -159,13 +159,14 @@
         <div class="card-header">
           <i class="fa fa-table"></i>Data Sales</div>
         <div class="card-body">
+          <p><strong>Tambah Data</strong></p>
           <div class="table-responsive">
             <form action="create" method="post">
               <?php echo $model->labels['id_sales']; ?><br/>
-              <input type="text" name="id" size="10" maxlength="10"/><br/><br/>
+              <input type="text" name="id" /><br/><br/>
 
               <?php echo $model->labels['nama_sales']; ?><br/>
-              <input type="text" name="nama" size="30" maxlength="25"/><br/><br/>
+              <input type="text" name="nama" /><br/><br/>
 
               <?php echo $model->labels['alamat']; ?><br/>
               <textarea name="alamat"></textarea><br/><br/>

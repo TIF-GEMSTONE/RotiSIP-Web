@@ -35,7 +35,7 @@
 			$this->load->view('ReadSales_view', ['rows'=>$rows]);
 		}
 
-		public function update($id_sales_up){
+		public function update($id_up){
 			if (isset($_POST['btnSubmit'])) {
 				$this->model->id_sales = $_POST['id_sales'];
 				$this->model->nama_sales = $_POST['nama_sales'];
@@ -46,7 +46,7 @@
 				$this->model->update();
 				redirect('SalesBaru');
 			}else{
-				$query = $this->db->query("SELECT * FROM tabel_sales WHERE id_sales='$id_sales_up'");
+				$query = $this->db->query("SELECT * FROM tabel_sales WHERE id_sales='$id_up'");
 				$row = $query->row();
 				$this->model->id_sales = $row->id_sales;
 				$this->model->nama_sales = $row->nama_sales;
