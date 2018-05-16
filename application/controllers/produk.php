@@ -28,9 +28,8 @@ class Produk extends CI_Controller {
           $file = $this->upload->data();
           //mengambil data di form
           $data = ['gambar' => $file['file_name'],
-           'nama' => set_value('nama'),
-           'harga' => set_value('harga'),
-           'stok' => set_value('stok')
+           'nama_roti' => set_value('nama_roti'),
+           'harga' => set_value('harga')
          ];
           $this->M_produk->input($data); //memasukan data ke database
           redirect('produk/input'); //mengalihkan halaman
@@ -73,9 +72,8 @@ public function ubah($id){
             unlink('assets/images/'.$gambar->gambar); //menghapus gambar yang lama
         }
       }
-      $data['nama']      = set_value('nama');
+      $data['nama_roti']      = set_value('nama_roti');
       $data['harga']   = set_value('harga');
-      $data['stok']   = set_value('stok');
       $this->M_produk->ubah($id, $data); //memasukan data ke database
       redirect('produk/data'); //mengalihkan halaman
   }

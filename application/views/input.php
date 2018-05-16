@@ -134,39 +134,31 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
 
-     <div class="jumbotron col-md-4" >
+     
+      <div class="jumbotron col-md-4" >
        <?=form_open_multipart('produk/proses_input')?>
         <div class="form-group">
           <label for="nama">Nama :</label>
-          <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Produk" id="nama" required>
+          <input type="text" name="nama_roti" class="form-control" placeholder="Masukan Nama Roti" id="nama_roti" required>
         </div>
         <div class="form-group">
           <label for="harga">Harga :</label>
-          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Produk" id="harga" required>
-        </div>
-        <div class="form-group">
-          <label for="stok">Stok :</label>
-          <input type="number" name="stok" class="form-control" placeholder="Masukan Stok Produk" id="stok" required>
+          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Roti" id="harga" required>
         </div>
         <div class="form-group">
           <label for="userfile">Gambar :</label>
           <input type="file" name="userfile" class="file">
           <div class="input-group col-xs-12">
             <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-            <input type="text" class="form-control input-lg" disabled placeholder="Upload Gambar">
-            <span class="input-group-btn">
-              <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Upload</button>
-            </span>
           </div><br>
         </div>
             <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
      </div>
-   </div>
            
   
 
