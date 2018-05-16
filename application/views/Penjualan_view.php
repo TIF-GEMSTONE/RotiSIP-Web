@@ -52,12 +52,12 @@
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseStok">
+         <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="navbar.html">Sales</a>
+              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
             </li>
           </ul>
         </li>
