@@ -46,7 +46,17 @@
           </a>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
+<<<<<<< HEAD
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Transaksi</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-area-chart"></i>
+=======
             <i class="fa fa-fw fa-wrench"></i>
+>>>>>>> a54284e39dd66a25d6a56152473891555a2c6dd3
             <span class="nav-link-text">Stok</span>
           </a>
          <ul class="sidenav-second-level collapse" id="collapseStok">
@@ -129,254 +139,57 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
       <!-- Icon Cards-->
-      
-          <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> Menu Roti</div>
-          <hr class="mt-2">
-          <div class="card-columns">
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Roti Coklat</a></h6>
-                <p class="card-text small">These waves are looking pretty good today!
-                  <a href="#">#surfsup</a>
-                </p>
-              </div>
-              <hr class="my-0">
-              
-              <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                 
-                  <div class="media-body">
-                    
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        
-                     
-                      <li class="list-inline-item">
-                        
-                      </li>
-                    </ul>
-                    <div class="media mt-3">
-                      <a class="d-flex pr-3" href="#">
-                        
-                      </a>
-                      <div class="media-body">
-                        
-                        <ul class="list-inline mb-0">
-                          <li class="list-inline-item">
-                            
-                          
-                          <li class="list-inline-item">
-                            
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=180" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">John Smith</a></h6>
-                <p class="card-text small">Another day at the office...
-                  <a href="#">#workinghardorhardlyworking</a>
-                </p>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
-              <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <h6 class="mt-0 mb-1"><a href="#">Jessy Lucas</a></h6>Where did you get that camera?! I want one!
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        <a href="#">Like</a>
-                      </li>
-                      <li class="list-inline-item">·</li>
-                      <li class="list-inline-item">
-                        <a href="#">Reply</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer small text-muted">Posted 46 mins ago</div>
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=281" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Jeffery Wellings</a></h6>
-                <p class="card-text small">Nice shot from the skate park!
-                  <a href="#">#kickflip</a>
-                  <a href="#">#holdmybeer</a>
-                  <a href="#">#igotthis</a>
-                </p>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
-              <div class="card-footer small text-muted">Posted 1 hr ago</div>
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=185" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
-                <p class="card-text small">It's hot, and I might be lost...
-                  <a href="#">#desert</a>
-                  <a href="#">#water</a>
-                  <a href="#">#anyonehavesomewater</a>
-                  <a href="#">#noreally</a>
-                  <a href="#">#thirsty</a>
-                  <a href="#">#dehydration</a>
-                </p>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
-              <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>The oasis is a mile that way, or is that just a mirage?
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        <a href="#">Like</a>
-                      </li>
-                      <li class="list-inline-item">·</li>
-                      <li class="list-inline-item">
-                        <a href="#">Reply</a>
-                      </li>
-                    </ul>
-                    <div class="media mt-3">
-                      <a class="d-flex pr-3" href="#">
-                        <img src="http://placehold.it/45x45" alt="">
-                      </a>
-                      <div class="media-body">
-                        <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>
-                        <img class="img-fluid w-100 mb-1" src="https://unsplash.it/700/450?image=789" alt="">I'm saved, I found a cactus. How do I open this thing?
-                        <ul class="list-inline mb-0">
-                          <li class="list-inline-item">
-                            <a href="#">Like</a>
-                          </li>
-                          <li class="list-inline-item">·</li>
-                          <li class="list-inline-item">
-                            <a href="#">Reply</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer small text-muted">Posted yesterday</div>
-            </div>
-          </div>
-          <!-- /Card Columns-->
-        </div>
-        <div class="col-lg-4">
-          <!-- Example Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
-            <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-          <!-- Example Notifications Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bell-o"></i> Feed Example</div>
-            <div class="list-group list-group-flush small">
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>David Miller</strong>posted a new article to
-                    <strong>David Miller Website</strong>.
-                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>Samantha King</strong>sent you a new message!
-                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>Jeffery Wellings</strong>added a new photo to the album
-                    <strong>Beach</strong>.
-                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <i class="fa fa-code-fork"></i>
-                    <strong>Monica Dennis</strong>forked the
-                    <strong>startbootstrap-sb-admin</strong>repository on
-                    <strong>GitHub</strong>.
-                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="col-md-20">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form class="form-horizontal" id="transaksi" role="form">
+              <?php
+              if ($jumlah > 0) {
+              ?>
+              <table>
+                <tr>
+                  <td>Jumlah Transaksi = <?= $jumlah?></td>
+                </tr>
+              </table>
+                <table class="table table-hover" width="100%">
+                  <thead>
+                    <tr bgcolor="#4CAF50">
+                      <th scope="col">No.</th>
+                      <th scope="col">Id_Roti</th>
+                      <th scope="col">Jumlah</th>
+                      <th scope="col">Total Harga</th>
+                      <th colspan="3" scope="col">Opsi</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                <?php
+                  $n=1;
+                 ?>
+                    <?php foreach($data as $row); ?>
+                    <tr>
+                      <td><?= $n++ ?></td>
+                      <td><?= $row ['id_Roti']?></td>
+                      <td><?= $row ['jumlah_roti']?></td>
+                      <td><?= $row ['harga_jual']?></td>
+                      <td>
+                        <a href="<?= base_url() ?>Transaksi/ubahTransaksi<?= $row['id_Roti'] ?>" class="btn btn-warning">Ubah</a>
+                        <a href="<?= base_url() ?>Transaksi/deleteTransaksi<?= $row['id_Roti'] ?>" class="btn btn-danger">Hapus</a>
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+                </table>
+                <?php
+                  }
+                ?>
+            </form>
+            <br>
+            <a class="btn btn-primary"> href="<?= base_url() ?>Transaksi">Transaksi Baru</a>
           </div>
         </div>
       </div>

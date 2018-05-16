@@ -12,7 +12,7 @@ public function getAllPenjualan(){
 	public function getPenjualan($id_roti){
 		$this->db->where('id_roti', $id_roti);
 		$this->db->select('*');
-		$this->db->('tabel_transaksi');
+		$this->db->from('tabel_transaksi');
 
 		return $this->db->get();
 	}
