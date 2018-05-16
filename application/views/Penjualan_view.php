@@ -46,7 +46,7 @@
           </a>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-<<<<<<< HEAD
+
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Transaksi</span>
           </a>
@@ -54,9 +54,8 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
-=======
+
             <i class="fa fa-fw fa-wrench"></i>
->>>>>>> a54284e39dd66a25d6a56152473891555a2c6dd3
             <span class="nav-link-text">Stok</span>
           </a>
          <ul class="sidenav-second-level collapse" id="collapseStok">
@@ -181,7 +180,6 @@
                         <a href="<?= base_url() ?>Transaksi/deleteTransaksi<?= $row['id_Roti'] ?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
-                  <?php endforeach ?>
                 </tbody>
                 </table>
                 <?php
