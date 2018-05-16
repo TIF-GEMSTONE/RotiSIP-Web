@@ -28,7 +28,8 @@ class Login extends CI_Controller{
 		}
 	}
 	function Home(){
-		$this->load->view('Home_view');
+		$data['produk'] = $this->Produk_model->data();
+		$this->load->view('Home_view', $data);
 	}
 
 	public function Logout(){
@@ -38,10 +39,6 @@ class Login extends CI_Controller{
 		}
 	}
 
-	public function data(){
-		$data['produk'] = $this->Produk_model->data();
-		$this->load->view('Home_view', $data);
-	  }
 
 	public function ubah($id){
 	    $data['produk'] = $this->Produk_model->getid($id);
@@ -76,14 +73,14 @@ class Login extends CI_Controller{
 		$data['nama_roti']      = set_value('nama_roti');
 		$data['harga']   = set_value('harga');
 		$this->Produk_model->ubah($id, $data); //memasukan data ke database
-		redirect('Login/data'); //mengalihkan halaman
+		redirect('Login/Home'); //mengalihkan halaman
 	  }
 
   	public function hapus($id){
 	  $gambar = $this->Produk_model>gambar($id);
 	  unlink('assets/images/'.$gambar->gambar);
 	  $this->Produk_model>hapus($id);
-	  redirect('Login/data'); //mengalihkan halaman
+	  redirect('Login/Home'); //mengalihkan halaman
 	}
 	
 }
