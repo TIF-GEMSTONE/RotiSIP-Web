@@ -2,11 +2,7 @@
 class Penjualan extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
-		if(!$this->session->userdata('username'))
-		{
-			redirect('Login');
-		}
-		$this->load->model('Penjualan_model');
+		$this->load->library('session');
 	}
 
 	public function index(){
@@ -17,7 +13,7 @@ class Penjualan extends CI_Controller{
 		$data = $this->db->get('tabel_transaksi')->result_array();
 		$jumlah = $this->db->get('tabel_transaksi')->num_rows();
 		$main_view='Penjualan_view';
-		$this->load->view('template', compact('halaman', 'main_view', 'data', 'jumlah'));
+		$this->load->view('Penjualan_view', compact('halaman', 'main_view', 'data', 'jumlah'));
 	}
 
 	public function addPenjualanDB(){
