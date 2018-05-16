@@ -54,10 +54,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="navbar.html">Sales</a>
+              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -74,13 +74,6 @@
               <a href="cards.html">SIP</a>
             </li>
           </ul>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

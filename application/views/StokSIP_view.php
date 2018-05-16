@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="http:/RotiSIP-Web/">Roti SIP</a>
+    <a class="navbar-brand" href="<?php echo base_url ();?>Login/Home">Roti SIP</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,7 +52,7 @@
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseStok">
+         <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
               <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
@@ -159,7 +159,7 @@
       </ol>
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Stok Sales</div>
+          <i class="fa fa-table"></i>Stok SIP</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
