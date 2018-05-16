@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="<?php echo base_url ();?>Login/Home">Roti SIP</a>
+    <a class="navbar-brand" href="http:/RotiSIP-Web/">Roti SIP</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -83,6 +83,13 @@
           </a>
         </li>
       </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -127,60 +134,77 @@
       </ul>
     </div>
   </nav>
-
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
+      
+      <!-- Icon Cards-->
+      
+          <!-- Card Columns Example Social Feed-->
+          
+              <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+          
+          <!-- /Card Columns-->
+       
+      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="#">Stok</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Tables</li>
       </ol>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Stok Sales</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
+                <tr>
+                  <th>No/th</th>  
+                  <th>Nama</th>
+                  <th>Tanggal Pesan</th>
+                  <th>Nama Roti</th>
+                  <th>Jumlah</th>
+                  <th>Tanggal Ambil</th>
+                </tr>
+              </thead>
+              <?php session_start();
+     
+      $id_roti = $_GET['id_roti'];
+      $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
-          <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> Menu Roti</div>
-          <hr class="mt-2">
-          <div class="card-columns">
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Roti Coklat</a></h6>
-                  <a href="#">#surfsup</a>
-                </p>
-              </div>
-              
-          <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Roti Coklat</a></h6>
-                  <a href="#">#surfsup</a>
-                </p>
-              </div>
+        if (mysqli_num_rows($query) == 0) {
+        
+          echo '<div class="table-responsive">';
+          echo '</div>';
+        }else
+        {
+        while($data=mysqli_fetch_array($query))
+        {
+          echo '<div class="table-responsive">';
 
-              <hr class="my-0">
-              </div>
-            </div>
-           
-  
+            echo "<center><hr class='divider'>";
+            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['jenis_panen'];
+            echo '</h2>';
+            echo "<hr class='divider'></center>";
+            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['foto']."' ></td></center><br>";  
+            echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
+            echo '</p>';
 
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Roti SIP 2018</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
+          echo '</div>';
+          echo '</div>';
+
+        }
+        }
+      ?>
+             
+             
+    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
