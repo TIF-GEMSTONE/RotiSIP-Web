@@ -46,6 +46,10 @@
           </a>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5da45c14bdfb783f2a889b1ff40ee4b67865769b
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Transaksi</span>
           </a>
@@ -53,6 +57,10 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
+<<<<<<< HEAD
+=======
+            <i class="fa fa-fw fa-wrench"></i>
+>>>>>>> 5da45c14bdfb783f2a889b1ff40ee4b67865769b
             <span class="nav-link-text">Stok</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">

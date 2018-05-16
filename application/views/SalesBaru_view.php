@@ -164,35 +164,35 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nama <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                          <input id="name_sales" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Alamat <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="100" name="name" required="required" type="text">
+                          <input id="alamat" class="form-control col-md-7 col-xs-12" data-validate-length-range="100" name="name" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nomer Telepon<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                          <input id="no_telp" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">User<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Username<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                          <input id="username" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Password<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                          <input id="password" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
                         </div>
                       </div>
                         <div class="col-md-6 col-md-offset-3">
