@@ -33,6 +33,12 @@
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
+          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Form Sales</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePesanan" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
@@ -78,7 +84,7 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+         <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
