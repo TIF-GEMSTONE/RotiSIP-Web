@@ -27,14 +27,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" title="Penjualan">
-          <a class="nav-link nav-link-collapse collapsed" href="http:/RotiSIP-Web/Penjualan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="http:/RotiSIP-Web/Penjualan">
+            <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="http:/RotiSIP-Web/Pesanan" data-parent="#exampleAccordion">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePesanan" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
@@ -47,8 +47,9 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
+<<<<<<< HEAD
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Transaksi</span>
           </a>
@@ -56,37 +57,33 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
+=======
+            <i class="fa fa-fw fa-wrench"></i>
+>>>>>>> a54284e39dd66a25d6a56152473891555a2c6dd3
             <span class="nav-link-text">Stok</span>
           </a>
-           <ul class="sidenav-second-level collapse" id="collapseStok">
+          <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="navbar.html">Pusat</a>
+              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">Sales</a>
+              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="collapseLaporan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseLaporan" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
             <span class="nav-link-text">Laporan</span>
           </a>
-           <ul class="sidenav-second-level collapse" id="collapseLaporan">
+          <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Pusat</a>
+              <a href="navbar.html">Sales</a>
             </li>
             <li>
-              <a href="cards.html">Sales</a>
+              <a href="cards.html">SIP</a>
             </li>
           </ul>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -702,19 +699,19 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url ('assets/vendor/jquery/jquery.min.js') ?>"></script>
+    <script src="<?php echo base_url ('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url ('assets/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="<?php echo base_url ('asstes/vendor/chart.js/Chart.min.js')?>"></script>
+    <script src="<?php echo base_url ('asstes/vendor/datatables/jquery.dataTables.js')?>"></script>
+    <script src="<?php echo base_url ('asstes/vendor/datatables/dataTables.bootstrap4.js')?>"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+    <script src="<?php echo base_url ('asstes/js/sb-admin.min.js')?>"></script>
     <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
+    <script src="<?php echo base_url ('asstes/js/sb-admin-datatables.min.js')?>"></script>
+    <script src="<?php echo base_url ('asstes/vendor/chart.js/Chart.min.js')?>"></script>
   </div>
 </body>
 
