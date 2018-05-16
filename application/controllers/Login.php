@@ -5,7 +5,9 @@ class Login extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Login_model');
-		$this->model = $this->Login_model;
+		$this->model1 = $this->Login_model;
+		$this->load->model('Produk_model');
+		$this->model2 = $this->Produk_model;
 
 		$this->load->library('session');
 		$this->load->helper('url');
@@ -13,16 +15,16 @@ class Login extends CI_Controller{
 
 	public function index (){
 		if (isset($_POST['btn_log'])) {
-			$this->model->username = $_POST['txt_user'];
-			$this->model->password = $_POST['txt_pass'];
-			if ($this->model->cek_log()==TRUE) {
-				$this->session->set_userdata('username', $this->model->username);
-				$this->load->view('Home_view', ['model'=>$this->model]);
+			$this->model1->username = $_POST['txt_user'];
+			$this->model1->password = $_POST['txt_pass'];
+			if ($this->model1->cek_log()==TRUE) {
+				$this->session->set_userdata('username', $this->model1->username);
+				$this->load->view('Home_view', ['model'=>$this->model1]);
 			}else{
 				redirect('Login');
 			}
 		}else{
-			$this->load->view('Login_view', ['model'=>$this->model]);
+			$this->load->view('Login_view', ['model'=>$this->model1]);
 		}
 	}
 	function Home(){
@@ -34,6 +36,54 @@ class Login extends CI_Controller{
 			$this->session->sess_destroy();
 		redirect('Login');
 		}
+	}
+
+	public function data(){
+		$data['produk'] = $this->Produk_model->data();
+		$this->load->view('Home_view', $data);
+	  }
+
+	public function ubah($id){
+	    $data['produk'] = $this->Produk_model->getid($id);
+	    $this->load->view('update', $data);
+	  }
+
+	public function proses_ubah($id){
+		$gambar = $this->Produk_model->gambar($id);
+		if(isset($_FILES["userfile"]["name"]))
+		  {
+		//membuat konfigurasi
+		$config = [
+		  'upload_path' => './assets/images/',
+		  'allowed_types' => 'gif|jpg|png',
+		  'max_size' => 1000, 'max_width' => 1000,
+		  'max_height' => 1000
+		];
+		$this->load->library('upload', $config);
+		if (!$this->upload->do_upload()) //jika gagal upload
+		{
+		    $error = array('error' => $this->upload->display_errors()); //tampilkan error
+		    $this->load->view('update', $error);
+		} else
+		//jika berhasil upload
+		{
+		    $file = $this->upload->data();
+		    //mengambil data di form
+		    $data = ['gambar' => $file['file_name']];
+		    unlink('assets/images/'.$gambar->gambar); //menghapus gambar yang lama
+		}
+		}
+		$data['nama_roti']      = set_value('nama_roti');
+		$data['harga']   = set_value('harga');
+		$this->Produk_model->ubah($id, $data); //memasukan data ke database
+		redirect('Login/data'); //mengalihkan halaman
+	  }
+
+  	public function hapus($id){
+	  $gambar = $this->Produk_model>gambar($id);
+	  unlink('assets/images/'.$gambar->gambar);
+	  $this->Produk_model>hapus($id);
+	  redirect('Login/data'); //mengalihkan halaman
 	}
 	
 }

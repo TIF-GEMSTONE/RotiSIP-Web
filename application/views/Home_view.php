@@ -147,16 +147,16 @@
                 <a href="<?php echo base_url();?>produk/input/" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-pencil"></i> Tambah Data Roti</a>
             </div>
             <div class="card mb-3">
-           <!--<?php            foreach($produk as $p){            ?>-->
-              <!-- <a href="#"> -->
-                <!-- <img class="card-img-top img-fluid w-100" src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt=""> -->
-              <!-- </a> -->
-              <!-- <div class="card-body"> -->
-                <!-- <h6 class="card-title mb-1"><a href="#"><?php echo $p->nama ?></a></h6> -->
-                  <!-- <a href="#">#surfsup</a> -->
-                <!-- </p> -->
-              <!-- </div> -->
-          <!-- <?php } ?> -->
+           <?php            foreach($produk as $p){            ?>
+             <a href="#"> -->
+                <img class="card-img-top img-fluid w-100" src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#"><?php echo $p->nama ?></a></h6>
+                  <a href="#">#surfsup</a>
+                </p>
+              </div>
+          <?php } ?>
            </div>
   
 
