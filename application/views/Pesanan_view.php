@@ -176,10 +176,10 @@
           echo '<div class="table-responsive">';
 
             echo "<center><hr class='divider'>";
-            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['jenis_panen'];
+            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['nama_roti'];
             echo '</h2>';
             echo "<hr class='divider'></center>";
-            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['foto']."' ></td></center><br>";  
+            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['gambar']."' ></td></center><br>";  
             echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
             echo '</p>';
 

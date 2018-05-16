@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="http:/RotiSIP-Web/Login/Home_view">Roti SIP</a>
+    <a class="navbar-brand" href="<?php echo base_url ();?>Login/Home">Roti SIP</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -144,24 +144,12 @@
           <hr class="mt-2">
           <div class="card-columns">
             <!-- Example Social Card-->
-            <?php session_start();
-      require_once("");
+            <?php 
       $id_roti = $_GET['id_roti'];
       $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
         if (mysqli_num_rows($query) == 0) {
         
-          echo '<div class="bg-faded p-4 my-4">';
-          echo '<div class="card card-inverse">';
-
-          echo 'maaf, belum ada artikel';
-
-          echo '</div>';
-          echo '</div>';
-          // echo '</div>';
-        } 
-        else
-        {
         while($data=mysqli_fetch_array($query))
         {
           echo '<div class="bg-faded p-4 my-4">';
