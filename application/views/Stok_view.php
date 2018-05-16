@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="http:/RotiSIP-Web/Login/Home_view">Roti SIP</a>
+    <a class="navbar-brand" href="http:/RotiSIP-Web/">Roti SIP</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -83,6 +83,13 @@
           </a>
         </li>
       </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -130,49 +137,63 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
-      </ol>
+      
       <!-- Icon Cards-->
       
           <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> Menu Roti</div>
-          <hr class="mt-2">
-          <div class="card-columns">
+          
+              <!-- Example Social Card-->
+            
             <!-- Example Social Card-->
-            <?php session_start();
-      require_once("");
+            
+            <!-- Example Social Card-->
+          
+          <!-- /Card Columns-->
+       
+      <!-- Example DataTables Card-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Stok</a>
+        </li>
+        <li class="breadcrumb-item active">Tables</li>
+      </ol>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Stok Sales</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
+                <tr>
+                  <th>No/th</th>  
+                  <th>Nama</th>
+                  <th>Tanggal Pesan</th>
+                  <th>Nama Roti</th>
+                  <th>Jumlah</th>
+                  <th>Tanggal Ambil</th>
+                </tr>
+              </thead>
+              <?php session_start();
+     
       $id_roti = $_GET['id_roti'];
       $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
         if (mysqli_num_rows($query) == 0) {
         
-          echo '<div class="bg-faded p-4 my-4">';
-          echo '<div class="card card-inverse">';
-
-          echo 'maaf, belum ada artikel';
-
+          echo '<div class="table-responsive">';
           echo '</div>';
-          echo '</div>';
-          // echo '</div>';
-        } 
-        else
+        }else
         {
         while($data=mysqli_fetch_array($query))
         {
-          echo '<div class="bg-faded p-4 my-4">';
-          echo '<div class="card card-inverse">';
+          echo '<div class="table-responsive">';
 
             echo "<center><hr class='divider'>";
-            echo '<h2 class="card-title mb-1">'.$data['nama_roti'];
+            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['jenis_panen'];
             echo '</h2>';
             echo "<hr class='divider'></center>";
-            echo "<center><td><img class='card-img-top img-fluid w-100' src='admin/panen/img/".$data['gambar']."' ></td></center><br>";  
-            echo "<p class='card-text small'>".$data['harga'];
+            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['foto']."' ></td></center><br>";  
+            echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
             echo '</p>';
 
           echo '</div>';
@@ -181,131 +202,9 @@
         }
         }
       ?>
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Roti Coklat</a></h6>
-                <p class="card-text small">These waves are looking pretty good today!
-                  <a href="#">#surfsup</a>
-                </p>
-              </div>
-              <hr class="my-0">
-              
-              <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                 
-                  <div class="media-body">
-                    
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        
-                     
-                      <li class="list-inline-item">
-                        
-                      </li>
-                    </ul>
-                    <div class="media mt-3">
-                      <a class="d-flex pr-3" href="#">
-                        
-                      </a>
-                      <div class="media-body">
-                        
-                        <ul class="list-inline mb-0">
-                          <li class="list-inline-item">
-                            
-                          
-                          <li class="list-inline-item">
-                            
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
              
-            </div>
-            <!-- Example Social Card-->
-           
-          <!-- /Card Columns-->
-        </div>
-        <div class="col-lg-4">
-          <!-- Example Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
-            <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-          <!-- Example Notifications Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bell-o"></i> Feed Example</div>
-            <div class="list-group list-group-flush small">
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>David Miller</strong>posted a new article to
-                    <strong>David Miller Website</strong>.
-                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>Samantha King</strong>sent you a new message!
-                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>Jeffery Wellings</strong>added a new photo to the album
-                    <strong>Beach</strong>.
-                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <i class="fa fa-code-fork"></i>
-                    <strong>Monica Dennis</strong>forked the
-                    <strong>startbootstrap-sb-admin</strong>repository on
-                    <strong>GitHub</strong>.
-                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-        </div>
-      </div>
-      <!-- Example DataTables Card-->
-      
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
+             
+    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
