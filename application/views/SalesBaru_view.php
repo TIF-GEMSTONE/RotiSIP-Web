@@ -46,17 +46,7 @@
           </a>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-<<<<<<< HEAD
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Transaksi</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-area-chart"></i>
-=======
             <i class="fa fa-fw fa-wrench"></i>
->>>>>>> a54284e39dd66a25d6a56152473891555a2c6dd3
             <span class="nav-link-text">Stok</span>
           </a>
          <ul class="sidenav-second-level collapse" id="collapseStok">
@@ -81,6 +71,13 @@
               <a href="cards.html">SIP</a>
             </li>
           </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
@@ -137,74 +134,84 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
+      
+      <!-- Icon Cards-->
+      
+          <!-- Card Columns Example Social Feed-->
+          
+              <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+          
+          <!-- /Card Columns-->
+       
+      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Dashboard</a>
+          <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Tables</li>
       </ol>
-      <!-- Icon Cards-->
-      <div class="col-md-20">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <form class="form-horizontal" id="transaksi" role="form">
-              <?php
-              if ($jumlah > 0) {
-              ?>
-              <table>
-                <tr>
-                  <td>Jumlah Transaksi = <?= $jumlah?></td>
-                </tr>
-              </table>
-                <table class="table table-hover" width="100%">
-                  <thead>
-                    <tr bgcolor="#4CAF50">
-                      <th scope="col">No.</th>
-                      <th scope="col">Id_Roti</th>
-                      <th scope="col">Jumlah</th>
-                      <th scope="col">Total Harga</th>
-                      <th colspan="3" scope="col">Opsi</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                <?php
-                  $n=1;
-                 ?>
-                    <?php foreach($data as $row); ?>
-                    <tr>
-                      <td><?= $n++ ?></td>
-                      <td><?= $row ['id_Roti']?></td>
-                      <td><?= $row ['jumlah_roti']?></td>
-                      <td><?= $row ['harga_jual']?></td>
-                      <td>
-                        <a href="<?= base_url() ?>Transaksi/ubahTransaksi<?= $row['id_Roti'] ?>" class="btn btn-warning">Ubah</a>
-                        <a href="<?= base_url() ?>Transaksi/deleteTransaksi<?= $row['id_Roti'] ?>" class="btn btn-danger">Hapus</a>
-                      </td>
-                    </tr>
-                  <?php endforeach ?>
-                </tbody>
-                </table>
-                <?php
-                  }
-                ?>
-            </form>
-            <br>
-            <a class="btn btn-primary"> href="<?= base_url() ?>Transaksi">Transaksi Baru</a>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Data Sales</div>
+        <div class="card-body">
+          <div class="table-responsive">
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nama <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Alamat <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="100" name="name" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nomer Telepon<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">User<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Password<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" data-validate-words="5" name="name" required="required" type="text">
+                        </div>
+                      </div>
+                        <div class="col-md-6 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Example DataTables Card-->
-      
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+          </div>
         </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-    </footer>
-    <!-- Scroll to Top Button-->
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

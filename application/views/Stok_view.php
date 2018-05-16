@@ -33,20 +33,17 @@
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePesanan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
+          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Form Sales</span>
+          </a>
+        </li>
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
+            <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapsePesanan">
-            <li>
-              <a href="login.html">Login Page</a>
-            </li>
-            <li>
-              <a href="register.html">Registration Page</a>
-            </li>
-          </ul>
-        </li>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>

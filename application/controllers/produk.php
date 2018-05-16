@@ -39,7 +39,7 @@ class Produk extends CI_Controller {
 
   public function data(){
   $data['produk'] = $this->M_produk->data();
-  $this->load->view('data', $data);
+  $this->load->view('Home_view', $data);
 }
 
 public function ubah($id){

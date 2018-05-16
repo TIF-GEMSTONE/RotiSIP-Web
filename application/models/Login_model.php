@@ -25,5 +25,13 @@ class Login_model extends CI_Model{
 			'username'=>'User :',
 			'password'=>'Password :'];
 	}
+	
+  public function input($data){
+    try{
+      $this->db->insert('tabel_roti', $data);
+      return true;
+    }catch(Exception $e){
+    }
+  }
 }
 ?>

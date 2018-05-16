@@ -33,20 +33,17 @@
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePesanan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
+          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Form Sales</span>
+          </a>
+        </li>
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
+            <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapsePesanan">
-            <li>
-              <a href="login.html">Login Page</a>
-            </li>
-            <li>
-              <a href="register.html">Registration Page</a>
-            </li>
-          </ul>
-        </li>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
 <<<<<<< HEAD
@@ -88,7 +85,7 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+         <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
@@ -159,29 +156,17 @@
                 <a href="<?php echo base_url();?>produk/input/" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-pencil"></i> Tambah Data Roti</a>
             </div>
             <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Roti Coklat</a></h6>
-                  <a href="#">#surfsup</a>
-                </p>
-              </div>
-              
-          <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Roti Coklat</a></h6>
-                  <a href="#">#surfsup</a>
-                </p>
-              </div>
-
-              <hr class="my-0">
-              </div>
-            </div>
-           
+           <!--<?php            foreach($produk as $p){            ?>-->
+              <!-- <a href="#"> -->
+                <!-- <img class="card-img-top img-fluid w-100" src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt=""> -->
+              <!-- </a> -->
+              <!-- <div class="card-body"> -->
+                <!-- <h6 class="card-title mb-1"><a href="#"><?php echo $p->nama ?></a></h6> -->
+                  <!-- <a href="#">#surfsup</a> -->
+                <!-- </p> -->
+              <!-- </div> -->
+          <!-- <?php } ?> -->
+           </div>
   
 
     <!-- /.container-fluid-->
