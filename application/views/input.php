@@ -20,65 +20,68 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="<?php echo base_url ();?>Login/Home">Roti SIP</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" title="Penjualan">
-          <a class="nav-link nav-link-collapse collapsed" href="http:/RotiSIP-Web/Penjualan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="http:/RotiSIP-Web/Penjualan">
+            <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="http:/RotiSIP-Web/Pesanan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
+          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Form Sales</span>
+          </a>
+        </li>
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
+            <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapsePesanan">
-            <li>
-              <a href="login.html">Login Page</a>
-            </li>
-            <li>
-              <a href="register.html">Registration Page</a>
-            </li>
-          </ul>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Transaksi</span>
+          </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-           <ul class="sidenav-second-level collapse" id="collapseStok">
+          <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="navbar.html">Pusat</a>
+              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">Sales</a>
+              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="collapseLaporan" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseLaporan" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
             <span class="nav-link-text">Laporan</span>
           </a>
-           <ul class="sidenav-second-level collapse" id="collapseLaporan">
+          <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Pusat</a>
+              <a href="navbar.html">Sales</a>
             </li>
             <li>
-              <a href="cards.html">Sales</a>
+              <a href="cards.html">SIP</a>
             </li>
           </ul>
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+         <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>

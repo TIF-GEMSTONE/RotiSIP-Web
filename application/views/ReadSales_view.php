@@ -39,23 +39,17 @@
             <span class="nav-link-text">Form Sales</span>
           </a>
         </li>
-       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Transaksi</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseStok">
+         <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
               <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
@@ -81,7 +75,14 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-         <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
@@ -130,51 +131,69 @@
       </ul>
     </div>
   </nav>
-
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
+      
+      <!-- Icon Cards-->
+      
+          <!-- Card Columns Example Social Feed-->
+          
+              <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+          
+          <!-- /Card Columns-->
+       
+      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Dashboard</a>
+          <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Tables</li>
       </ol>
-
-          <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> Menu Roti</div>
-          <hr class="mt-2">
-          <div class="card-columns">
-            <!-- Example Social Card-->
-            <div class="card mb-3" >
-                <a href="<?php echo base_url();?>produk/input/" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-pencil"></i> Tambah Data Roti</a>
-            </div>
-            <div class="card mb-3">
-           <!--<?php            foreach($produk as $p){            ?>-->
-              <!-- <a href="#"> -->
-                <!-- <img class="card-img-top img-fluid w-100" src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt=""> -->
-              <!-- </a> -->
-              <!-- <div class="card-body"> -->
-                <!-- <h6 class="card-title mb-1"><a href="#"><?php echo $p->nama ?></a></h6> -->
-                  <!-- <a href="#">#surfsup</a> -->
-                <!-- </p> -->
-              <!-- </div> -->
-          <!-- <?php } ?> -->
-           </div>
-  
-
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Roti SIP 2018</small>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Data Sales</div>
+        <div class="card-body">
+        	<p><a href="SalesBaru/create">Tambah Sales</a></p>
+          <div class="table-responsive">
+            <table border="1">
+            	<tr>
+            		<th width="100">Id_Sales</th>
+            		<th width="100">Nama_Sales</th>
+            		<th width="100">Alamat</th>
+            		<th width="100">No_Telp</th>
+            		<th width="100">Username</th>
+            		<th width="100">Password</th>
+            		<th width="100">Aksi</th>
+            	</tr>
+            	<?php
+					foreach ($rows as $row) {
+				?>
+				<tr>
+					<td><?php echo $row->id_sales; ?></td>
+					<td><?php echo $row->nama_sales; ?></td>
+					<td><?php echo $row->alamat; ?></td>
+					<td><?php echo $row->no_telp; ?></td>
+					<td><?php echo $row->password; ?></td>
+					<td><?php echo $row->username; ?></td>
+					<td align="center"><a href="SalesBaru/update/<?php echo $row->id_sales; ?>">Ubah</a>
+					<a href="SalesBaru/delete/<?php echo $row->id_sales; ?>">Hapus</a></td>
+				</tr>
+				<?php
+					}
+				?>
+            </table>
         </div>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-    </footer>
-    <!-- Scroll to Top Button-->
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
