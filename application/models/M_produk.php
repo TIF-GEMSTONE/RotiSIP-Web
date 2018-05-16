@@ -6,7 +6,7 @@ class M_produk extends CI_Model {
 
   public function input($data){
     try{
-      $this->db->insert('produk', $data);
+      $this->db->insert('tabel_roti', $data);
       return true;
     }catch(Exception $e){
     }
