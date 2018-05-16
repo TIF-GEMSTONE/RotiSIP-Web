@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 10:04 AM
+-- Generation Time: May 16, 2018 at 11:19 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -149,7 +149,8 @@ CREATE TABLE `tabel_stok_pusat` (
   `id_stok_pusat` int(10) NOT NULL,
   `id_roti` int(10) NOT NULL,
   `tgl_produksi` date NOT NULL,
-  `jumlah_stok_pusat` int(4) NOT NULL
+  `jumlah_stok_pusat` int(4) NOT NULL,
+  `dibeli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -163,7 +164,8 @@ CREATE TABLE `tabel_stok_sales` (
   `id_stok_pusat` int(10) NOT NULL,
   `id_sales` int(10) NOT NULL,
   `tgl_ambil` date NOT NULL,
-  `jumlah_stok_sales` int(4) NOT NULL
+  `jumlah_stok_sales` int(4) NOT NULL,
+  `dibeli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

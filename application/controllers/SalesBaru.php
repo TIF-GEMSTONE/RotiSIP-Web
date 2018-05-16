@@ -58,8 +58,8 @@
 			}
 		}
 
-		public function delete($id_sales_del){
-			$this->model->id_sales = $id_sales_del;
+		public function delete($id_del){
+			$this->model->id_sales = $id_del;
 			$this->model->delete();
 			redirect('SalesBaru');
 		}

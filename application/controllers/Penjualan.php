@@ -3,43 +3,76 @@ class Penjualan extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
+		$this->load->helper(array('url'));
+		$this->load->model('Penjualan_model');
 	}
 
 	public function index(){
-		$this->halaman = 'Data Transaksi';
-		$halaman = $this->halaman;
-		$this->load->helper('url');
-
-		$data = $this->db->get('tabel_transaksi')->result_array();
-		$jumlah = $this->db->get('tabel_transaksi')->num_rows();
-		$main_view='Penjualan_view';
-		$this->load->view('Penjualan_view', compact('halaman', 'main_view', 'data', 'jumlah'));
+		$this->load->view('Penjualan_view');
 	}
-
-	public function addPenjualanDB(){
+	function home(){
+		if (isset($_POST['btnSubmit'])) {
+			$tgl_transaksi = $_POST['tgl_transaksi'];
+			$data = array(
+				'data' =>$this->Penjualan_model->cari($tgl_transaksi));
+			$this->load->view('list_transaksi', $data);
+		}else{
+		//$data = $this->Model_Mahasiswa->get_data();
 		$data = array(
-				'no_transaksi' => $this->input->post('no_transaksi'),
-				'id_roti' => $this->input->post('id_roti'),
-				'jumlah_roti' => $this->input->post('jumlah_roti'),
-				'harga_jual' => $this->input->post('harga_jual'));
-		$this->Penjualan_model->addPenjualan($data);
-		redirect('dataTransaksi');
+				'data'=>$this->Model_Mahasiswa->get_data());
+		//$this->load->view('App/list_mhs',['data' => $data]);
+		$this->load->view('App/list_mhs',$data);
 	}
-
-	public function updatePenjualanDB(){
+	}
+	
+	function input(){
+		if (isset($_POST['btnTambah'])){
+			$data = $this->Model_Mahasiswa->input(array (
+			'nim' => $this->input->post('nim'),
+			'nama' => $this->input->post('nama'),
+			'tm_prodi_id' => $this->input->post('prodi'),
+			'tm_gol_id' => $this->input->post('gol')));
+			redirect('Mahasiswa/home');
+		}else{
+			$x =$this->Model_Mahasiswa->get_prodi();
+			$data = array(
+				'nama_prodi'=>$this->Model_Mahasiswa->get_prodi(),
+				'gol'=>$this->Model_Mahasiswa->get_gol()
+				);
+			//var_dump($x);
+			$this->load->view('App/input_mhs',$data);
+		}
+	}
+	function delete($id){
+		$this->Model_Mahasiswa->delete($id);
+		redirect('Mahasiswa/home');
+	}
+	function edit(){
+		$id = $this->uri->segment(3);
 		$data = array(
-				'id_roti' => $this->input->post('id_roti'),
-				'jumlah_roti' => $this->input->post('jumlah_roti'),
-				'harga_jual' => $this->input->post('harga_jual'));
-		$condition['no_transaksi'] = $this->input->post('no_transaksi');
-		$this->Penjualan_model->updatePenjualan($data, $condition);
-		redirect('dataTransaksi');
-	}
+            'user' => $this->Model_Mahasiswa->get_data_edit($id),
+		);
+        //var_dump($data);
+     	$data['id']= $this->Model_Mahasiswa->get_prodi();
+     	$data['prodi']= $this->Model_Mahasiswa->get_prodi();
+		$data['id']= $this->Model_Mahasiswa->get_gol();
+		$data['golongan']= $this->Model_Mahasiswa->get_gol();
 
-	public function deletePenjualanDB($no_transaksi, $tgl_transaksi, $id_roti){
-		$this->Penjualan_model->deletePenjualan($no_transaksi, $tgl_transaksi, $id_roti);
-		redirect('Penjualan');
+        $this->load->view("App/edit_mhs", $data);
+	
+		
 	}
+	
+	function update(){
+		$id = $this->input->post('nim');
+		$insert = $this->Model_Mahasiswa->update(array(
+                
+				'nama' => $this->input->post('nama'),
+				'tm_prodi_id' => $this->input->post('prodi'),
+				'tm_gol_id' => $this->input->post('gol')
+            ), $id);
+        redirect('Mahasiswa/home');
+        }
 
 }
 ?>

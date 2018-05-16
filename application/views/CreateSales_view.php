@@ -36,20 +36,21 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
           <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Form Sales</span>
+            <span class="nav-link-text">Sales</span>
           </a>
         </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-         <ul class="sidenav-second-level collapse" id="collapseStok">
+          <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
               <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
@@ -75,14 +76,7 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+         <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
@@ -163,10 +157,10 @@
           <div class="table-responsive">
             <form action="create" method="post">
               <?php echo $model->labels['id_sales']; ?><br/>
-              <input type="text" name="id" /><br/><br/>
+              <input type="text" name="id_sales" /><br/><br/>
 
               <?php echo $model->labels['nama_sales']; ?><br/>
-              <input type="text" name="nama" /><br/><br/>
+              <input type="text" name="nama_sales" /><br/><br/>
 
               <?php echo $model->labels['alamat']; ?><br/>
               <textarea name="alamat"></textarea><br/><br/>

@@ -26,10 +26,12 @@
 		}
 
 		public function update(){
-			$sql = sprintf("UPDATE tabel_sales SET nama_sales='%s', alamat='%s', no_telp='%s' WHERE id_sales='%s'",
+			$sql = sprintf("UPDATE tabel_sales SET nama_sales='%s', alamat='%s', no_telp='%s', username='%s', password='%s' WHERE id_sales='%s'",
 				$this->nama_sales,
 				$this->alamat,
 				$this->no_telp,
+				$this->username,
+				$this->password,
 				$this->id_sales);
 			$this->db->query($sql);	
 		}
