@@ -7,71 +7,67 @@ class Penjualan extends CI_Controller{
 		$this->load->model('Penjualan_model');
 	}
 
-	public function index(){
-		$this->load->view('Penjualan_view');
-	}
-	function home(){
+	function index(){
 		if (isset($_POST['btnSubmit'])) {
 			$tgl_transaksi = $_POST['tgl_transaksi'];
 			$data = array(
 				'data' =>$this->Penjualan_model->cari($tgl_transaksi));
-			$this->load->view('list_transaksi', $data);
+			$this->load->view('ListPenjualan_view', $data);
 		}else{
-		//$data = $this->Model_Mahasiswa->get_data();
 		$data = array(
-				'data'=>$this->Model_Mahasiswa->get_data());
-		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('App/list_mhs',$data);
+				'data'=>$this->Penjualan_model->get_data());
+		$this->load->view('ListPenjualan_view',$data);
 	}
 	}
 	
 	function input(){
 		if (isset($_POST['btnTambah'])){
-			$data = $this->Model_Mahasiswa->input(array (
-			'nim' => $this->input->post('nim'),
-			'nama' => $this->input->post('nama'),
-			'tm_prodi_id' => $this->input->post('prodi'),
-			'tm_gol_id' => $this->input->post('gol')));
-			redirect('Mahasiswa/home');
+			$data = $this->Penjualan_model->input(array (
+			'no_transaksi' => $this->input->post('no_transaksi'),
+			'id_roti' => $this->input->post('id_roti'),
+			'jumlah_roti' => $this->input->post('jumlah_roti'),
+			'harga' => $this->input->post('harga'),
+			'tgl_transaksi' => $this->input->post('tgl_transaksi')));
+			redirect('Penjualan/home');
 		}else{
-			$x =$this->Model_Mahasiswa->get_prodi();
+			$x =$this->Penjualan_model->get_prodi();
 			$data = array(
 				'nama_prodi'=>$this->Model_Mahasiswa->get_prodi(),
 				'gol'=>$this->Model_Mahasiswa->get_gol()
 				);
-			//var_dump($x);
 			$this->load->view('App/input_mhs',$data);
 		}
 	}
-	function delete($id){
-		$this->Model_Mahasiswa->delete($id);
-		redirect('Mahasiswa/home');
+	function delete($no){
+		$this->Penjualan_model->delete($no);
+		redirect('Penjualan/home');
 	}
 	function edit(){
-		$id = $this->uri->segment(3);
+		$no = $this->uri->segment(3);
 		$data = array(
-            'user' => $this->Model_Mahasiswa->get_data_edit($id),
+            'user' => $this->Penjualan_model->get_data_edit($no),
 		);
-        //var_dump($data);
-     	$data['id']= $this->Model_Mahasiswa->get_prodi();
-     	$data['prodi']= $this->Model_Mahasiswa->get_prodi();
-		$data['id']= $this->Model_Mahasiswa->get_gol();
-		$data['golongan']= $this->Model_Mahasiswa->get_gol();
+     	$data['no_transaksi']= $this->Penjualan_model->get_prodi();
+     	$data['id_roti']= $this->Penjualan_model->get_prodi();
+     	$data['jumlah_roti']= $this->Penjualan_model->get_gol();
+		$data['harga']= $this->Penjualan_model->get_gol();
+		$data['tgl_transaksi']= $this->Penjualan_model->get_gol();
 
-        $this->load->view("App/edit_mhs", $data);
+        $this->load->view("EditPenjualan_view", $data);
 	
 		
 	}
 	
 	function update(){
-		$id = $this->input->post('nim');
-		$insert = $this->Model_Mahasiswa->update(array(
+		$no = $this->input->post('no_transaksi');
+		$insert = $this->Penjualan_model->update(array(
                 
-				'nama' => $this->input->post('nama'),
-				'tm_prodi_id' => $this->input->post('prodi'),
-				'tm_gol_id' => $this->input->post('gol')
-            ), $id);
-        redirect('Mahasiswa/home');
+				'id_roti' => $this->input->post('id_roti'),
+				'jumlah_roti' => $this->input->post('jumlah_roti'),
+				'harga' => $this->input->post('harga'),
+				'tgl_transaksi' => $this->input->post('tgl_transaksi')
+            ), $no);
+        redirect('Penjualan/home');
         }
 
 }
