@@ -151,32 +151,33 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Sales</div>
+          <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
-          <p><strong>Tambah Data</strong></p>
           <div class="table-responsive">
-            <form action="create" method="post">
-              <!-- <?php echo $model->labels['id_sales']; ?><br/> 
-              <input type="text" name="id_sales" /><br/><br/> -->
+          <div align="center">
+          <p>
+            <form method="post" action="input">
+              Nama Roti: <br/>
+              <select name="roti">
+              <?php foreach ($roti as $row){ ?>
+                <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                <?php }?>
+              </select>
+              <br/> <br/>
 
-              <?php echo $model->labels['nama_sales']; ?><br/>
-              <input type="text" name="nama_sales" /><br/><br/>
+              Jumlah Roti: <input type="number" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
+          
+              Tanggal Pesan: <input type="date" name="tgl_pesan" value="<?php if(isset($data)) { echo $data[0]->tgl_pesan; } ?>"><br/><br/>
 
-              <?php echo $model->labels['alamat']; ?><br/>
-              <textarea name="alamat"></textarea><br/><br/>
+              Tanggal Ambil: <input type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
 
-              <?php echo $model->labels['no_telp']; ?><br/>
-              <input name="no_telp"><br/><br/>
-
-              <?php echo $model->labels['username']; ?><br/>
-              <input type="nama" name="username"><br/><br/>
-
-              <?php echo $model->labels['password']; ?><br/>
-              <input type="password" name="password"><br/><br/>
-
-              <input type="submit" class="btn btn-success" name="btnSubmit" value="simpan"/>
-              <input type="button" value="Batal" class="btn btn-primary" onclick="javascript:history.go(-1);"/>
-            </form>
+              Jam Ambil: <input type="time" name="jam_ambil" value="<?php if(isset($data)) { echo $data[0]->jam_ambil; } ?>"><br/><br/>
+          
+              <input type="submit" name="btnTambah" value="Simpan"/>
+              <a href="<?php echo base_url()?>Pesanan">Kembali</a>
+          </form>
+          </p>
+    </div>
         </div>
           </div>
         </div>

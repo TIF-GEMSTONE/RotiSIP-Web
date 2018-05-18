@@ -151,32 +151,48 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Sales</div>
+          <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
-          <p><strong>Tambah Data</strong></p>
           <div class="table-responsive">
-            <form action="create" method="post">
-              <!-- <?php echo $model->labels['id_sales']; ?><br/> 
-              <input type="text" name="id_sales" /><br/><br/> -->
-
-              <?php echo $model->labels['nama_sales']; ?><br/>
-              <input type="text" name="nama_sales" /><br/><br/>
-
-              <?php echo $model->labels['alamat']; ?><br/>
-              <textarea name="alamat"></textarea><br/><br/>
-
-              <?php echo $model->labels['no_telp']; ?><br/>
-              <input name="no_telp"><br/><br/>
-
-              <?php echo $model->labels['username']; ?><br/>
-              <input type="nama" name="username"><br/><br/>
-
-              <?php echo $model->labels['password']; ?><br/>
-              <input type="password" name="password"><br/><br/>
-
-              <input type="submit" class="btn btn-success" name="btnSubmit" value="simpan"/>
-              <input type="button" value="Batal" class="btn btn-primary" onclick="javascript:history.go(-1);"/>
-            </form>
+            	<p align="center"><a href="<?php echo base_url()?>Pesanan/input">Tambah Pesanan</a></p>
+      <form action="Pesanan" method="post">
+      </form>
+      <p align="center">
+      <table border="1">
+        <tr>
+          <th>No</th>
+          <th>Id_Pesan</th>
+          <th>Nama_Roti</th>
+          <th>Nama_Sales</th>
+          <th>Nama_Pemesan</th>
+          <th>No_telp</th>
+          <th>Tgl_Pesan</th>
+          <th>Tgl_Ambil</th>
+          <th>Jam_Ambil</th>
+          <th>Jumlah_Roti</th>
+          <th colspan="2"></th>
+        </tr>
+        <?php 
+        $no = 1;
+        foreach ($data as $row){ ?>
+        <tr>
+          <td><?php echo $no;?></td>
+          <td><?php echo $row->id_pesan;?></td>
+          <td><?php echo $row->nama_roti;?></td>
+          <td><?php echo $row->nama_sales;?></td>
+          <td><?php echo $row->nama_pemesan;?></td>
+          <td><?php echo $row->no_telp;?></td>
+          <td><?php echo $row->tgl_pesan;?></td>
+          <td><?php echo $row->tgl_ambil;?></td>
+          <td><?php echo $row->jam_ambil;?></td>
+          <td><?php echo $row->jumlah_roti;?></td>
+          <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
+          <td><a href="<?php echo base_url(); ?>Pesanan/delete/<?php echo $row->id_pesan;?>">Hapus</a></td>
+        </tr>
+        <?php 
+      }?>
+      </table>
+    </p>
         </div>
           </div>
         </div>
