@@ -154,7 +154,7 @@
           <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
           <div class="table-responsive">
-            	<p align="center"><a href="<?php echo base_url()?>Pesanan/input">Tambah Pesanan</a></p>
+            	<p><a class="btn btn-primary" href="<?php echo base_url()?>Pesanan/input">Tambah Pesanan</a></p>
       <form action="Pesanan" method="post">
       </form>
       <p align="center">

@@ -24,7 +24,7 @@ class Penjualan_model extends CI_Model {
 		return $this->db->insert('tabel_transaksi',$data);
 	}
 	
-	function delete($id){
+	function delete($no){
 		$this->db->where('no_transaksi', $no);
         return $this->db->delete('tabel_transaksi');
 	}
@@ -34,8 +34,8 @@ class Penjualan_model extends CI_Model {
 		return $this->db->update('tabel_transaksi',$data);
 	}
 
-	function cari($nama){
-		$query = $this->db->query("SELECT * FROM tm_mahasiswa JOIN tm_prodi JOIN tm_gol WHERE tm_mahasiswa.tm_prodi_id=tm_prodi.id AND tm_mahasiswa.tm_gol_id=tm_gol.id AND tm_mahasiswa.nama = '$nama'");
+	function cari($tgl){
+		$query = $this->db->query("SELECT * FROM tm_mahasiswa JOIN tm_prodi JOIN tm_gol WHERE tm_mahasiswa.tm_prodi_id=tm_prodi.id AND tm_mahasiswa.tm_gol_id=tm_gol.id AND tm_mahasiswa.nama = '$tgl'");
 		return $query->result();
 	}
 }

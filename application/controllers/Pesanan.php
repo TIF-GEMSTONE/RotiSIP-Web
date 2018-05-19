@@ -16,8 +16,8 @@ class Pesanan extends CI_Controller{
 		if (isset($_POST['btnTambah'])){
 			$data = $this->Pesanan_model->input(array (
 			'id_pesan' => $this->input->post('id_pesan'),
-			'id_roti' => $this->input->post('nama_roti'),
-			'id_sales' => $this->input->post('nama_sales'),
+			'id_roti' => $this->input->post('id_roti'),
+			'id_sales' => $this->input->post('id_sales'),
 			'nama_pemesan' => $this->input->post('nama_pemesan'),
 			'no_telp' => $this->input->post('no_telp'),
 			'tgl_pesan' => $this->input->post('tgl_pesan'),

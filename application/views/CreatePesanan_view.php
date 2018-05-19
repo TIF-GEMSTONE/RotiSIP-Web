@@ -157,24 +157,36 @@
           <div align="center">
           <p>
             <form method="post" action="input">
-              Nama Roti: <br/>
+              Id Pesan: <input type="text" name="id_pesan" value="<?php if(isset($data)) { echo $data[0]->id_pesan; } ?>"><br/><br/>
+
+              Roti: <input type="text" name="id_roti" value="<?php if(isset($data)) { echo $data[0]->id_roti; } ?>"><br/><br/>
+
+              Sales: <input type="text" name="id_sales" value="<?php if(isset($data)) { echo $data[0]->id_sales; } ?>"><br/><br/>
+
+              Nama Pemesan: <input type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
+
+              Nomer Telepon: <input type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
+
+              <!-- Nama Roti: >
               <select name="roti">
               <?php foreach ($roti as $row){ ?>
                 <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                 <?php }?>
               </select>
-              <br/> <br/>
+              <br/> <br/> -->
 
-              Jumlah Roti: <input type="number" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
+              
           
               Tanggal Pesan: <input type="date" name="tgl_pesan" value="<?php if(isset($data)) { echo $data[0]->tgl_pesan; } ?>"><br/><br/>
 
               Tanggal Ambil: <input type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
 
               Jam Ambil: <input type="time" name="jam_ambil" value="<?php if(isset($data)) { echo $data[0]->jam_ambil; } ?>"><br/><br/>
+
+              Jumlah Roti: <input type="number" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
           
-              <input type="submit" name="btnTambah" value="Simpan"/>
-              <a href="<?php echo base_url()?>Pesanan">Kembali</a>
+              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
+              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
           </form>
           </p>
     </div>

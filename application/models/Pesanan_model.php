@@ -6,7 +6,7 @@ class Pesanan_model extends CI_Model {
     }
     
   function get_data(){
-    $query = $this->db->query("SELECT * FROM tabel_pesanan JOIN tabel_roti JOIN tabel_sales WHERE tabel_pesanan.id_roti=tabel_roti.id_roti AND tabel_pesanan.id_sales=tabel_sales.id_sales");
+    $query = $this->db->query("SELECT * FROM tabel_pesanan ");
     return $query->result();
   }
   
