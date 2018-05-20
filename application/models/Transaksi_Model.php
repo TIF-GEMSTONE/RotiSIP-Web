@@ -1,12 +1,12 @@
 <?php 
-class StokSales_Model extends CI_Model {
+class Transaksi_Model extends CI_Model {
 	
 	function get_table(){
-        return $this->db->get("tabel_stok_sales");
+        return $this->db->get("tabel_transaksi");
     }
     
 	function get_data(){
-		$query = $this->db->query("SELECT * FROM tabel_stok_sales");
+		$query = $this->db->query("SELECT * FROM tabel_transaksi");
 		return $query->result();
 	}
 	}

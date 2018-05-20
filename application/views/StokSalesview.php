@@ -65,10 +65,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Sales</a>
+              <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -156,43 +156,54 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead>
                 <tr>
-                  <th>No/th</th>  
-                  <th>Nama</th>
-                  <th>Tanggal Pesan</th>
-                  <th>Nama Roti</th>
-                  <th>Jumlah</th>
+                  <th>Id Stok Sales</th>  
+                  <th>Id Stok Pusat</th>
+                  <th>Id Sales</th>
                   <th>Tanggal Ambil</th>
+                  <th>Stok Sales</th>
+                  <th>Dibeli</th>
                 </tr>
               </thead>
-              <?php 
+              <?php
+                $no = 1;
+                foreach ($data as $row): 
+
      
-      $id_roti = $_GET['id_roti'];
-      $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
+     // $id_roti = $_GET['id_roti'];
+      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
-        if (mysqli_num_rows($query) == 0) {
+        //if (mysqli_num_rows($query) == 0) {?>
+        <tr>
+          <td><?php echo $row->id_stok_sales;?></td>
+          <td><?php echo $row->id_stok_pusat;?></td>
+          <td><?php echo $row->id_sales;?></td>
+          <td><?php echo $row->tgl_ambil;?></td>
+          <td><?php echo $row->jumlah_stok_sales  ;?></td>
+          <td><?php echo $row->dibeli;?></td>
+        </tr>
+        <tr></tr>
+                <?php $no++;
+                endforeach;?>
+      </table>
         
-          echo '<div class="table-responsive">';
-          echo '</div>';
-        }else
-        {
-        while($data=mysqli_fetch_array($query))
-        {
-          echo '<div class="table-responsive">';
+        
+          <div class="table-responsive">
+          </div>
+        <div class="table-responsive">
 
-            echo "<center><hr class='divider'>";
-            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['jenis_panen'];
-            echo '</h2>';
-            echo "<hr class='divider'></center>";
-            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['foto']."' ></td></center><br>";  
-            echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
-            echo '</p>';
+            <center><hr class='divider'>
+            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
+            </h2>
+            <hr class='divider'></center>
+            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
+            <p style='text-align:justify; margin:25px;'>
 
-          echo '</div>';
-          echo '</div>';
+          </div>
+                   </div>
 
-        }
-        }
-      ?>
+        </tr>
+
+      
              
              
     

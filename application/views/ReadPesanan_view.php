@@ -66,10 +66,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
