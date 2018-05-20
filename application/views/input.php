@@ -36,18 +36,13 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
           <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Form Sales</span>
+            <span class="nav-link-text">Sales</span>
           </a>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
-          </a>
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Transaksi</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
