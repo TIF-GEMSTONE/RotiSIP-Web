@@ -155,15 +155,15 @@
         <div class="card-body">
         	<p><a href="SalesBaru/create">Tambah Sales</a></p>
           <div class="table-responsive">
-            <table border="1">
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             	<tr>
-            		<th width="100">Id_Sales</th>
-            		<th width="100">Nama_Sales</th>
-            		<th width="100">Alamat</th>
-            		<th width="100">No_Telp</th>
-            		<th width="100">Username</th>
-            		<th width="100">Password</th>
-            		<th width="100">Aksi</th>
+            		<th>Id Sales</th>
+            		<th>Nama Sales</th>
+            		<th>Alamat</th>
+            		<th>No.Telp</th>
+            		<th>Username</th>
+            		<th>Password</th>
+            		<th>Aksi</th>
             	</tr>
             	<?php
 					foreach ($rows as $row) {

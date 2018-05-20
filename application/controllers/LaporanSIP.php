@@ -13,7 +13,7 @@ class LaporanSIP extends CI_Controller{
 		$data = array(
 				'data'=>$this->Transaksi_Model->get_data());
 		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('LaporanSalesView',$data);
+		$this->load->view('laporanSIPview',$data);
 	}
 
 }

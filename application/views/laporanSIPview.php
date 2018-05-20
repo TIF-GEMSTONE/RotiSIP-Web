@@ -151,48 +151,40 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Pesanan</div>
+          <i class="fa fa-table"></i>Laporan Roti SIP</div>
         <div class="card-body">
           <div class="table-responsive">
-            	<p><a class="btn btn-primary" href="<?php echo base_url()?>Pesanan/input">Tambah Pesanan</a></p>
-      <form action="Pesanan" method="post">
-      </form>
-      <p align="center">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <tr>
+                <th>No</th>  
+                  <th>ID Sales</th>
+                  <th>ID Setoran</th>
+                  <th>Tanggal</th>
+                  <th>Cetak</th>
+                </tr>
+              </thead>
+              <?php
+                $no = 1;
+                foreach ($data as $row): 
+
+     
+     // $id_roti = $_GET['id_roti'];
+      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
+
+        //if (mysqli_num_rows($query) == 0) {?>
         <tr>
-          <th>No</th>
-          <th>Id_Pesan</th>
-          <th>Nama_Roti</th>
-          <th>Nama_Sales</th>
-          <th>Nama_Pemesan</th>
-          <th>No_telp</th>
-          <th>Tgl_Pesan</th>
-          <th>Tgl_Ambil</th>
-          <th>Jam_Ambil</th>
-          <th>Jumlah_Roti</th>
-          <th colspan="2"></th>
-        </tr>
-        <?php 
-        $no = 1;
-        foreach ($data as $row){ ?>
-        <tr>
-          <td><?php echo $no;?></td>
-          <td><?php echo $row->id_pesan;?></td>
-          <td><?php echo $row->nama_roti;?></td>
-          <td><?php echo $row->nama_sales;?></td>
-          <td><?php echo $row->nama_pemesan;?></td>
-          <td><?php echo $row->no_telp;?></td>
-          <td><?php echo $row->tgl_pesan;?></td>
+          <td><?php echo $row->id_stok_sales;?></td>
+          <td><?php echo $row->id_stok_pusat;?></td>
+          <td><?php echo $row->id_sales;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
-          <td><?php echo $row->jam_ambil;?></td>
-          <td><?php echo $row->jumlah_roti;?></td>
-          <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
-          <td><a href="<?php echo base_url(); ?>Pesanan/delete/<?php echo $row->id_pesan;?>">Hapus</a></td>
+          <td><?php echo $row->jumlah_stok_sales  ;?></td>
+          <td><?php echo $row->dibeli;?></td>
+          <td align="center"><a href="SalesBaru/update/<?php echo $row->id_sales; ?>">cetak</a>
         </tr>
-        <?php 
-      }?>
-      </table>
-    </p>
+        <tr></tr>
+                <?php $no++;
+                endforeach;?>
+            </table>
         </div>
           </div>
         </div>
@@ -238,3 +230,4 @@
 </body>
 
 </html>
+

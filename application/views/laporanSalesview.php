@@ -44,12 +44,13 @@
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-         <ul class="sidenav-second-level collapse" id="collapseStok">
+          <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
               <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
@@ -65,7 +66,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
               <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
@@ -75,12 +76,11 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+         <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
-     
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,24 +144,23 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Stok</a>
+          <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
+      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Stok Sales</div>
+          <i class="fa fa-table"></i>Laporan Sales SIP</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead>
-                <tr>
-                  <th>Id Stok Sales</th>  
-                  <th>Id Stok Pusat</th>
-                  <th>Id Sales</th>
-                  <th>Tanggal Ambil</th>
-                  <th>Stok Sales</th>
-                  <th>Dibeli</th>
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <tr>
+                <th>No</th>  
+                  <th>ID Sales</th>
+                  <th>ID Setoran</th>
+                  <th>Tanggal</th>
+                  <th>Cetak</th>
                 </tr>
               </thead>
               <?php
@@ -180,33 +179,18 @@
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jumlah_stok_sales  ;?></td>
           <td><?php echo $row->dibeli;?></td>
+          <td align="center"><a href="SalesBaru/update/<?php echo $row->id_sales; ?>">cetak</a>
         </tr>
         <tr></tr>
                 <?php $no++;
                 endforeach;?>
-      </table>
-        
-        
-          <div class="table-responsive">
+            </table>
+        </div>
           </div>
-        <div class="table-responsive">
-
-            <center><hr class='divider'>
-            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
-            </h2>
-            <hr class='divider'></center>
-            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
-            <p style='text-align:justify; margin:25px;'>
-
-          </div>
-                   </div>
-
-        </tr>
-
-      
-             
-             
-    
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
@@ -246,3 +230,4 @@
 </body>
 
 </html>
+
