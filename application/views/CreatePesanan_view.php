@@ -154,7 +154,7 @@
           <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
           <div class="table-responsive">
-          <div align="center">
+          <div>
           <p>
             <form method="post" action="input">
               Id Pesan: <input type="text" name="id_pesan" value="<?php if(isset($data)) { echo $data[0]->id_pesan; } ?>"><br/><br/>

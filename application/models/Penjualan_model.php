@@ -6,7 +6,7 @@ class Penjualan_model extends CI_Model {
     }
     
 	function get_data(){
-		$query = $this->db->query("SELECT * FROM tabel_transaksi JOIN tm_prodi JOIN tm_gol WHERE tm_mahasiswa.tm_prodi_id=tm_prodi.id AND tm_mahasiswa.tm_gol_id=tm_gol.id");
+		$query = $this->db->query("SELECT * FROM tabel_transaksi ");
 		return $query->result();
 	}
 	

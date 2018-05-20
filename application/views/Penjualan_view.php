@@ -138,48 +138,37 @@
       <div class="col-md-20">
         <div class="panel panel-default">
           <div class="panel-body">
-            <form class="form-horizontal" id="transaksi" role="form">
-              <?php
-              if ($jumlah > 0) {
-              ?>
-              <table>
-                <tr>
-                  <td>Jumlah Transaksi = <?= $jumlah?></td>
-                </tr>
-              </table>
-                <table class="table table-hover" width="100%">
-                  <thead>
-                    <tr bgcolor="#4CAF50">
-                      <th scope="col">No.</th>
-                      <th scope="col">Id_Roti</th>
-                      <th scope="col">Jumlah</th>
-                      <th scope="col">Total Harga</th>
-                      <th colspan="3" scope="col">Opsi</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                <?php
-                  $n=1;
-                 ?>
-                    <?php foreach($data as $row); ?>
-                    <tr>
-                      <td><?= $n++ ?></td>
-                      <td><?= $row ['id_Roti']?></td>
-                      <td><?= $row ['jumlah_roti']?></td>
-                      <td><?= $row ['harga_jual']?></td>
-                      <td>
-                        <a href="<?= base_url() ?>Transaksi/ubahTransaksi<?= $row['id_Roti'] ?>" class="btn btn-warning">Ubah</a>
-                        <a href="<?= base_url() ?>Transaksi/deleteTransaksi<?= $row['id_Roti'] ?>" class="btn btn-danger">Hapus</a>
-                      </td>
-                    </tr>
-                </tbody>
-                </table>
-                <?php
-                  }
-                ?>
-            </form>
-            <br>
-            <a class="btn btn-primary"> href="<?= base_url() ?>Transaksi">Transaksi Baru</a>
+            <p><h3 align="center">Transaksi</h3></p>
+    <p align="center"><a href="<?php echo base_url()?>Penjualan/input">Tambah</a></p>
+      <form action="home" method="post">
+        <p align="center"><input type="text" name="nama"><input type="submit" name="btnSubmit">
+      </form></p>
+      <p align="center">
+      <table border="1">
+        <tr>
+          <th>No</th>
+          <th>NIM</th>
+          <th>Nama</th>
+          <th>Prodi</th>
+          <th>Golongan</th>
+          <th colspan="2"></th>
+        </tr>
+        <?php
+                $no = 1;
+                foreach ($data as $row): ?>
+        <tr>
+          <td><?php echo $no;?></td>
+          <td><?php echo $row->nim;?></td>
+          <td><?php echo $row->nama;?></td>
+          <td><?php echo $row->prodi;?></td>
+          <td><?php echo $row->golongan;?></td>
+          <td><a href="<?php echo base_url(); ?>Mahasiswa/edit/<?php echo $row->nim;?>">Edit</a></td>
+          <td><a href="<?php echo base_url(); ?>Mahasiswa/delete/<?php echo $row->nim;?>">Hapus</a></td>
+        </tr>
+        <?php $no++;
+                endforeach;?>
+      </table>
+    </p>
           </div>
         </div>
       </div>
