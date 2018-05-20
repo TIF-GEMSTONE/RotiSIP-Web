@@ -161,16 +161,16 @@
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
           <th>No</th>
-          <th>Id_Pesan</th>
-          <th>Nama_Roti</th>
-          <th>Nama_Sales</th>
-          <th>Nama_Pemesan</th>
-          <th>No_telp</th>
-          <th>Tgl_Pesan</th>
-          <th>Tgl_Ambil</th>
-          <th>Jam_Ambil</th>
-          <th>Jumlah_Roti</th>
-          <th colspan="2"></th>
+          <th>Id Pesan</th>
+          <th>Nama Roti</th>
+          <th>Nama Sales</th>
+          <th>Nama Pemesan</th>
+          <th>No. Telp</th>
+          <th>Tgl Pesan</th>
+          <th>Tgl Ambil</th>
+          <th>Jam Ambil</th>
+          <th>Jumlah Roti</th>
+          <th colspan="2">Aksi</th>
         </tr>
         <?php 
         $no = 1;

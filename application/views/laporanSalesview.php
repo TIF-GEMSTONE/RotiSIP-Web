@@ -156,11 +156,11 @@
           <div class="table-responsive">
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <tr>
-                <th>No</th>  
-                  <th>ID Sales</th>
-                  <th>ID Setoran</th>
-                  <th>Tanggal</th>
-                  <th>Cetak</th>
+                <th>No</th>
+                <th>No Transaksi</th>
+                <th>Tgl Transaksi</th>
+                <th>Total Jual</th>
+                <th>Cetak</th>
                 </tr>
               </thead>
               <?php

@@ -153,7 +153,7 @@
         <div class="card-header">
           <i class="fa fa-table"></i>Data Sales</div>
         <div class="card-body">
-        	<p><a href="SalesBaru/create">Tambah Sales</a></p>
+        	<p><a href="SalesBaru/create" class="btn btn-primary">Tambah Sales</a></p>
           <div class="table-responsive">
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             	<tr>

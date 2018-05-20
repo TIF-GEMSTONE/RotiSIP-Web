@@ -156,11 +156,10 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead>
                 <tr>
-                  <th>Id Stok Sales</th>  
-                  <th>Id Stok Pusat</th>
-                  <th>Id Sales</th>
+                  <th>Id Stok Sales</th>
+                  <th>Id Roti</th>
                   <th>Tanggal Ambil</th>
-                  <th>Stok Sales</th>
+                  <th>Stok</th>
                   <th>Dibeli</th>
                 </tr>
               </thead>

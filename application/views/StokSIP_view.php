@@ -166,7 +166,7 @@
                   <th>ID Stok Pusat</th>  
                   <th>ID Roti</th>
                   <th>Tanggal Produksi</th>
-                  <th>Jumlah Stok Pusat</th>
+                  <th>Jumlah Stok</th>
                   <th>Dibeli</th>
                 </tr>
               </thead>
