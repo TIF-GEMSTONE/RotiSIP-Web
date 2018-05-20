@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 11:19 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Host: localhost:3306
+-- Generation Time: May 20, 2018 at 08:20 AM
+-- Server version: 10.2.12-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rotisip`
+-- Database: `id5722122_rotisip`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `app_data`
+--
+
+CREATE TABLE `app_data` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `app_title` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `total_dl` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `rating` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `icon` varchar(120) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `app_data`
+--
+
+INSERT INTO `app_data` (`id`, `app_title`, `total_dl`, `rating`, `icon`) VALUES
+(1, 'Facebook', 20099099, 5, 'facebook'),
+(2, 'Twitter', 11342099, 5, 'twitter'),
+(3, 'Google +', 10123023, 4, 'google'),
+(4, 'Whatsapp', 10033876, 3, 'whatsapp'),
+(5, 'Youtube', 10023444, 4, 'youtube'),
+(6, 'Line', 9023434, 5, 'line'),
+(7, 'Kakao Talk', 8247836, 3, 'kakao'),
+(8, 'Linked In', 784736, 4, 'linkedin'),
+(9, 'Angry Bird', 693847, 2, 'angrybird'),
+(10, 'Skype', 528374, 3, 'skype');
 
 -- --------------------------------------------------------
 
@@ -107,7 +137,13 @@ CREATE TABLE `tabel_roti` (
 --
 
 INSERT INTO `tabel_roti` (`id_roti`, `nama_roti`, `harga`, `gambar`) VALUES
-(1, 'Roti Pisang', 3000, 'menu1.png');
+(1, 'Roti Pisang', 3000, 'roti_pisang.jpg'),
+(2, 'Roti Keju', 3500, 'roti_keju.jpg'),
+(3, 'Roti Coklat', 3500, 'roti_coklat.jpg'),
+(4, 'Roti Sisir', 8000, 'roti_sisir.jgp'),
+(5, 'Roti Kenong', 9000, 'roti_kenong.jpg'),
+(6, 'Roti Sobek', 8500, 'roti_sobek.jpg'),
+(7, 'Roti Tawar', 10000, 'roti_tawar.jpg');
 
 -- --------------------------------------------------------
 
@@ -123,6 +159,13 @@ CREATE TABLE `tabel_sales` (
   `username` varchar(30) NOT NULL,
   `password` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_sales`
+--
+
+INSERT INTO `tabel_sales` (`id_sales`, `nama_sales`, `alamat`, `no_telp`, `username`, `password`) VALUES
+(10001, 'Fahim Alfiyan', 'Jl Mastrip Sumbersari Jember', '085736795247', 'yans', '12345');
 
 -- --------------------------------------------------------
 
@@ -186,6 +229,12 @@ CREATE TABLE `tabel_transaksi` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `app_data`
+--
+ALTER TABLE `app_data`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tabel_detail_transaksi`
@@ -263,50 +312,65 @@ ALTER TABLE `tabel_transaksi`
 --
 
 --
+-- AUTO_INCREMENT for table `app_data`
+--
+ALTER TABLE `app_data`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `tabel_detail_transaksi`
 --
 ALTER TABLE `tabel_detail_transaksi`
   MODIFY `id_detail` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tabel_pegawai`
 --
 ALTER TABLE `tabel_pegawai`
   MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tabel_pesanan`
 --
 ALTER TABLE `tabel_pesanan`
   MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tabel_roti`
 --
 ALTER TABLE `tabel_roti`
-  MODIFY `id_roti` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_roti` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `tabel_sales`
 --
 ALTER TABLE `tabel_sales`
-  MODIFY `id_sales` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10002;
+
 --
 -- AUTO_INCREMENT for table `tabel_setoran`
 --
 ALTER TABLE `tabel_setoran`
   MODIFY `id_setoran` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tabel_stok_pusat`
 --
 ALTER TABLE `tabel_stok_pusat`
   MODIFY `id_stok_pusat` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tabel_stok_sales`
 --
 ALTER TABLE `tabel_stok_sales`
   MODIFY `id_stok_sales` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tabel_transaksi`
 --
 ALTER TABLE `tabel_transaksi`
   MODIFY `no_transaksi` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
