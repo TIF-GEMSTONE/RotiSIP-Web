@@ -39,7 +39,7 @@
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
@@ -72,6 +72,13 @@
               <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+         <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -135,70 +142,51 @@
           <!-- /Card Columns-->
        
       <!-- Example DataTables Card-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Tables</li>
+      </ol>
+      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Pesanan</div>
+          <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead>
-                <tr>
-                  <th>No/th>
-                  <th>Nama</th>
-                  <th>Tanggal Pesan</th>
-                  <th>Nama Roti</th>
-                  <th>Jumlah</th>
-                  <th>Tanggal Ambil</th>
-                </tr>
-              </thead>
-              <?php session_start();
-     
-      $id_roti = $_GET['id_roti'];
-      $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
-
-        if (mysqli_num_rows($query) == 0) {
-        
-          echo '<div class="table-responsive">';
-          echo '</div>';
-        }else
-        {
-        while($data=mysqli_fetch_array($query))
-        {
-          echo '<div class="table-responsive">';
-
-            echo "<center><hr class='divider'>";
-            echo '<h2 class="card-title text-shadow text-black text-uppercase mb-0">'.$data['nama_roti'];
-            echo '</h2>';
-            echo "<hr class='divider'></center>";
-            echo "<center><td><img class='card-img img-fluid w-50' src='admin/panen/img/".$data['gambar']."' ></td></center><br>";  
-            echo "<p style='text-align:justify; margin:25px;'>".$data['deskripsi'];
-            echo '</p>';
-
-          echo '</div>';
-          echo '</div>';
-
-        }
-        }
-      ?>
-             
-             
-              </tbody>
-            </table>
+      <form action="Pesanan" method="post">
+      </form>
+      <p align="center">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <tr>
+          <th>No</th>
+          <th>Id Pesan</th>
+          <th>Nama Pemesan</th>
+          <th>Nama Roti</th>
+          <th>Jumlah</th>
+          <th colspan="1">Aksi</th>
+        </tr>
+        <?php 
+        $no = 1;
+        foreach ($data as $row){ ?>
+        <tr>
+          <td><?php echo $no;?></td>
+          <td><?php echo $row->id_pesan;?></td>
+          <td><?php echo $row->nama_pemesan;?></td>
+          <td><?php echo $row->nama_roti;?></td>
+          <td><?php echo $row->jumlah_roti;?></td>
+              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
+        </tr>
+        <?php 
+      }?>
+      </table>
+    </p>
+        </div>
           </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

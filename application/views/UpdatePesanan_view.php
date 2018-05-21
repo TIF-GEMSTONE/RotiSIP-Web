@@ -154,40 +154,25 @@
           <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
           <div class="table-responsive">
-            	<p><a class="btn btn-primary" href="<?php echo base_url()?>Pesanan/input">Tambah Pesanan</a></p>
-      <form action="Pesanan" method="post">
-      </form>
-      <p align="center">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <tr>
-          <th>No</th>
-          <th>Id Pesan</th>
-          <th>Nama Pemesan</th>
-          <th>No. Telp</th>
-          <th>Tgl Pesan</th>
-          <th>Tgl Ambil</th>
-          <th>Jam Ambil</th>
-          <th colspan="3">Aksi</th>
-        </tr>
-        <?php 
-        $no = 1;
-        foreach ($data as $row){ ?>
-        <tr>
-          <td><?php echo $no;?></td>
-          <td><?php echo $row->id_pesan;?></td>
-          <td><?php echo $row->nama_pemesan;?></td>
-          <td><?php echo $row->no_telp;?></td>
-          <td><?php echo $row->tgl_pesan;?></td>
-          <td><?php echo $row->tgl_ambil;?></td>
-          <td><?php echo $row->jam_ambil;?></td>
-          <td><a href="<?php echo base_url(); ?>Pesanan/detail/<?php echo $row->id_pesan;?>">Detail</a></td>
-          <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
-          <td><a href="<?php echo base_url(); ?>Pesanan/delete/<?php echo $row->id_pesan;?>">Hapus</a></td>
-        </tr>
-        <?php 
-      }?>
-      </table>
-    </p>
+                <div>
+                <p>
+                  <form method="post" action="<?php echo base_url()?>Pesanan/update">
+                    Nama Pemesan<input type="text" name="nama_pemesan" value="<?php echo @$user[0]['nama_pemesan']; ?>"><br/><br/>
+                
+                    No. Telp<input type="text" name="no_telp" value="<?php echo @$user[0]['no_telp']; ?>"><br/><br/>
+                
+                    Tanggal Pesan: <input type="date" name="tgl_pesan" value="<?php echo @$user[0]['tgl_pesan']; ?>"><br/><br/>
+
+                    Tanggal Ambil: <input type="date" name="tgl_ambil" value="<?php echo @$user[0]['tgl_ambil']; ?>"><br/><br/>
+
+                    Jam Ambil: <input type="time" name="jam_ambil" value="<?php echo @$user[0]['jam_ambil']; ?>"><br/><br/>
+
+                    <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
+                    <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
+
+                </form>
+                </p>
+                </div>
         </div>
           </div>
         </div>

@@ -6,17 +6,12 @@ class Pesanan_model extends CI_Model {
     }
     
   function get_data(){
-    $query = $this->db->query("SELECT * FROM tabel_pesanan ");
+    $query = $this->db->query("SELECT * FROM tabel_pesanan");
     return $query->result();
   }
   
-  function get_roti(){
-    $query = $this->db->query("SELECT * FROM tabel_roti");
-    return $query->result();
-  }
-  
-  function get_sales(){
-    $query = $this->db->query("SELECT * FROM tabel_sales");
+  function get_detail(){
+    $query = $this->db->query("SELECT * FROM tabel_detail_pesan JOIN tabel_roti WHERE tabel_detail_pesan.id_roti=tabel_roti.id_roti");
     return $query->result();
   }
   
