@@ -19,7 +19,9 @@ class Login extends CI_Controller{
 			$this->model1->password = $_POST['txt_pass'];
 			if ($this->model1->cek_log()==TRUE) {
 				$this->session->set_userdata('username', $this->model1->username);
-				$this->load->view('Home_view', ['model'=>$this->model1]);
+				$data['produk'] = $this->Produk_model->data();
+				$this->load->view('Home_view', $data);
+				//$this->load->view('Home_view', ['model'=>$this->model1]);
 			}else{
 				redirect('Login');
 			}

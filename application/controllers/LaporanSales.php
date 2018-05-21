@@ -1,9 +1,9 @@
 <?php
-class StokSIP extends CI_Controller{
+class LaporanSales extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
-		$this->load->model('StokSIP_model');
+		$this->load->model('Transaksi_Model');
 	}
 
 
@@ -11,9 +11,13 @@ class StokSIP extends CI_Controller{
 		$this->session->set_userdata('username', 'admin');
 		//$this->load->view('StokSalesview');
 		$data = array(
-				'data'=>$this->StokSIP_model->get_data());
+				'data'=>$this->Transaksi_Model->get_data());
 		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('StokSIP_view',$data);
+		$this->load->view('laporanSalesview',$data);
+	}
+	function cetak($id){
+		$this->Transaksi_Model->cetak($id);
+		redirect('RotiSIP-Web/LaporanSales');
 	}
 
 }

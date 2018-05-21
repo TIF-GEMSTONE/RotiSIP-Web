@@ -66,10 +66,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -158,19 +158,16 @@
       <form action="Pesanan" method="post">
       </form>
       <p align="center">
-      <table border="1">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
           <th>No</th>
-          <th>Id_Pesan</th>
-          <th>Nama_Roti</th>
-          <th>Nama_Sales</th>
-          <th>Nama_Pemesan</th>
-          <th>No_telp</th>
-          <th>Tgl_Pesan</th>
-          <th>Tgl_Ambil</th>
-          <th>Jam_Ambil</th>
-          <th>Jumlah_Roti</th>
-          <th colspan="2"></th>
+          <th>Id Pesan</th>
+          <th>Nama Pemesan</th>
+          <th>No. Telp</th>
+          <th>Tgl Pesan</th>
+          <th>Tgl Ambil</th>
+          <th>Jam Ambil</th>
+          <th colspan="3">Aksi</th>
         </tr>
         <?php 
         $no = 1;
@@ -178,14 +175,12 @@
         <tr>
           <td><?php echo $no;?></td>
           <td><?php echo $row->id_pesan;?></td>
-          <td><?php echo $row->nama_roti;?></td>
-          <td><?php echo $row->nama_sales;?></td>
           <td><?php echo $row->nama_pemesan;?></td>
           <td><?php echo $row->no_telp;?></td>
           <td><?php echo $row->tgl_pesan;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jam_ambil;?></td>
-          <td><?php echo $row->jumlah_roti;?></td>
+          <td><a href="<?php echo base_url(); ?>Pesanan/detail/<?php echo $row->id_pesan;?>">Detail</a></td>
           <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
           <td><a href="<?php echo base_url(); ?>Pesanan/delete/<?php echo $row->id_pesan;?>">Hapus</a></td>
         </tr>

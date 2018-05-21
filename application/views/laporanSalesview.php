@@ -66,7 +66,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
               <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
@@ -151,32 +151,40 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Sales</div>
+          <i class="fa fa-table"></i>Laporan Sales SIP</div>
         <div class="card-body">
-        	<p><strong>Ubah Data</strong></p>
           <div class="table-responsive">
-            <form action="create" method="post">
-				<?php echo $model->labels['id_sales']; ?><br/>
-				<input type="text" name="id_sales" size="10" maxlength="10" value="<?php echo $model->id_sales; ?>"/><br/><br/>
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <tr>
+                <th>No</th>
+                <th>No Transaksi</th>
+                <th>Tgl Transaksi</th>
+                <th>Total Jual</th>
+                <th>Cetak</th>
+                </tr>
+              </thead>
+              <?php
+                $no = 1;
+                foreach ($data as $row): 
 
-				<?php echo $model->labels['nama_sales']; ?><br/>
-				<input type="text" name="nama_sales" size="30" maxlength="25" value="<?php echo $model->nama_sales; ?>"/><br/><br/>
+     
+     // $id_roti = $_GET['id_roti'];
+      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
-				<?php echo $model->labels['alamat']; ?><br/>
-				<textarea name="alamat"><?php echo $model->alamat; ?></textarea><br/><br/>
-
-				<?php echo $model->labels['no_telp']; ?><br/>
-				<input name="no_telp" value="<?php echo $model->no_telp; ?>"/><br/><br/>
-
-				<?php echo $model->labels['username']; ?><br/>
-				<input type="text" name="username" value="<?php echo $model->username; ?>"/><br/><br/>
-
-				<?php echo $model->labels['password']; ?><br/>
-				<input type="password" name="password" value="<?php echo $model->password; ?>"/><br/><br/>
-
-				<input type="submit" class="btn btn-primary" name="btnSubmit" value="simpan"/>
-				<input type="button" value="Batal" class="btn btn-warning" onclick="javascript:history.go(-1);"/>
-			</form>
+        //if (mysqli_num_rows($query) == 0) {?>
+        <tr>
+          <td><?php echo $row->id_stok_sales;?></td>
+          <td><?php echo $row->id_stok_pusat;?></td>
+          <td><?php echo $row->id_sales;?></td>
+          <td><?php echo $row->tgl_ambil;?></td>
+          <td><?php echo $row->jumlah_stok_sales  ;?></td>
+          <td><?php echo $row->dibeli;?></td>
+          <td align="center"><a href="SalesBaru/update/<?php echo $row->id_sales; ?>">cetak</a>
+        </tr>
+        <tr></tr>
+                <?php $no++;
+                endforeach;?>
+            </table>
         </div>
           </div>
         </div>
@@ -222,3 +230,4 @@
 </body>
 
 </html>
+

@@ -44,13 +44,12 @@
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseStok">
+         <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
               <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
@@ -76,11 +75,12 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-         <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
+     
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,45 +144,68 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="#">Stok</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
-      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Sales</div>
+          <i class="fa fa-table"></i>Stok Sales</div>
         <div class="card-body">
-        	<p><strong>Ubah Data</strong></p>
           <div class="table-responsive">
-            <form action="create" method="post">
-				<?php echo $model->labels['id_sales']; ?><br/>
-				<input type="text" name="id_sales" size="10" maxlength="10" value="<?php echo $model->id_sales; ?>"/><br/><br/>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
+                <tr>
+                  <th>Id Stok Sales</th>
+                  <th>Id Roti</th>
+                  <th>Tanggal Ambil</th>
+                  <th>Stok</th>
+                  <th>Dibeli</th>
+                </tr>
+              </thead>
+              <?php
+                $no = 1;
+                foreach ($data as $row): 
 
-				<?php echo $model->labels['nama_sales']; ?><br/>
-				<input type="text" name="nama_sales" size="30" maxlength="25" value="<?php echo $model->nama_sales; ?>"/><br/><br/>
+     
+     // $id_roti = $_GET['id_roti'];
+      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
-				<?php echo $model->labels['alamat']; ?><br/>
-				<textarea name="alamat"><?php echo $model->alamat; ?></textarea><br/><br/>
-
-				<?php echo $model->labels['no_telp']; ?><br/>
-				<input name="no_telp" value="<?php echo $model->no_telp; ?>"/><br/><br/>
-
-				<?php echo $model->labels['username']; ?><br/>
-				<input type="text" name="username" value="<?php echo $model->username; ?>"/><br/><br/>
-
-				<?php echo $model->labels['password']; ?><br/>
-				<input type="password" name="password" value="<?php echo $model->password; ?>"/><br/><br/>
-
-				<input type="submit" class="btn btn-primary" name="btnSubmit" value="simpan"/>
-				<input type="button" value="Batal" class="btn btn-warning" onclick="javascript:history.go(-1);"/>
-			</form>
-        </div>
+        //if (mysqli_num_rows($query) == 0) {?>
+        <tr>
+          <td><?php echo $row->id_stok_sales;?></td>
+          <td><?php echo $row->id_stok_pusat;?></td>
+          <td><?php echo $row->id_sales;?></td>
+          <td><?php echo $row->tgl_ambil;?></td>
+          <td><?php echo $row->jumlah_stok_sales  ;?></td>
+          <td><?php echo $row->dibeli;?></td>
+        </tr>
+        <tr></tr>
+                <?php $no++;
+                endforeach;?>
+      </table>
+        
+        
+          <div class="table-responsive">
           </div>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
+        <div class="table-responsive">
+
+            <center><hr class='divider'>
+            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
+            </h2>
+            <hr class='divider'></center>
+            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
+            <p style='text-align:justify; margin:25px;'>
+
+          </div>
+                   </div>
+
+        </tr>
+
+      
+             
+             
+    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

@@ -66,7 +66,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
               <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
@@ -151,32 +151,28 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Sales</div>
+          <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
-        	<p><strong>Ubah Data</strong></p>
           <div class="table-responsive">
-            <form action="create" method="post">
-				<?php echo $model->labels['id_sales']; ?><br/>
-				<input type="text" name="id_sales" size="10" maxlength="10" value="<?php echo $model->id_sales; ?>"/><br/><br/>
+                <div>
+                <p>
+                  <form method="post" action="<?php echo base_url()?>Pesanan/update">
+                    Nama Pemesan<input type="text" name="nama_pemesan" value="<?php echo @$user[0]['nama_pemesan']; ?>"><br/><br/>
+                
+                    No. Telp<input type="text" name="no_telp" value="<?php echo @$user[0]['no_telp']; ?>"><br/><br/>
+                
+                    Tanggal Pesan: <input type="date" name="tgl_pesan" value="<?php echo @$user[0]['tgl_pesan']; ?>"><br/><br/>
 
-				<?php echo $model->labels['nama_sales']; ?><br/>
-				<input type="text" name="nama_sales" size="30" maxlength="25" value="<?php echo $model->nama_sales; ?>"/><br/><br/>
+                    Tanggal Ambil: <input type="date" name="tgl_ambil" value="<?php echo @$user[0]['tgl_ambil']; ?>"><br/><br/>
 
-				<?php echo $model->labels['alamat']; ?><br/>
-				<textarea name="alamat"><?php echo $model->alamat; ?></textarea><br/><br/>
+                    Jam Ambil: <input type="time" name="jam_ambil" value="<?php echo @$user[0]['jam_ambil']; ?>"><br/><br/>
 
-				<?php echo $model->labels['no_telp']; ?><br/>
-				<input name="no_telp" value="<?php echo $model->no_telp; ?>"/><br/><br/>
+                    <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
+                    <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
 
-				<?php echo $model->labels['username']; ?><br/>
-				<input type="text" name="username" value="<?php echo $model->username; ?>"/><br/><br/>
-
-				<?php echo $model->labels['password']; ?><br/>
-				<input type="password" name="password" value="<?php echo $model->password; ?>"/><br/><br/>
-
-				<input type="submit" class="btn btn-primary" name="btnSubmit" value="simpan"/>
-				<input type="button" value="Batal" class="btn btn-warning" onclick="javascript:history.go(-1);"/>
-			</form>
+                </form>
+                </p>
+                </div>
         </div>
           </div>
         </div>

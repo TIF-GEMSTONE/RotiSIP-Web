@@ -66,10 +66,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Sales</a>
+              <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -144,7 +144,7 @@
         <p><input type="text" name="nama"><input type="submit" name="btnSubmit">
       </form></p>
       <p align="center">
-      <table border="1">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
           <th>No Transaksi</th>
           <th>Tgl Transaksi</th>

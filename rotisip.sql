@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 20, 2018 at 08:20 AM
--- Server version: 10.2.12-MariaDB
--- PHP Version: 7.0.26
+-- Host: 127.0.0.1
+-- Generation Time: May 21, 2018 at 05:38 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id5722122_rotisip`
+-- Database: `rotisip`
 --
 
 -- --------------------------------------------------------
@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `app_data` (
   `id` int(10) UNSIGNED NOT NULL,
   `app_title` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `total_dl` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `rating` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `total_dl` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `rating` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `icon` varchar(120) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -55,17 +55,37 @@ INSERT INTO `app_data` (`id`, `app_title`, `total_dl`, `rating`, `icon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tabel_detail_transaksi`
+-- Table structure for table `tabel_detail_pesan`
 --
 
-CREATE TABLE `tabel_detail_transaksi` (
-  `id_detail` int(10) NOT NULL,
-  `no_transaksi` int(20) NOT NULL,
-  `id_roti` int(10) NOT NULL,
-  `nama_roti` varchar(30) NOT NULL,
-  `harga` int(6) NOT NULL,
-  `jumlah_roti` int(4) NOT NULL,
-  `harga_jual` int(6) NOT NULL
+CREATE TABLE `tabel_detail_pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `id_roti` int(11) NOT NULL,
+  `jumlah_roti` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tabel_detail_sales`
+--
+
+CREATE TABLE `tabel_detail_sales` (
+  `no_transaksi` int(11) NOT NULL,
+  `id_roti` int(11) NOT NULL,
+  `jumlah_roti` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tabel_detail_sip`
+--
+
+CREATE TABLE `tabel_detail_sip` (
+  `no_transaksi` int(11) NOT NULL,
+  `id_roti` int(11) NOT NULL,
+  `jumlah_roti` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -97,14 +117,19 @@ INSERT INTO `tabel_pegawai` (`id_pegawai`, `nama_pegawai`, `username`, `password
 
 CREATE TABLE `tabel_pesanan` (
   `id_pesan` int(10) NOT NULL,
-  `id_roti` int(10) NOT NULL,
-  `id_sales` int(10) NOT NULL,
   `nama_pemesan` varchar(30) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
   `tgl_pesan` date NOT NULL,
   `tgl_ambil` date NOT NULL,
-  `jam_ambil` time NOT NULL,
-  `jumlah_roti` int(5) NOT NULL
+  `jam_ambil` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_pesanan`
+--
+
+INSERT INTO `tabel_pesanan` (`id_pesan`, `nama_pemesan`, `no_telp`, `tgl_pesan`, `tgl_ambil`, `jam_ambil`) VALUES
+(3, 'Safira', '13345346547', '2018-05-21', '2018-05-22', '23:11:00');
 
 -- --------------------------------------------------------
 
@@ -137,13 +162,7 @@ CREATE TABLE `tabel_roti` (
 --
 
 INSERT INTO `tabel_roti` (`id_roti`, `nama_roti`, `harga`, `gambar`) VALUES
-(1, 'Roti Pisang', 3000, 'roti_pisang.jpg'),
-(2, 'Roti Keju', 3500, 'roti_keju.jpg'),
-(3, 'Roti Coklat', 3500, 'roti_coklat.jpg'),
-(4, 'Roti Sisir', 8000, 'roti_sisir.jgp'),
-(5, 'Roti Kenong', 9000, 'roti_kenong.jpg'),
-(6, 'Roti Sobek', 8500, 'roti_sobek.jpg'),
-(7, 'Roti Tawar', 10000, 'roti_tawar.jpg');
+(1, 'Roti Pisang', 3000, 'menu1.png');
 
 -- --------------------------------------------------------
 
@@ -165,6 +184,8 @@ CREATE TABLE `tabel_sales` (
 --
 
 INSERT INTO `tabel_sales` (`id_sales`, `nama_sales`, `alamat`, `no_telp`, `username`, `password`) VALUES
+(3, 'Safira Azizah', 'Perum Mastrip', '0812345678', 'safira', 'saf123'),
+(4, 'Fahim ALfiyan', 'Jember', '08997614267', 'fahim', 'yans123'),
 (10001, 'Fahim Alfiyan', 'Jl Mastrip Sumbersari Jember', '085736795247', 'yans', '12345');
 
 -- --------------------------------------------------------
@@ -192,6 +213,7 @@ CREATE TABLE `tabel_stok_pusat` (
   `id_stok_pusat` int(10) NOT NULL,
   `id_roti` int(10) NOT NULL,
   `tgl_produksi` date NOT NULL,
+  `tgl_kadaluarsa` date NOT NULL,
   `jumlah_stok_pusat` int(4) NOT NULL,
   `dibeli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -214,16 +236,25 @@ CREATE TABLE `tabel_stok_sales` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tabel_transaksi`
+-- Table structure for table `tabel_transaksi_sales`
 --
 
-CREATE TABLE `tabel_transaksi` (
-  `no_transaksi` int(20) NOT NULL,
-  `id_sales` int(10) NOT NULL,
-  `id_pegawai` int(10) NOT NULL,
-  `id_setoran` int(10) NOT NULL,
-  `tgl_transaksi` datetime NOT NULL,
-  `total_jual` int(10) NOT NULL
+CREATE TABLE `tabel_transaksi_sales` (
+  `no_transaksi` int(11) NOT NULL,
+  `id_sales` int(11) NOT NULL,
+  `tgl_transaksi` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tabel_transaksi_sip`
+--
+
+CREATE TABLE `tabel_transaksi_sip` (
+  `no_transaksi` int(11) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
+  `tgl_transaksi` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -237,12 +268,25 @@ ALTER TABLE `app_data`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tabel_detail_transaksi`
+-- Indexes for table `tabel_detail_pesan`
 --
-ALTER TABLE `tabel_detail_transaksi`
-  ADD PRIMARY KEY (`id_detail`),
-  ADD KEY `no_transaksi` (`no_transaksi`),
-  ADD KEY `id_roti` (`id_roti`);
+ALTER TABLE `tabel_detail_pesan`
+  ADD KEY `id_roti` (`id_roti`),
+  ADD KEY `id_pesan` (`id_pesan`);
+
+--
+-- Indexes for table `tabel_detail_sales`
+--
+ALTER TABLE `tabel_detail_sales`
+  ADD KEY `id_roti` (`id_roti`),
+  ADD KEY `no_transaksi` (`no_transaksi`);
+
+--
+-- Indexes for table `tabel_detail_sip`
+--
+ALTER TABLE `tabel_detail_sip`
+  ADD KEY `id_roti` (`id_roti`),
+  ADD KEY `no_transaksi` (`no_transaksi`);
 
 --
 -- Indexes for table `tabel_pegawai`
@@ -254,9 +298,7 @@ ALTER TABLE `tabel_pegawai`
 -- Indexes for table `tabel_pesanan`
 --
 ALTER TABLE `tabel_pesanan`
-  ADD PRIMARY KEY (`id_pesan`),
-  ADD KEY `id_roti` (`id_roti`),
-  ADD KEY `id_sales` (`id_sales`);
+  ADD PRIMARY KEY (`id_pesan`);
 
 --
 -- Indexes for table `tabel_retur`
@@ -299,12 +341,17 @@ ALTER TABLE `tabel_stok_sales`
   ADD KEY `id_sales` (`id_sales`);
 
 --
--- Indexes for table `tabel_transaksi`
+-- Indexes for table `tabel_transaksi_sales`
 --
-ALTER TABLE `tabel_transaksi`
+ALTER TABLE `tabel_transaksi_sales`
   ADD PRIMARY KEY (`no_transaksi`),
-  ADD KEY `id_sales` (`id_sales`),
-  ADD KEY `id_setoran` (`id_setoran`),
+  ADD KEY `id_sales` (`id_sales`);
+
+--
+-- Indexes for table `tabel_transaksi_sip`
+--
+ALTER TABLE `tabel_transaksi_sip`
+  ADD PRIMARY KEY (`no_transaksi`),
   ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
@@ -316,78 +363,65 @@ ALTER TABLE `tabel_transaksi`
 --
 ALTER TABLE `app_data`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `tabel_detail_transaksi`
---
-ALTER TABLE `tabel_detail_transaksi`
-  MODIFY `id_detail` int(10) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tabel_pegawai`
 --
 ALTER TABLE `tabel_pegawai`
   MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tabel_pesanan`
 --
 ALTER TABLE `tabel_pesanan`
-  MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tabel_roti`
 --
 ALTER TABLE `tabel_roti`
   MODIFY `id_roti` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `tabel_sales`
 --
 ALTER TABLE `tabel_sales`
   MODIFY `id_sales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10002;
-
 --
 -- AUTO_INCREMENT for table `tabel_setoran`
 --
 ALTER TABLE `tabel_setoran`
   MODIFY `id_setoran` int(10) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tabel_stok_pusat`
 --
 ALTER TABLE `tabel_stok_pusat`
   MODIFY `id_stok_pusat` int(10) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tabel_stok_sales`
 --
 ALTER TABLE `tabel_stok_sales`
   MODIFY `id_stok_sales` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tabel_transaksi`
---
-ALTER TABLE `tabel_transaksi`
-  MODIFY `no_transaksi` int(20) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `tabel_detail_transaksi`
+-- Constraints for table `tabel_detail_pesan`
 --
-ALTER TABLE `tabel_detail_transaksi`
-  ADD CONSTRAINT `tabel_detail_transaksi_ibfk_1` FOREIGN KEY (`no_transaksi`) REFERENCES `tabel_transaksi` (`no_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tabel_detail_transaksi_ibfk_2` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `tabel_detail_pesan`
+  ADD CONSTRAINT `tabel_detail_pesan_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`),
+  ADD CONSTRAINT `tabel_detail_pesan_ibfk_2` FOREIGN KEY (`id_pesan`) REFERENCES `tabel_pesanan` (`id_pesan`);
 
 --
--- Constraints for table `tabel_pesanan`
+-- Constraints for table `tabel_detail_sales`
 --
-ALTER TABLE `tabel_pesanan`
-  ADD CONSTRAINT `tabel_pesanan_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_stok_pusat` (`id_roti`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tabel_pesanan_ibfk_2` FOREIGN KEY (`id_sales`) REFERENCES `tabel_sales` (`id_sales`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `tabel_detail_sales`
+  ADD CONSTRAINT `tabel_detail_sales_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`),
+  ADD CONSTRAINT `tabel_detail_sales_ibfk_2` FOREIGN KEY (`no_transaksi`) REFERENCES `tabel_transaksi_sales` (`no_transaksi`);
+
+--
+-- Constraints for table `tabel_detail_sip`
+--
+ALTER TABLE `tabel_detail_sip`
+  ADD CONSTRAINT `tabel_detail_sip_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`),
+  ADD CONSTRAINT `tabel_detail_sip_ibfk_2` FOREIGN KEY (`no_transaksi`) REFERENCES `tabel_transaksi_sip` (`no_transaksi`);
 
 --
 -- Constraints for table `tabel_retur`
@@ -415,12 +449,16 @@ ALTER TABLE `tabel_stok_sales`
   ADD CONSTRAINT `tabel_stok_sales_ibfk_2` FOREIGN KEY (`id_sales`) REFERENCES `tabel_sales` (`id_sales`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tabel_transaksi`
+-- Constraints for table `tabel_transaksi_sales`
 --
-ALTER TABLE `tabel_transaksi`
-  ADD CONSTRAINT `tabel_transaksi_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tabel_pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tabel_transaksi_ibfk_2` FOREIGN KEY (`id_sales`) REFERENCES `tabel_sales` (`id_sales`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tabel_transaksi_ibfk_3` FOREIGN KEY (`id_setoran`) REFERENCES `tabel_setoran` (`id_setoran`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `tabel_transaksi_sales`
+  ADD CONSTRAINT `tabel_transaksi_sales_ibfk_1` FOREIGN KEY (`id_sales`) REFERENCES `tabel_sales` (`id_sales`);
+
+--
+-- Constraints for table `tabel_transaksi_sip`
+--
+ALTER TABLE `tabel_transaksi_sip`
+  ADD CONSTRAINT `tabel_transaksi_sip_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tabel_pegawai` (`id_pegawai`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

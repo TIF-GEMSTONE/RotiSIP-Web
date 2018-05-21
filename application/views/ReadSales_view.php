@@ -66,10 +66,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -153,17 +153,17 @@
         <div class="card-header">
           <i class="fa fa-table"></i>Data Sales</div>
         <div class="card-body">
-        	<p><a href="SalesBaru/create">Tambah Sales</a></p>
+        	<p><a href="SalesBaru/create" class="btn btn-primary">Tambah Sales</a></p>
           <div class="table-responsive">
-            <table border="1">
+             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             	<tr>
-            		<th width="100">Id_Sales</th>
-            		<th width="100">Nama_Sales</th>
-            		<th width="100">Alamat</th>
-            		<th width="100">No_Telp</th>
-            		<th width="100">Username</th>
-            		<th width="100">Password</th>
-            		<th width="100">Aksi</th>
+            		<th>Id Sales</th>
+            		<th>Nama Sales</th>
+            		<th>Alamat</th>
+            		<th>No.Telp</th>
+            		<th>Username</th>
+            		<th>Password</th>
+            		<th>Aksi</th>
             	</tr>
             	<?php
 					foreach ($rows as $row) {
