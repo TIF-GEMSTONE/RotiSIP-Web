@@ -1,12 +1,12 @@
 <?php 
-class Transaksi_Model extends CI_Model {
+class TransaksiSIP_Model extends CI_Model {
 	
 	function get_table(){
-        return $this->db->get("tabel_transaksi");
+        return $this->db->get("tabel_detail_sip");
     }
     
 	function get_data(){
-		$query = $this->db->query("SELECT * FROM tabel_transaksi");
+		$query = $this->db->query("SELECT * FROM tabel_detail_sip");
 		return $query->result();
 	}
 	}

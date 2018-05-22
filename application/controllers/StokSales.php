@@ -13,7 +13,7 @@ class StokSales extends CI_Controller{
 		$data = array(
 				'data'=>$this->StokSales_model->get_data());
 		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('StokSalesview',$data);
+		$this->load->view('StokSalesviewgambar',$data);
 	}
 
 }
