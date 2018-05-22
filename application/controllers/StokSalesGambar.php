@@ -1,5 +1,5 @@
 <?php
-class StokSales extends CI_Controller{
+class StokSalesGambar extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
@@ -13,7 +13,7 @@ class StokSales extends CI_Controller{
 		$data = array(
 				'data'=>$this->StokSales_model->get_data());
 		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('StokSalesviewgambar',$data);
+		$this->load->view('StokSalesview',$data);
 	}
 
 }
