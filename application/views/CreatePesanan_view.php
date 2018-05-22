@@ -116,21 +116,7 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      
-      <!-- Icon Cards-->
-      
-          <!-- Card Columns Example Social Feed-->
-          
-              <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-          
-          <!-- /Card Columns-->
-       
-      <!-- Example DataTables Card-->
+
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
@@ -150,6 +136,16 @@
               Nama Pemesan: <input type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
 
               Nomer Telepon: <input type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
+
+              Nama Roti:
+                <select name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                </select>
+                <br/><br/>
+
+              Jumlah Roti: <input type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
           
               Tanggal Pesan: <input type="date" name="tgl_pesan" value="<?php if(isset($data)) { echo $data[0]->tgl_pesan; } ?>"><br/><br/>
 

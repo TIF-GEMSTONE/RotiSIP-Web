@@ -149,6 +149,7 @@
                   <th>ID Stok Pusat</th>  
                   <th>ID Roti</th>
                   <th>Tanggal Produksi</th>
+                  <th>Tanggal Kadaluarsa</th>
                   <th>Jumlah Stok</th>
                   <th>Dibeli</th>
                 </tr>
@@ -166,6 +167,7 @@
           <td><?php echo $row->id_stok_pusat;?></td>
           <td><?php echo $row->id_roti;?></td>
           <td><?php echo $row->tgl_produksi;?></td>
+          <td><?php echo $row->tgl_kalauarsa;?></td>
           <td><?php echo $row->jumlah_stok_pusat;?></td>
           <td><?php echo $row->dibeli;?></td>
 

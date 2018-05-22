@@ -108,13 +108,23 @@
           </div>
         </li>
         <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -158,18 +168,19 @@
         </tr>
         <?php 
         $no = 1;
-        foreach ($data as $row){ ?>
+        foreach ($detail as $row){ ?>
         <tr>
           <td><?php echo $no;?></td>
           <td><?php echo $row->id_pesan;?></td>
           <td><?php echo $row->nama_pemesan;?></td>
           <td><?php echo $row->nama_roti;?></td>
           <td><?php echo $row->jumlah_roti;?></td>
-              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
+          <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
         </tr>
         <?php 
       }?>
       </table>
+      <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
     </p>
         </div>
           </div>
