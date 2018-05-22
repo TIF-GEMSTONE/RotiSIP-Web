@@ -2,11 +2,11 @@
 class Penjualan_model extends CI_Model {
 	
 	function get_table(){
-        return $this->db->get("tabel_transaksi");
+        return $this->db->get("tabel_transaksi_sip");
     }
     
 	function get_data(){
-		$query = $this->db->query("SELECT * FROM tabel_transaksi ");
+		$query = $this->db->query("SELECT * FROM tabel_transaksi_sip ");
 		return $query->result();
 	}
 	
@@ -16,22 +16,22 @@ class Penjualan_model extends CI_Model {
 	}
 	
 	function get_data_edit($no){
-		$query = $this->db->query("SELECT * FROM tabel_transaksi WHERE no_transaksi = '$no'");
+		$query = $this->db->query("SELECT * FROM tabel_transaksi_sip WHERE no_transaksi = '$no'");
 		return $query->result_array();
 	}
 	
 	function input($data = array()){
-		return $this->db->insert('tabel_transaksi',$data);
+		return $this->db->insert('tabel_transaksi_sip',$data);
 	}
 	
 	function delete($no){
 		$this->db->where('no_transaksi', $no);
-        return $this->db->delete('tabel_transaksi');
+        return $this->db->delete('tabel_transaksi_sip');
 	}
 	
 	function update($data = array(),$no){
 		$this->db->where('no_transaksi',$no);
-		return $this->db->update('tabel_transaksi',$data);
+		return $this->db->update('tabel_transaksi_sip',$data);
 	}
 
 	function cari($tgl){
