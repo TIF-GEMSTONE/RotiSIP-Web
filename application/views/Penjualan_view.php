@@ -39,7 +39,7 @@
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
@@ -50,7 +50,7 @@
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Stok</span>
           </a>
-         <ul class="sidenav-second-level collapse" id="collapseStok">
+          <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
               <a href="http:/RotiSIP-Web/StokSales">Sales</a>
             </li>
@@ -76,7 +76,7 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+         <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
@@ -108,23 +108,13 @@
           </div>
         </li>
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
+
+
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
