@@ -18,12 +18,25 @@ class Pesanan extends CI_Controller{
 			'id_pesan' => $this->input->post('id_pesan'),
 			'nama_pemesan' => $this->input->post('nama_pemesan'),
 			'no_telp' => $this->input->post('no_telp'),
+			'id_roti' => $this->input->post('nama_roti'),
+			'jumlah_roti' => $this->input->post('jumlah_roti'),
 			'tgl_pesan' => $this->input->post('tgl_pesan'),
 			'tgl_ambil' => $this->input->post('tgl_ambil'),
-			'jam_ambil' => $this->input->post('jam_ambil')));
+			'jam_ambil' => $this->input->post('jam_ambil')
+			));
+
+			$data = $this->Pesanan_model->input1(array (
+			'id_pesan' => $this->input->post('id_pesan'),
+			'id_roti' => $this->input->post('nama_roti'),
+			'jumlah_roti' => $this->input->post('jumlah_roti')
+			));
 			redirect('Pesanan');
 		}else{
-			$this->load->view('CreatePesanan_view');
+			$x =$this->Pesanan_model->get_roti();
+			$data = array(
+				'roti'=>$this->Pesanan_model->get_roti()
+				);
+			$this->load->view('CreatePesanan_view', $data);
 		}
 	}
 	function delete($id){
@@ -35,6 +48,9 @@ class Pesanan extends CI_Controller{
 		$data = array(
             'user' => $this->Pesanan_model->get_data_edit($id),
 		);
+		$data['id_roti']= $this->Pesanan_model->get_roti();
+     	$data['nama_roti']= $this->Pesanan_model->get_roti();
+
         $this->load->view("UpdatePesanan_view", $data);
 		
 	}
@@ -44,6 +60,8 @@ class Pesanan extends CI_Controller{
 		$insert = $this->Pesanan_model->update(array(
 			'nama_pemesan' => $this->input->post('nama_pemesan'),
 			'no_telp' => $this->input->post('no_telp'),
+			'id_roti' => $this->input->post('nama_roti'),
+			'jumlah_roti' => $this->input->post('jumlah_roti'),
 			'tgl_pesan' => $this->input->post('tgl_pesan'),
 			'tgl_ambil' => $this->input->post('tgl_ambil'),
 			'jam_ambil' => $this->input->post('jam_ambil')
@@ -51,9 +69,9 @@ class Pesanan extends CI_Controller{
         redirect('Pesanan');
         }
 
-    function detail(){
+    function detail($id){
     	$data = array (
-				'detail' =>$this->Pesanan_model->get_detail());
+				'detail' =>$this->Pesanan_model->get_detail($id));
 		$this->load->view('DetailPesanan_view', $data);
     }
 

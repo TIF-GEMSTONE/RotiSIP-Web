@@ -6,12 +6,17 @@ class Pesanan_model extends CI_Model {
     }
     
   function get_data(){
-    $query = $this->db->query("SELECT * FROM tabel_pesanan");
+    $query = $this->db->query("SELECT * FROM tabel_pesanan JOIN tabel_roti WHERE tabel_pesanan.id_roti=tabel_roti.id_roti");
     return $query->result();
   }
   
-  function get_detail(){
-    $query = $this->db->query("SELECT * FROM tabel_detail_pesan JOIN tabel_roti WHERE tabel_detail_pesan.id_roti=tabel_roti.id_roti");
+  function get_detail($id){
+    $query = $this->db->query("SELECT * FROM tabel_detail_pesan JOIN tabel_pesanan JOIN tabel_roti WHERE tabel_detail_pesan.id_pesan=tabel_pesanan.id_pesan AND tabel_detail_pesan.id_roti = tabel_roti.id_roti AND tabel_detail_pesan.id_pesan = $id");
+    return $query->result();
+  }
+
+  function get_roti(){
+    $query = $this->db->query("SELECT * FROM tabel_roti");
     return $query->result();
   }
   
@@ -22,6 +27,10 @@ class Pesanan_model extends CI_Model {
   
   function input($data = array()){
     return $this->db->insert('tabel_pesanan',$data);
+  }
+
+   function input1($data = array()){
+    return $this->db->insert('tabel_detail_pesan',$data);
   }
   
   function delete($id){
