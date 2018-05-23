@@ -170,8 +170,7 @@
         //if (mysqli_num_rows($query) == 0) {?>
         <tr>
           <td><?php echo $row->id_stok_sales;?></td>
-          <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->id_sales;?></td>
+          <td><?php echo $row->id_roti;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jumlah_stok_sales  ;?></td>
           <td><?php echo $row->dibeli;?></td>

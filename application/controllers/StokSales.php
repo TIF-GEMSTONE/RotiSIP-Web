@@ -9,11 +9,15 @@ class StokSales extends CI_Controller{
 
 	public function index(){
 		$this->session->set_userdata('username', 'admin');
-		//$this->load->view('StokSalesview');
 		$data = array(
 				'data'=>$this->StokSales_model->get_data());
-		//$this->load->view('App/list_mhs',['data' => $data]);
 		$this->load->view('StokSalesviewgambar',$data);
+	}
+
+	public function sales(){
+		$data = array(
+			'data'=>$this->StokSales_model->get_sales());
+		$this->load->view('StokSalesview',$data);
 	}
 
 }

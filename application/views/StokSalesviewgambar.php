@@ -157,9 +157,9 @@
              
                  <th><img src="<?php echo base_url()?>assets/images/sales/sales3.png" alt="Sales1" style="width:100px"></th>
                  <tr>
-                   <td><a href="<?php echo base_url()?>StokSalesGambar">Sales1</a></td>
-                   <td><a href="<?php echo base_url()?>StokSalesGambar">Sales2</a></td>
-                   <td><a href="<?php echo base_url()?>StokSalesGambar">Sales3</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Fahim Alfiyan</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Safira Azizah</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Warda Novitasari</a></td>
 
               </thead>
       </table>
