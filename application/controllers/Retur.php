@@ -18,7 +18,7 @@ class Retur extends CI_Controller{
 			'nama_roti' => $this->input->post('nama_roti'),
 			'jumlah_roti' => $this->input->post('jumlah_roti'),
 			'tgl_kembali' => $this->input->post('tgl_kembali'),
-			'jam_ambil' => $this->input->post('jam_ambil')));
+			'total' => $this->input->post('total')));
 			redirect('Retur');
 		}else{
 			$this->load->view('Retur_view');
