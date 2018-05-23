@@ -157,6 +157,7 @@
                   <th>Tanggal Ambil</th>
                   <th>Stok</th>
                   <th>Dibeli</th>
+                  <th colspan="1">Aksi</th>
                 </tr>
               </thead>
               <?php
@@ -174,6 +175,7 @@
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jumlah_stok_sales  ;?></td>
           <td><?php echo $row->dibeli;?></td>
+          <td><a href="<?php echo base_url(); ?>StokSales<?php echo $row->id_stok_sales;?>">Tambah</a></td>
         </tr>
         <tr></tr>
                 <?php $no++;
