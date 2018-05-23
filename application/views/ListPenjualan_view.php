@@ -135,7 +135,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p><h3>Transaksi</h3></p>
-    <p><a href="http:/RotiSIP-Web/Penjualan_view" class="btn btn-success">Tambah</a></p>
+    <p><a class="btn btn-primary" href="<?php echo base_url()?>Penjualan/kasir">Tambah</a></p>
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>

@@ -45,12 +45,6 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Retur</span>
-          </a>
-        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -120,9 +114,24 @@
     </div>
   </nav>
 
+
   <div class="content-wrapper">
     <div class="container-fluid">
-
+      <!-- Breadcrumbs-->
+      
+      <!-- Icon Cards-->
+      
+          <!-- Card Columns Example Social Feed-->
+          
+              <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+          
+          <!-- /Card Columns-->
+       
+      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
@@ -130,88 +139,26 @@
         <li class="breadcrumb-item active">Tables</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="card mb-2">
-        <div class="card-header">
-          <i class="fa fa-table"></i>Data Pesanan</div>
-        <div class="card-body">
-          <div class="table-responsive">
-          <div>
-          <p>
-
-            <form method="post" action="input">
-
-            <div class="container">
-            <div class="form-group row">
-            <div class="col-xs-4">
-            <label  for="nama">Nama Pemesan :</label>
-            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
-            </div>
-          </div>
-
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="nomor">Nomer Telepon: </label>
-              <input class="form-control" placeholder="Masukan Nama" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
-                </div>
-          </div>
-
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="roti">Nama Roti:</label>
-                <select class="form-control" name="nama_roti">
-                <?php foreach ($roti as $row){ ?>
-                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
-                  <?php }?>
-                </select>
-                <br/><br/>
-
-            <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="Jumlah">Jumlah Roti: </label>
-              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
-          </div>
-          </div>
-</div>
-
-            <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="Pesan">Tanggal Pesan:</label>
-              <input class="form-control" type="date" name="tgl_pesan" value="<?php if(isset($data)) { echo $data[0]->tgl_pesan; } ?>"><br/><br/>
-            </div>
-          </div>
+      <div class="jumbotron col-md-4" >
+       <?=form_open_multipart('produk/proses_input')?>
+        <div class="form-group">
+          <label for="nama">Nama :</label>
+          <input type="text" name="nama_roti" class="form-control" placeholder="Masukan Nama Roti" id="nama_roti" required>
         </div>
-
-            <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="Pesan">Tanggal Ambil:</label>
-              <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
-            </div>
-          </div>
+        <div class="form-group">
+          <label for="harga">Harga :</label>
+          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Roti" id="harga" required>
         </div>
-
-            <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="Pesan">Jam Ambil:</label>
-              <input class="form-control" type="time" name="jam_ambil" value="<?php if(isset($data)) { echo $data[0]->jam_ambil; } ?>"><br/><br/>
-          </div>
+        <div class="form-group">
+          <label for="userfile">Gambar :</label>
+          <input type="file" name="userfile" class="file">
+          <div class="input-group col-xs-12">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+          </div><br>
         </div>
-      </div>
-
-              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
-              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
-
-              </div>
-          </form>
-
-          </p>
-    </div>
-        </div>
-          </div>
-        </div>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+     </div>
+           
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
