@@ -29,18 +29,16 @@ class Penjualan extends CI_Controller{
 			'harga' => $this->input->post('harga'),
 			'tgl_transaksi' => $this->input->post('tgl_transaksi')));
 			redirect('Penjualan/home');
-		}else{
-			$x =$this->Penjualan_model->get_prodi();
-			$data = array(
-				'nama_prodi'=>$this->Model_Mahasiswa->get_prodi(),
-				'gol'=>$this->Model_Mahasiswa->get_gol()
-				);
-			$this->load->view('App/input_mhs',$data);
+			}else{
+		$data = array(
+				'data'=>$this->Penjualan_model->get_data());
+		$this->load->view("Penjualan_view", $data);
 		}
 	}
 	function delete($no){
 		$this->Penjualan_model->delete($no);
 		redirect('Penjualan/home');
+	
 	}
 	function edit(){
 		$no = $this->uri->segment(3);
@@ -53,7 +51,7 @@ class Penjualan extends CI_Controller{
 		$data['harga']= $this->Penjualan_model->get_gol();
 		$data['tgl_transaksi']= $this->Penjualan_model->get_gol();
 
-        $this->load->view("EditPenjualan_view", $data);
+        $this->load->view("Penjualan_view", $data);
 	
 		
 	}

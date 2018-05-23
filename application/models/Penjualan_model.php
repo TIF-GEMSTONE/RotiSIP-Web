@@ -11,7 +11,7 @@ class Penjualan_model extends CI_Model {
 	}
 	
 	function get_detail(){
-		$query = $this->db->query("SELECT * FROM tabel_detail_transaksi");
+		$query = $this->db->query("SELECT * FROM tabel_detail_sip");
 		return $query->result();
 	}
 	
@@ -21,7 +21,7 @@ class Penjualan_model extends CI_Model {
 	}
 	
 	function input($data = array()){
-		return $this->db->insert('tabel_transaksi_sip',$data);
+		return $this->db->insert('tabel_detail_sip',$data);
 	}
 	
 	function delete($no){
@@ -34,8 +34,4 @@ class Penjualan_model extends CI_Model {
 		return $this->db->update('tabel_transaksi_sip',$data);
 	}
 
-	function cari($tgl){
-		$query = $this->db->query("SELECT * FROM tm_mahasiswa JOIN tm_prodi JOIN tm_gol WHERE tm_mahasiswa.tm_prodi_id=tm_prodi.id AND tm_mahasiswa.tm_gol_id=tm_gol.id AND tm_mahasiswa.nama = '$tgl'");
-		return $query->result();
-	}
 }

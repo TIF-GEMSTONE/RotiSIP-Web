@@ -6,7 +6,6 @@ class StokSales extends CI_Controller{
 		$this->load->model('StokSales_model');
 	}
 
-
 	public function index(){
 		$this->session->set_userdata('username', 'admin');
 		//$this->load->view('StokSalesview');
@@ -15,6 +14,7 @@ class StokSales extends CI_Controller{
 		//$this->load->view('App/list_mhs',['data' => $data]);
 		$this->load->view('StokSalesviewgambar',$data);
 	}
+
 
 }
 ?>

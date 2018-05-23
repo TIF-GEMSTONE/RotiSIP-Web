@@ -129,10 +129,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p><h3>Transaksi</h3></p>
-    <p><a href="<?php echo base_url()?>Penjualan/input">Tambah</a></p>
-      <form action="home" method="post">
-        <p><input type="text" name="nama"><input type="submit" name="btnSubmit">
-      </form></p>
+    <p><a href="<?php echo base_url()?>Penjualan/Penjualan_view" class="btn btn-success">Tambah</a></p>
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
@@ -140,6 +137,7 @@
           <th>Tgl Transaksi</th>
           <th>Nama Pegawai</th>
           <th>Total</th>
+          <th>Detail</th>
         </tr>
         <?php
                 $no = 1;
