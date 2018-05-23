@@ -129,7 +129,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p><h3 align="center">Transaksi</h3></p>
-    <p align="center"><a href="<?php echo base_url()?>Penjualan/input">Tambah</a></p>
+    <!-- <p align="center"><a href="<?php echo base_url()?>Penjualan/input">Tambah</a></p> -->
       <form action="home" method="post">
         <p align="center"><input type="text" name="nama"><input type="submit" name="btnSubmit">
       </form></p>

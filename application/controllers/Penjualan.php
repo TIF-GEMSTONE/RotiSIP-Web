@@ -21,24 +21,27 @@ class Penjualan extends CI_Controller{
 	}
 	
 	function input(){
-		if (isset($_POST['btnTambah'])){
-			$data = $this->Penjualan_model->input(array (
+		// $data = 
+		$data = array(
 			'no_transaksi' => $this->input->post('no_transaksi'),
 			'id_roti' => $this->input->post('id_roti'),
 			'jumlah_roti' => $this->input->post('jumlah_roti'),
 			'harga' => $this->input->post('harga'),
-			'tgl_transaksi' => $this->input->post('tgl_transaksi')));
-			redirect('Penjualan/home');
-			}else{
-		$data = array(
-				'data'=>$this->Penjualan_model->get_data());
-		$this->load->view("Penjualan_view", $data);
-		}
+			'tgl_transaksi' => $this->input->post('tgl_transaksi')
+		);
+			// redirect('Penjualan_view');
+		// 	}else{
+		// $data = array(
+		// 		'data'=>$this->Penjualan_model->get_data());
+		$this->db->insert('tabel_detail_sip',$data);
+		redirect('ListPenjualan_view');
+		// $this->load->view("Penjualan_view", $data);
+		// }
 	}
 	function delete($no){
 		$this->Penjualan_model->delete($no);
 		redirect('Penjualan/home');
-	
+
 	}
 	function edit(){
 		$no = $this->uri->segment(3);

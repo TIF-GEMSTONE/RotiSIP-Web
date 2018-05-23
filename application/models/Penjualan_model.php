@@ -20,9 +20,9 @@ class Penjualan_model extends CI_Model {
 		return $query->result_array();
 	}
 	
-	function input($data = array()){
-		return $this->db->insert('tabel_detail_sip',$data);
-	}
+	// function input($data = array()){
+	// 	return $this->db->insert('tabel_detail_sip',$data);
+	// }
 	
 	function delete($no){
 		$this->db->where('no_transaksi', $no);
