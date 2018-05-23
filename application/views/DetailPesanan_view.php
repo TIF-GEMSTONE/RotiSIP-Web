@@ -164,7 +164,6 @@
           <th>Nama Pemesan</th>
           <th>Nama Roti</th>
           <th>Jumlah</th>
-          <th colspan="1">Aksi</th>
         </tr>
         <?php 
         $no = 1;
@@ -175,7 +174,6 @@
           <td><?php echo $row->nama_pemesan;?></td>
           <td><?php echo $row->nama_roti;?></td>
           <td><?php echo $row->jumlah_roti;?></td>
-          <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
         </tr>
         <?php 
       }?>

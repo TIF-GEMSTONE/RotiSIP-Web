@@ -133,7 +133,7 @@
           <p>
             <form method="post" action="input">
 
-              Nama Pemesan: <input type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
+              Nama Pemesan: <input type="text" name="nama_pemesan" autofocus="" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
 
               Nomer Telepon: <input type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
 

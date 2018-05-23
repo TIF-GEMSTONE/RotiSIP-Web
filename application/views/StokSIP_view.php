@@ -167,7 +167,7 @@
           <td><?php echo $row->id_stok_pusat;?></td>
           <td><?php echo $row->id_roti;?></td>
           <td><?php echo $row->tgl_produksi;?></td>
-          <td><?php echo $row->tgl_kalauarsa;?></td>
+          <td><?php echo $row->tgl_kadaluarsa;?></td>
           <td><?php echo $row->jumlah_stok_pusat;?></td>
           <td><?php echo $row->dibeli;?></td>
 
