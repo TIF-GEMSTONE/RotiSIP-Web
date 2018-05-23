@@ -158,6 +158,7 @@
                   <th>Tanggal Kadaluarsa</th>
                   <th>Jumlah Stok</th>
                   <th>Dibeli</th>
+                  <th colspan="1"></th>
                 </tr>
               </thead>
                <?php
@@ -176,6 +177,8 @@
           <td><?php echo $row->tgl_kadaluarsa;?></td>
           <td><?php echo $row->jumlah_stok_pusat;?></td>
           <td><?php echo $row->dibeli;?></td>
+
+          <td><a href="<?php echo base_url(); ?>StokSIP<?php echo $row->id_stok_pusat;?>">Tambah</a></td>
 
         </tr>
         <tr></tr>
