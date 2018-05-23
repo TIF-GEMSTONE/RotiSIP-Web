@@ -66,6 +66,12 @@ class Pesanan extends CI_Controller{
 			'tgl_ambil' => $this->input->post('tgl_ambil'),
 			'jam_ambil' => $this->input->post('jam_ambil')
             ), $id);
+
+		$data = $this->Pesanan_model->update1(array (
+			'id_pesan' => $this->input->post('id_pesan'),
+			'id_roti' => $this->input->post('nama_roti'),
+			'jumlah_roti' => $this->input->post('jumlah_roti')
+		));
         redirect('Pesanan');
         }
 

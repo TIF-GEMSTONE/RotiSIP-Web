@@ -108,13 +108,23 @@
           </div>
         </li>
         <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -134,51 +144,48 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Stok</a>
+          <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
+      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Stok SIP</div>
+          <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead>
-                <tr>
-                  <th>ID Stok Pusat</th>  
-                  <th>ID Roti</th>
-                  <th>Tanggal Produksi</th>
-                  <th>Tanggal Kadaluarsa</th>
-                  <th>Jumlah Stok</th>
-                  <th>Dibeli</th>
-                </tr>
-              </thead>
-               <?php
-                $no = 1;
-                foreach ($data as $row): 
-
-     
-     // $id_roti = $_GET['id_roti'];
-      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
-
-        //if (mysqli_num_rows($query) == 0) {?>
+      <form action="Pesanan" method="post">
+      </form>
+      <p align="center">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
-          <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->id_roti;?></td>
-          <td><?php echo $row->tgl_produksi;?></td>
-          <td><?php echo $row->tgl_kadaluarsa;?></td>
-          <td><?php echo $row->jumlah_stok_pusat;?></td>
-          <td><?php echo $row->dibeli;?></td>
-
+          <th>No</th>
+          <th>Id Pesan</th>
+          <th>Nama Pemesan</th>
+          <th>Nama Roti</th>
+          <th>Jumlah</th>
         </tr>
-        <tr></tr>
-                <?php $no++;
-                endforeach;?>
+        <?php 
+        $no = 1;
+        foreach ($detail as $row){ ?>
+        <tr>
+          <td><?php echo $no;?></td>
+          <td><?php echo $row->id_pesan;?></td>
+          <td><?php echo $row->nama_pemesan;?></td>
+          <td><?php echo $row->nama_roti;?></td>
+          <td><?php echo $row->jumlah_roti;?></td>
+        </tr>
+        <?php 
+      }?>
       </table>
-             
-             
-    
+      <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
+    </p>
+        </div>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
