@@ -1,5 +1,5 @@
 <?php
-class Pesanan_model extends CI_Model {
+class Retur_model extends CI_Model {
   
   function get_table(){
         return $this->db->get("tabel_pesanan");

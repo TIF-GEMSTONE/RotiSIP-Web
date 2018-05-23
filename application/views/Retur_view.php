@@ -72,10 +72,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+              <a href="navbar.html">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
+              <a href="cards.html">SIP</a>
             </li>
           </ul>
         </li>
@@ -114,13 +114,23 @@
           </div>
         </li>
         <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -140,51 +150,45 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Stok</a>
+          <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
+      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Stok Sales</div>
+          <i class="fa fa-table"></i>Retur</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead>
-                 <th><img src="<?php echo base_url()?>assets/images/sales/sales1.png" alt="Sales1" style="width:100px"></th>
-                 
-                 <th><img src="<?php echo base_url()?>assets/images/sales/sales2.png" alt="Sales1" style="width:100px"></th>
-             
-                 <th><img src="<?php echo base_url()?>assets/images/sales/sales3.png" alt="Sales1" style="width:100px"></th>
-                 <tr>
-                   <td><a href="<?php echo base_url()?>StokSalesGambar">Fahim Alfiyan</a></td>
-                   <td><a href="<?php echo base_url()?>StokSalesGambar">Safira Azizah</a></td>
-                   <td><a href="<?php echo base_url()?>StokSalesGambar">Warda Novitasari</a></td>
+          <div>
+          <p>
+            <form method="post" action="input">
 
-              </thead>
-      </table>
-        
-        
-          <div class="table-responsive">
+             
+              Nama Roti:  
+			  
+			  <select name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                </select>
+                <br/><br/>
+          
+              Jumlah Roti: <input type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
+
+              Tanggal Kembali: <input type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
+          
+              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
+              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
+          </form>
+          </p>
+    </div>
+        </div>
           </div>
-        <div class="table-responsive">
-
-            <center><hr class='divider'>
-            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
-            </h2>
-            <hr class='divider'></center>
-            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
-            <p style='text-align:justify; margin:25px;'>
-
-          </div>
-                   </div>
-
-        </tr>
-
-      
-             
-             
-    
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

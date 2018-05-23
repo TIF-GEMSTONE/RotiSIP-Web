@@ -45,6 +45,12 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Retur</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -133,7 +139,7 @@
           <p>
             <form method="post" action="input">
 
-              Nama Pemesan: <input type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
+              Nama Pemesan: <input type="text" name="nama_pemesan" autofocus="" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
 
               Nomer Telepon: <input type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
 

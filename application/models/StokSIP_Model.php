@@ -10,7 +10,5 @@ class StokSIP_Model extends CI_Model {
 		return $query->result();
 	}
 	}
-      //$id_roti = $_GET['id_roti'];
-     // $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
 
       ?>

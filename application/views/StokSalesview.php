@@ -45,6 +45,12 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Retur</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -151,6 +157,7 @@
                   <th>Tanggal Ambil</th>
                   <th>Stok</th>
                   <th>Dibeli</th>
+                  <th colspan="1">Aksi</th>
                 </tr>
               </thead>
               <?php
@@ -164,11 +171,11 @@
         //if (mysqli_num_rows($query) == 0) {?>
         <tr>
           <td><?php echo $row->id_stok_sales;?></td>
-          <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->id_sales;?></td>
+          <td><?php echo $row->id_roti;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jumlah_stok_sales  ;?></td>
           <td><?php echo $row->dibeli;?></td>
+          <td><a href="<?php echo base_url(); ?>StokSales<?php echo $row->id_stok_sales;?>">Tambah</a></td>
         </tr>
         <tr></tr>
                 <?php $no++;
