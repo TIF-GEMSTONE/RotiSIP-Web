@@ -165,11 +165,18 @@
             <form method="post" action="input">
 
              
-              Nama Roti: <input type="text" name="nama_roti" value="<?php if(isset($data)) { echo $data[0]->nama_roti; } ?>"><br/><br/>
+              Nama Roti:  
+			  
+			  <select name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                </select>
+                <br/><br/>
           
               Jumlah Roti: <input type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
 
-              Tanggal Kembali: <input type="date" name="tgl_kembali" value="<?php if(isset($data)) { echo $data[0]->tgl_kembali; } ?>"><br/><br/>
+              Tanggal Kembali: <input type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
 
              Total Retur: <input type="time" name="jam_ambil" value="<?php if(isset($data)) { echo $data[0]->jam_ambil; } ?>"><br/><br/>
           
