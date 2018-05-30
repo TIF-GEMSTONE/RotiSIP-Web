@@ -176,7 +176,8 @@
           
               Jumlah Roti: <input type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
 
-              Tanggal Kembali: <input type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
+              Tanggal Kembali: <input type="date" name="tgl_kembali" value="<?php if(isset($data)) { echo $data[0]->tgl_kembali; } ?>"><br/><br/>
+			  Total retur : <input type="text" name="hitung_total" value="<?php if(isset($data)) { echo $data[0]->hitung_total; } ?>"><br/><br/>
           
               <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
               <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>

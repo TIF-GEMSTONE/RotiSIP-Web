@@ -24,9 +24,18 @@ class Retur extends CI_Controller{
 			$this->load->view('Retur_view');
 		}
 	}
+	function total (){
+		$this->load->model('Retur_model');
+		$model = $this->Retur_model;
+
+		$model->set_jumlah_roti(7);
+		$model->set_harga(10);
+
+$this->load->view('Retur_view', array ('model'=>$model));
 	function delete($id){
 		$this->Retur_model->delete($id);
 		redirect('Retur');
+	}
 	}
 	}
 	
