@@ -150,36 +150,61 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="card mb-3">
+      <div class="card mb-2">
         <div class="card-header">
           <i class="fa fa-table"></i>Retur</div>
         <div class="card-body">
           <div class="table-responsive">
           <div>
           <p>
+
             <form method="post" action="input">
 
-             
-              Nama Roti:  
-			  
-			  <select name="nama_roti">
+              <div class="container">
+            <div class="form-group row">
+            <div class="col-xs-4">
+            <label  for="nama">Nama Sales :</label>
+            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>">
+            </div>
+          </div>
+
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="roti">Nama Roti:</label>
+                <select class="form-control" name="nama_roti">
                 <?php foreach ($roti as $row){ ?>
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>
                 </select>
-                <br/><br/>
-          
-              Jumlah Roti: <input type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
+                
 
-              Tanggal Kembali: <input type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
-          
+            <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="Jumlah">Jumlah Roti: </label>
+              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>">
+          </div>
+          </div>
+          </div>
+
+            <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="Retur">Tanggal Kembali:</label>
+              <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>">
+            </div>
+          </div>
+        </div>
+
               <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
               <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
+
+              </div>
           </form>
           </p>
     </div>

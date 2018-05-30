@@ -13,7 +13,7 @@ class LaporanSales extends CI_Controller{
 		$data = array(
 				'data'=>$this->TransaksiSales_Model->get_data());
 		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('laporanSalesview',$data);
+		$this->load->view('laporanSalesGambarview',$data);
 	}
 	function cetak($id){
 		$this->Transaksi_Model->cetak($id);

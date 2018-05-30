@@ -45,6 +45,12 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Retur</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -83,7 +89,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
@@ -114,7 +120,6 @@
     </div>
   </nav>
 
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -134,11 +139,12 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
-        <li class="breadcrumb-item active">Tables</li>
+        <li class="breadcrumb-item active">Penjualan</li>
       </ol>
       <!-- Example DataTables Card-->
+<<<<<<< HEAD
      <h1>Transaksi</h1>
   <form action="http://localhost/RotiSIP-Web/Penjualan" method="post">
     <div class="form-group">
@@ -189,6 +195,46 @@
     <input type='submit' name='btnSubmit' value="Tambah"><br>
   </form>
            
+=======
+      <div class="card">
+      <div class="card-body row">
+      <div class="col-md-6" >
+       <?=form_open_multipart('produk/proses_input')?>
+         <div class="container">
+            <div class="form-group row">
+            <div class="col-md-6">
+            <label  for="nama">Nama Sales :</label>
+            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>">
+            </div>
+          </div>
+
+              <div class="form-group row">
+              <div class="col-md-6">
+              <label for="roti">Nama Roti:</label>
+                <select class="form-control" name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                </select>
+                
+
+   
+              <div class="form-group row">
+              <div class="col-md-6">
+              <label for="Jumlah">Jumlah Roti: </label>
+              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>">
+          </div>
+          </div>
+
+
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+     </div>
+     <div class="col-md-6" >
+       isi beli
+     </div>
+    </div>
+    </div>    
+>>>>>>> 5377489654d55e9233bbaee4aedc9f368ca5cd4d
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
