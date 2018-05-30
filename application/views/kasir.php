@@ -148,21 +148,33 @@
       <div class="card-body row">
       <div class="col-md-6" >
        <?=form_open_multipart('produk/proses_input')?>
-        <div class="form-group">
-          <label for="nama">Nama :</label>
-          <input type="text" name="nama_roti" class="form-control" placeholder="Masukan Nama Roti" id="nama_roti" required>
-        </div>
-        <div class="form-group">
-          <label for="harga">Harga :</label>
-          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Roti" id="harga" required>
-        </div>
-        <div class="form-group">
-          <label for="userfile">Gambar :</label>
-          <input type="file" name="userfile" class="file">
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-          </div><br>
-        </div>
+         <div class="container">
+            <div class="form-group row">
+            <div class="col-md-6">
+            <label  for="nama">Nama Sales :</label>
+            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>">
+            </div>
+          </div>
+
+              <div class="form-group row">
+              <div class="col-md-6">
+              <label for="roti">Nama Roti:</label>
+                <select class="form-control" name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                </select>
+                
+
+   
+              <div class="form-group row">
+              <div class="col-md-6">
+              <label for="Jumlah">Jumlah Roti: </label>
+              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>">
+          </div>
+          </div>
+
+
             <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
      </div>
      <div class="col-md-6" >
