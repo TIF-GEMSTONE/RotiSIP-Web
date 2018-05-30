@@ -139,25 +139,55 @@
         <li class="breadcrumb-item active">Tables</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="jumbotron col-md-4" >
-       <?=form_open_multipart('produk/proses_input')?>
-        <div class="form-group">
-          <label for="nama">Nama :</label>
-          <input type="text" name="nama_roti" class="form-control" placeholder="Masukan Nama Roti" id="nama_roti" required>
-        </div>
-        <div class="form-group">
-          <label for="harga">Harga :</label>
-          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Roti" id="harga" required>
-        </div>
-        <div class="form-group">
-          <label for="userfile">Gambar :</label>
-          <input type="file" name="userfile" class="file">
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-          </div><br>
-        </div>
-            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-     </div>
+     <h1>Transaksi</h1>
+  <form action="http://localhost/RotiSIP-Web/Penjualan" method="post">
+    <div class="form-group">
+            <label class="control-label col-md-3" 
+              for="id_barang">Id Roti :</label>
+            <div class="col-md-5">
+              <input list="list_barang" class="form-control reset" 
+                placeholder="Isi id..." name="id_roti" id="id_roti" 
+                autocomplete="off" onchange="showBarang(this.value)">
+                    <datalist id="list_roti">
+                      <?php foreach ($tabel_roti as $tabel_roti): ?>
+                        <option value="<?= $tabel_roti->id_roti ?>"><?= $tabel_roti->nama_roti ?></option>
+                      <?php endforeach ?>
+                    </datalist>
+            </div>
+            
+          </div>
+          <div id="barang">
+            <div class="form-group">
+              <label class="control-label col-md-3" 
+                for="nama_barang">Nama Roti :</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control reset" 
+                  name="nama_roti" id="nama_roti" 
+                  readonly="readonly">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3" 
+                for="harga">Harga (Rp) :</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control reset" 
+                  name="harga" id="harga" 
+                  readonly="readonly">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3" 
+                for="qty">Quantity :</label>
+              <div class="col-md-4">
+                <input type="number" class="form-control reset" 
+                  autocomplete="off" onchange="subTotal(this.value)" 
+                  onkeyup="subTotal(this.value)" id="qty" min="0" 
+                  name="qty" placeholder="Isi qty...">
+              </div>
+            </div>
+          </div>
+    <input type='submit' name='btnSubmit' value="Tambah"><br>
+  </form>
            
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>

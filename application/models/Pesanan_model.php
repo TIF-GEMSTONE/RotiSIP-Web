@@ -43,9 +43,5 @@ class Pesanan_model extends CI_Model {
     return $this->db->update('tabel_pesanan',$data);
   }
 
-  function update1($data = array(),$id){
-    $this->db->where('id_pesan',$id);
-    return $this->db->insert('tabel_detail_pesan',$data);
-  }
 }
 ?>

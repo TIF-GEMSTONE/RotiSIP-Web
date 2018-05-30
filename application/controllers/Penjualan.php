@@ -21,16 +21,11 @@ class Penjualan extends CI_Controller{
 	}
 
 	function input(){
-		// $data = 
-		$data = array(
-			'no_transaksi' => $this->input->post('no_transaksi'),
-			'id_roti' => $this->input->post('id_roti'),
-			'jumlah_roti' => $this->input->post('jumlah_roti'),
-			'harga' => $this->input->post('harga'),
-			'tgl_transaksi' => $this->input->post('tgl_transaksi')
-		);
-			redirect('kasir');
-			$this->load->view('kasir',$data);
+		$x =$this->Penjualan_model->get_roti();
+			$data = array(
+				'roti'=>$this->Penjualan_model->get_roti()
+				);
+			$this->load->view('kasir', $data);
 		}
 
 	function delete($no){

@@ -135,7 +135,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p><h3>Transaksi</h3></p>
-    <p><a class="btn btn-primary" href="<?php echo base_url()?>Penjualan/kasir">Tambah</a></p>
+    <p><a class="btn btn-primary" href="<?php echo base_url()?>Penjualan/input">Tambah</a></p>
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
@@ -154,8 +154,8 @@
           <td><?php echo $row->nama;?></td>
           <td><?php echo $row->prodi;?></td>
           <td><?php echo $row->golongan;?></td>
-          <td><a href="<?php echo base_url(); ?>Mahasiswa/edit/<?php echo $row->nim;?>">Edit</a></td>
-          <td><a href="<?php echo base_url(); ?>Mahasiswa/delete/<?php echo $row->nim;?>">Hapus</a></td>
+          <td><a href="<?php echo base_url(); ?>Penjualan/edit/<?php echo $row->nim;?>">Edit</a></td>
+          <td><a href="<?php echo base_url(); ?>Penjualan/delete/<?php echo $row->nim;?>">Hapus</a></td>
         </tr>
         <?php $no++;
                 endforeach;?>

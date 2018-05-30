@@ -151,7 +151,7 @@
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="nomor">Nomer Telepon: </label>
-              <input class="form-control" placeholder="Masukan Nama" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
+              <input class="form-control" placeholder="Masukan Nomor" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
                 </div>
           </div>
 

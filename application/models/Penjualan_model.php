@@ -19,6 +19,11 @@ class Penjualan_model extends CI_Model {
 		$query = $this->db->query("SELECT * FROM tabel_transaksi_sip WHERE no_transaksi = '$no'");
 		return $query->result_array();
 	}
+
+	function get_roti(){
+    $query = $this->db->query("SELECT * FROM tabel_roti");
+    return $query->result();
+  }
 	
 	// function input($data = array()){
 	// 	return $this->db->insert('tabel_detail_sip',$data);
