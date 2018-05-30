@@ -9,10 +9,8 @@ class Penjualan extends CI_Controller{
 
 	function index(){
 		if (isset($_POST['btnSubmit'])) {
-			$tgl_transaksi = $_POST['tgl_transaksi'];
-			$data = array(
-				'data' =>$this->Penjualan_model->cari($tgl_transaksi));
-			$this->load->view('ListPenjualan_view', $data);
+			$this->model->insert();
+				redirect('kasir');
 		}else{
 		$data = array(
 				'data'=>$this->Penjualan_model->get_data());
@@ -29,7 +27,7 @@ class Penjualan extends CI_Controller{
 			'harga' => $this->input->post('harga'),
 			'tgl_transaksi' => $this->input->post('tgl_transaksi')
 		);
-			redirect('kasir');
+			
 			$this->load->view('kasir',$data);
 		}
 
@@ -43,11 +41,11 @@ class Penjualan extends CI_Controller{
 		$data = array(
             'user' => $this->Penjualan_model->get_data_edit($no),
 		);
-     	$data['no_transaksi']= $this->Penjualan_model->get_prodi();
-     	$data['id_roti']= $this->Penjualan_model->get_prodi();
-     	$data['jumlah_roti']= $this->Penjualan_model->get_gol();
-		$data['harga']= $this->Penjualan_model->get_gol();
-		$data['tgl_transaksi']= $this->Penjualan_model->get_gol();
+     	$data['no_transaksi']= $this->Penjualan_model->get_no_transaksi();
+     	$data['id_roti']= $this->Penjualan_model->get_id_roti();
+     	$data['jumlah_roti']= $this->Penjualan_model->get_jumlah_roti();
+		$data['harga']= $this->Penjualan_model->get_harga();
+		$data['tgl_transaksi']= $this->Penjualan_model->get_tgl_transaksi();
 
         $this->load->view("kasir", $data);
 	

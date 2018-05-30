@@ -45,7 +45,7 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
@@ -89,7 +89,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
@@ -120,6 +120,7 @@
     </div>
   </nav>
 
+
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -139,40 +140,51 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
+          <a href="#">Stok</a>
         </li>
-        <li class="breadcrumb-item active">Penjualan</li>
+        <li class="breadcrumb-item active">Tables</li>
       </ol>
-      <!-- Example DataTables Card-->
-      <div class="card">
-      <div class="card-body row">
-      <div class="col-md-6" >
-       <?=form_open_multipart('produk/proses_input')?>
-        <div class="form-group">
-          <label for="nama">Nama :</label>
-          <input type="text" name="nama_roti" class="form-control" placeholder="Masukan Nama Roti" id="nama_roti" required>
-        </div>
-        <div class="form-group">
-          <label for="harga">Harga :</label>
-          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Roti" id="harga" required>
-        </div>
-        <div class="form-group">
-          <label for="userfile">Gambar :</label>
-          <input type="file" name="userfile" class="file">
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-          </div><br>
-        </div>
-            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-     </div>
-     <div class="col-md-6" >
-       isi beli
-     </div>
-    </div>
-    </div>    
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Stok Sales</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
+                 <th><img src="<?php echo base_url()?>assets/images/sales/sales1.png" alt="Sales1" style="width:100px"></th>
+                 
+                 <th><img src="<?php echo base_url()?>assets/images/sales/sales2.png" alt="Sales1" style="width:100px"></th>
+             
+                 <th><img src="<?php echo base_url()?>assets/images/sales/sales3.png" alt="Sales1" style="width:100px"></th>
+                 <tr>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Fahim Alfiyan</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Safira Azizah</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Warda Novitasari</a></td>
+
+              </thead>
+      </table>
+        
+        
+          <div class="table-responsive">
+          </div>
+        <div class="table-responsive">
+
+            <center><hr class='divider'>
+            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
+            </h2>
+            <hr class='divider'></center>
+            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
+            <p style='text-align:justify; margin:25px;'>
+
+          </div>
+                   </div>
+
+        </tr>
+
+      
+             
+             
+    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

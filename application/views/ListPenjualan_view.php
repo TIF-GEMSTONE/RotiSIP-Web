@@ -126,16 +126,16 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Penjualan</li>
       </ol>
       <!-- Icon Cards-->
       <div class="col-md-20">
         <div class="panel panel-default">
           <div class="panel-body">
             <p><h3>Transaksi</h3></p>
-    <p><a class="btn btn-primary" href="<?php echo base_url()?>Penjualan/kasir">Tambah</a></p>
+    <p><a class="btn btn-primary" href="<?php echo base_url()?>Penjualan/input">Tambah</a></p>
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
