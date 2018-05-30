@@ -166,8 +166,7 @@
 
              
               Nama Roti:  
-			  
-			  <select name="nama_roti">
+			   <select name="nama_roti">
                 <?php foreach ($roti as $row){ ?>
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>
