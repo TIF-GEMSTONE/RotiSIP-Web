@@ -45,7 +45,7 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
@@ -140,54 +140,48 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Stok</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
+      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Stok SIP</div>
+          <i class="fa fa-table"></i>Data Stok</div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead>
-                <tr>
-                  <th>ID Stok Pusat</th>  
-                  <th>ID Roti</th>
-                  <th>Tanggal Produksi</th>
-                  <th>Tanggal Kadaluarsa</th>
-                  <th>Jumlah Stok</th>
-                  <th>Dibeli</th>
-                  <th colspan="1"></th>
-                </tr>
-              </thead>
-               <?php
-                $no = 1;
-                foreach ($data as $row): 
-
-     
-     // $id_roti = $_GET['id_roti'];
-      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
-
-        //if (mysqli_num_rows($query) == 0) {?>
+              <p><a class="btn btn-primary" href="<?php echo base_url()?>StokSIP/input">Tambah Stok</a></p>
+      <form action="StokSIP" method="post">
+      </form>
+      <p align="center">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <tr>
+          <th>Id Stok Pusat</th>
+          <th>Nama Roti</th>
+          <th>Tgl Produksi</th>
+          <th>Tgl Kadaluarsa</th>
+          <th>Jumlah</th>
+          <th>Dibeli</th>
+        </tr>
+        <?php 
+        foreach ($data as $row){ ?>
         <tr>
           <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->id_roti;?></td>
+          <td><?php echo $row->nama_roti;?></td>
           <td><?php echo $row->tgl_produksi;?></td>
           <td><?php echo $row->tgl_kadaluarsa;?></td>
           <td><?php echo $row->jumlah_stok_pusat;?></td>
           <td><?php echo $row->dibeli;?></td>
-
-          <td><a href="<?php echo base_url(); ?>StokSIP<?php echo $row->id_stok_pusat;?>">Tambah</a></td>
-
         </tr>
-        <tr></tr>
-                <?php $no++;
-                endforeach;?>
+        <?php 
+      }?>
       </table>
-             
-             
-    
+    </p>
+        </div>
+          </div>
+        </div>
+       
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

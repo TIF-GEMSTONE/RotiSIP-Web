@@ -89,7 +89,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
@@ -122,79 +122,71 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      
-      <!-- Icon Cards-->
-      
-          <!-- Card Columns Example Social Feed-->
-          
-              <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-          
-          <!-- /Card Columns-->
-       
-      <!-- Example DataTables Card-->
+
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
-        <li class="breadcrumb-item active">Penjualan</li>
+        <li class="breadcrumb-item active">Tables</li>
       </ol>
       <!-- Example DataTables Card-->
+      <div class="card mb-2">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Stok</div>
+        <div class="card-body">
+          <div class="table-responsive">
+          <div>
+          <p>
 
-     <h1>Transaksi</h1>
-  <form action="http://localhost/RotiSIP-Web/Penjualan" method="post">
-    <div class="form-group">
-            <label class="control-label col-md-3" 
-              for="id_barang">Id Roti :</label>
-            <div class="col-md-5">
-              <input list="list_barang" class="form-control reset" 
-                placeholder="Isi id..." name="id_roti" id="id_roti" 
-                autocomplete="off" onchange="showBarang(this.value)">
-                    <datalist id="list_roti">
-                     <?php foreach ($roti as $row){ ?>
+            <form method="post" action="input">
+              <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="roti">Nama Roti:</label>
+                <select class="form-control" name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>
-                    </datalist>
-            </div>
-            
-          </div>
-          <div id="barang">
-            <div class="form-group">
-              <label class="control-label col-md-3" 
-                for="nama_barang">Nama Roti :</label>
-              <div class="col-md-8">
-                <input type="text" class="form-control reset" 
-                  name="nama_roti" id="nama_roti" 
-                  readonly="readonly">
+                </select>
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-md-3" 
-                for="harga">Harga (Rp) :</label>
-              <div class="col-md-8">
-                <input type="text" class="form-control reset" 
-                  name="harga" id="harga" 
-                  readonly="readonly">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3" 
-                for="qty">Quantity :</label>
-              <div class="col-md-4">
-                <input type="number" class="form-control reset" 
-                  autocomplete="off" onchange="subTotal(this.value)" 
-                  onkeyup="subTotal(this.value)" id="qty" min="0" 
-                  name="qty" placeholder="Isi qty...">
-              </div>
+            <div class="form-group row">
+            <div class="col-xs-4">
+            <label  for="tgl_produksi">Tanggal Produksi:</label>
+            <input class="form-control" type="date" name="tgl_produksi" value="<?php if(isset($data)) { echo $data[0]->tgl_produksi; } ?>">
             </div>
           </div>
-    <input type='submit' name='btnSubmit' value="Tambah"><br>
-  </form>
-  
+
+             <div class="form-group row">
+            <div class="col-xs-4">
+            <label  for="tgl_kadaluarsa">Tanggal Kadaluarsa:</label>
+            <input class="form-control" type="date" name="tgl_kadaluarsa" value="<?php if(isset($data)) { echo $data[0]->tgl_kadaluarsa; } ?>">
+            </div>
+          </div>
+
+            <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="Jumlah">Jumlah Roti: </label>
+              <input class="form-control" placeholder="Masukan Jumlah" type="number" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_stok_pusat; } ?>">
+          </div>
+          </div>
+          </div>
+
+              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
+              <a class="btn btn-warning" href="<?php echo base_url()?>StokSIP">Kembali</a>
+
+              </div>
+          </form>
+
+          </p>
+    </div>
+        </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

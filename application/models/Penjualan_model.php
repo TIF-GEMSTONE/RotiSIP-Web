@@ -1,5 +1,8 @@
 <?php
 class Penjualan_model extends CI_Model {
+
+	private $primary_key = 'id_roti';
+	private $table_name	= 'tabel_roti';
 	
 	function get_table(){
         return $this->db->get("tabel_transaksi_sip");
@@ -39,4 +42,24 @@ class Penjualan_model extends CI_Model {
 		return $this->db->update('tabel_transaksi_sip',$data);
 	}
 
+	public function get() 
+	{
+	  	
+	  	$this->db->select('id_roti,nama_roti');
+
+		return $this->db->get($this->table_name)->result();
+	
+	}
+
+	public function get_by_id($id)
+	{
+	  
+	  	$this->db->where($this->primary_key,$id); 
+	  
+	  	return $this->db->get($this->table_name)->row();
+	
+	}	
+
 }
+
+?>

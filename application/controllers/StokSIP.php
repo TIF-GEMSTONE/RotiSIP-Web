@@ -1,18 +1,40 @@
 <?php
 class StokSIP extends CI_Controller{
-	public function __construct(){
+	function __construct(){
 		parent::__construct();
-		$this->load->library('session');
-		$this->load->model('StokSIP_model');
+		$this->load->helper(array('url'));
+		$this->load->model('StokSIP_Model');
 	}
-
-
-	public function index(){
-		$this->session->set_userdata('username', 'admin');
-		$data = array(
-				'data'=>$this->StokSIP_model->get_data());
-		$this->load->view('StokSIP_view',$data);
+	
+	function index(){
+		$data = array (
+				'data' =>$this->StokSIP_Model->get_data());
+		$this->load->view('StokSIP_view', $data);
 	}
-
+	
+	function input(){
+		if (isset($_POST['btnTambah'])){
+			$data = $this->StokSIP_Model->input(array (
+			'id_stok_pusat' => $this->input->post('id_stok_pusat'),
+			'id_roti' => $this->input->post('id_roti'),
+			'tgl_produksi' => $this->input->post('tgl_produksi'),
+			'tgl_kadaluarsa' => $this->input->post('tgl_kadaluarsa'),
+			'jumlah_stok_pusat' => $this->input->post('jumlah_stok_pusat'),
+			'dibeli' => $this->input->post('dibeli')
+			));
+			redirect('StokSIP');
+		}else{
+			$x =$this->StokSIP_Model->get_roti();
+			$data = array(
+				'roti'=>$this->StokSIP_Model->get_roti()
+				);
+			$this->load->view('CreateStok_view', $data);
+		}
+	}
+	function delete($id){
+		$this->StokSIP_Model->delete($id);
+		redirect('StokSIP');
+	}
+	
 }
 ?>

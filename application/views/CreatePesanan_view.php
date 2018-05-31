@@ -151,11 +151,8 @@
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="nomor">Nomer Telepon: </label>
-<<<<<<< HEAD
-              <input class="form-control" placeholder="Masukan Nomor" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
-=======
-              <input class="form-control" placeholder="Masukan Nama" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>">
->>>>>>> 5377489654d55e9233bbaee4aedc9f368ca5cd4d
+              <input class="form-control" placeholder="Masukan Nomor" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>">
+    
                 </div>
           </div>
 
@@ -167,6 +164,8 @@
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>
                 </select>
+              </div>
+            </div>
                 
 
             <div class="container">

@@ -175,7 +175,8 @@
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jumlah_stok_sales  ;?></td>
           <td><?php echo $row->dibeli;?></td>
-          <td><a href="<?php echo base_url(); ?>StokSales<?php echo $row->id_stok_sales;?>">Tambah</a></td>
+          <td><a href="<?php echo base_url(); ?>StokSales<?php echo $row->id_stok_sales;?>" id='btn-edit' class="btn btn-outline btn-circle btn-sm purple" data-id='<?php echo $row->id_stok_sales;?>' >Tambah</a></td>
+          
         </tr>
         <tr></tr>
                 <?php $no++;
@@ -195,17 +196,15 @@
             <p style='text-align:justify; margin:25px;'>
 
           </div>
-                   </div>
+        </div>
 
         </tr>
 
-      
-             
-             
-    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+
+    
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

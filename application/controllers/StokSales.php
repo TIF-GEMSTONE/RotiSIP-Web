@@ -38,6 +38,19 @@ class StokSales extends CI_Controller{
 				);
 			$this->load->view('CreatePesanan_view', $data);
 		}
+
+		function edit() {
+        $id = $this->uri->segment(3);
+        $e = $this->db->where('id_profile', $id)->get('profile')->row();
+
+        $kirim['id'] = $e->id_profile;
+        $kirim['nama'] = $e->nama;
+        $kirim['alamat'] = $e->alamat;
+
+        $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($kirim));
+    }
 	}
 	
 
