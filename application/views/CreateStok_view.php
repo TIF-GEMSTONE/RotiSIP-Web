@@ -164,12 +164,10 @@
             </div>
           </div>
 
-            <div class="container">
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="Jumlah">Jumlah Roti: </label>
-              <input class="form-control" placeholder="Masukan Jumlah" type="number" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_stok_pusat; } ?>">
-          </div>
+              <input class="form-control" placeholder="Masukan Jumlah" type="number" name="jumlah_stok_pusat" value="<?php if(isset($data)) { echo $data[0]->jumlah_stok_pusat; } ?>">
           </div>
           </div>
 

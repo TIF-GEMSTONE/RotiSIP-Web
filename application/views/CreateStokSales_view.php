@@ -120,24 +120,9 @@
     </div>
   </nav>
 
-
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      
-      <!-- Icon Cards-->
-      
-          <!-- Card Columns Example Social Feed-->
-          
-              <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-          
-          <!-- /Card Columns-->
-       
-      <!-- Example DataTables Card-->
+
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
@@ -145,40 +130,64 @@
         <li class="breadcrumb-item active">Tables</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="card mb-3">
+      <div class="card mb-2">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Stok</div>
+          <i class="fa fa-table"></i>Stok</div>
         <div class="card-body">
           <div class="table-responsive">
-              <p><a class="btn btn-primary" href="<?php echo base_url()?>StokSIP/input">Tambah Stok</a></p>
-      <form action="StokSIP" method="post">
-      </form>
-      <p align="center">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <tr>
-          <th>Id Stok Pusat</th>
-          <th>Nama Roti</th>
-          <th>Tgl Produksi</th>
-          <th>Tgl Kadaluarsa</th>
-          <th>Jumlah</th>
-        </tr>
-        <?php 
-        foreach ($data as $row){ ?>
-        <tr>
-          <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->nama_roti;?></td>
-          <td><?php echo $row->tgl_produksi;?></td>
-          <td><?php echo $row->tgl_kadaluarsa;?></td>
-          <td><?php echo $row->jumlah_stok_pusat;?></td>
-        </tr>
-        <?php 
-      }?>
-      </table>
-    </p>
+          <div>
+          <p>
+
+            <form method="post" action="input">
+              <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="roti">Nama Roti:</label>
+                <select class="form-control" name="nama_roti">
+                <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                </select>
+              </div>
+            </div>
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="roti">Nama Sales:</label>
+                <select class="form-control" name="nama_sales">
+                <?php foreach ($sales as $row){ ?>
+                  <option value="<?php echo $row->id_sales;?>"><?php echo $row->nama_sales;?></option>
+                  <?php }?>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+            <div class="col-xs-4">
+            <label  for="tgl_produksi">Tanggal Ambil:</label>
+            <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>">
+            </div>
+          </div>
+
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="Jumlah">Jumlah Roti: </label>
+              <input class="form-control" placeholder="Masukan Jumlah" type="number" name="jumlah_stok_sales" value="<?php if(isset($data)) { echo $data[0]->jumlah_stok_sales; } ?>">
+          </div>
+          </div>
+
+              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
+              <a class="btn btn-warning" href="<?php echo base_url()?>StokSales">Kembali</a>
+
+              </div>
+          </form>
+
+          </p>
+    </div>
         </div>
           </div>
         </div>
-       
+        
+      </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>

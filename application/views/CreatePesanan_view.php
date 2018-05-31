@@ -143,7 +143,7 @@
             <div class="container">
             <div class="form-group row">
             <div class="col-xs-4">
-            <label  for="nama">Nama Pemesan :</label>
+            <label  for="nama">Nama Pemesan:</label>
             <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>">
             </div>
           </div>

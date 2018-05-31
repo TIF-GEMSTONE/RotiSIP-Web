@@ -16,11 +16,10 @@ class StokSIP extends CI_Controller{
 		if (isset($_POST['btnTambah'])){
 			$data = $this->StokSIP_Model->input(array (
 			'id_stok_pusat' => $this->input->post('id_stok_pusat'),
-			'id_roti' => $this->input->post('id_roti'),
+			'id_roti' => $this->input->post('nama_roti'),
 			'tgl_produksi' => $this->input->post('tgl_produksi'),
 			'tgl_kadaluarsa' => $this->input->post('tgl_kadaluarsa'),
-			'jumlah_stok_pusat' => $this->input->post('jumlah_stok_pusat'),
-			'dibeli' => $this->input->post('dibeli')
+			'jumlah_stok_pusat' => $this->input->post('jumlah_stok_pusat')
 			));
 			redirect('StokSIP');
 		}else{

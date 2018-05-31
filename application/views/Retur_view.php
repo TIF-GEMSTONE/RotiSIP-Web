@@ -45,7 +45,7 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
@@ -72,10 +72,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-              <a href="navbar.html">Sales</a>
+               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="cards.html">SIP</a>
+              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -114,23 +114,13 @@
           </div>
         </li>
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
+
+
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -150,73 +140,66 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
+          <a href="#">Stok</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
-      <!-- Example DataTables Card-->
-      <div class="card mb-2">
+      <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Retur</div>
+          <i class="fa fa-table"></i> Retur</div>
         <div class="card-body">
+          <p><a class="btn btn-primary" href="<?php echo base_url()?>Retur/input">Tambah</a></p>
+          <form action="Retur" method="post">
+        <p><input type="text" name="nama_sales"><input type="submit" name="btnSubmit">
+      </form></p>
           <div class="table-responsive">
-          <div>
-          <p>
-
-            <form method="post" action="input">
-
-              <div class="container">
-            <div class="form-group row">
-            <div class="col-xs-4">
-            <label  for="nama">Nama Sales :</label>
-            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>">
-            </div>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
+                <tr>
+                  <th>Id Retur</th>
+                  <th>Nama Sales</th>
+                  <th>Nama Roti</th>
+                  <th>Jumlah</th>
+                  <th>Tanggal Kembali</th>
+                  
+                </tr>
+              </thead>
+              <?php
+                $no = 1;
+                foreach ($data as $row): ?>
+        <tr>
+          <td><?php echo $row->id_retur;?></td>
+          <td><?php echo $row->nama_sales;?></td>
+          <td><?php echo $row->nama_roti;?></td>
+          <td><?php echo $row->jumlah_roti;?></td>
+          <td><?php echo $row->tgl_kembali;?></td>
+        </tr>
+                <?php $no++;
+                endforeach;?>
+      </table>
+        
+        
+          <div class="table-responsive">
           </div>
+        <div class="table-responsive">
 
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="roti">Nama Roti:</label>
-                <select class="form-control" name="nama_roti">
-                <?php foreach ($roti as $row){ ?>
-                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
-                  <?php }?>
-                </select>
-                
+            <center><hr class='divider'>
+            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
+            </h2>
+            <hr class='divider'></center>
+            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
+            <p style='text-align:justify; margin:25px;'>
 
-            <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="Jumlah">Jumlah Roti: </label>
-              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>">
-          </div>
-          </div>
-          </div>
-
-            <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="Retur">Tanggal Kembali:</label>
-              <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>">
-            </div>
-          </div>
-        </div>
-
-              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
-              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
-
-              </div>
-          </form>
-          </p>
-    </div>
-        </div>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
+
+        </tr>
+
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+
+    
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
