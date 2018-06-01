@@ -4,51 +4,38 @@ class Retur_model extends CI_Model {
 	private $harga;
   
   function get_table(){
-        return $this->db->get("tabel_pesanan");
+        return $this->db->get("tabel_retur");
     }
     
   function get_data(){
-    $query = $this->db->query("SELECT * FROM tabel_pesanan JOIN tabel_roti WHERE tabel_pesanan.id_roti=tabel_roti.id_roti");
-    return $query->result();
-  }
-  
-  function get_detail($id){
-    $query = $this->db->query("SELECT * FROM tabel_detail_pesan JOIN tabel_pesanan JOIN tabel_roti WHERE tabel_detail_pesan.id_pesan=tabel_pesanan.id_pesan AND tabel_detail_pesan.id_roti = tabel_roti.id_roti AND tabel_detail_pesan.id_pesan = $id");
+    $query = $this->db->query("SELECT * FROM tabel_retur JOIN tabel_roti JOIN tabel_sales WHERE tabel_retur.id_roti=tabel_roti.id_roti AND tabel_retur.id_sales=tabel_sales.id_sales");
     return $query->result();
   }
 
   function get_roti(){
-    $query = $this->db->query("SELECT * FROM tabel_roti");
+    $query = $this->db->query("SELECT * FROM tabel_roti WHERE id_roti=7");
     return $query->result();
   }
-  
-  function get_data_edit($id){
-    $query = $this->db->query("SELECT * FROM tabel_pesanan WHERE id_pesan = '$id'");
-    return $query->result_array();
+
+    function get_sales(){
+    $query = $this->db->query("SELECT * FROM tabel_sales");
+    return $query->result();
   }
-  
+ 
   function input($data = array()){
-    return $this->db->insert('tabel_pesanan',$data);
+    return $this->db->insert('tabel_retur',$data);
   }
 
-   function input1($data = array()){
-    return $this->db->insert('tabel_detail_pesan',$data);
-  }
-  
   function delete($id){
-    $this->db->where('id_pesan', $id);
-        return $this->db->delete('tabel_pesanan');
+    $this->db->where('id_retur', $id);
+        return $this->db->delete('tabel_retur');
   }
   
-  function update($data = array(),$id){
-    $this->db->where('id_pesan',$id);
-    return $this->db->update('tabel_pesanan',$data);
+  function cari($nama_sales){
+    $query = $this->db->query("SELECT * FROM tabel_retur JOIN tabel_roti JOIN tabel_sales WHERE tabel_retur.id_roti=tabel_roti.id_roti AND tabel_retur.id_sales=tabel_sales.id_sales AND tabel_sales.nama_sales = '$nama_sales'");
+    return $query->result();
   }
 
-  function update1($data = array(),$id){
-    $this->db->where('id_pesan',$id);
-    return $this->db->insert('tabel_detail_pesan',$data);
-  }
   function set_jumlah_roti ($j){
 	$this->jumlah_roti=$j;
 	}

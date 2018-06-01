@@ -20,7 +20,15 @@ class StokSales_Model extends CI_Model {
     return $query->result();
   }
 
+   function input($data = array()){
+    return $this->db->insert('tabel_stok_sales',$data);
+  }
+
+function cari($nama_sales){
+    $query = $this->db->query("SELECT * FROM tabel_stok_sales JOIN tabel_sales JOIN tabel_roti WHERE tabel_stok_sales.id_roti=tabel_roti.id_roti AND tabel_stok_sales.id_sales=tabel_sales.id_sales AND tabel_sales.nama_sales = '$nama_sales'");
+    return $query->result();
+  }
+
 }
-      //$id_roti = $_GET['id_roti'];
-     // $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
+  
 ?>

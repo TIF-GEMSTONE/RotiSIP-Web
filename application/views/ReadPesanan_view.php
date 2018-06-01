@@ -140,7 +140,7 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
@@ -156,20 +156,17 @@
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
-          <th>No</th>
           <th>Id Pesan</th>
           <th>Nama Pemesan</th>
           <th>No. Telp</th>
           <th>Tgl Pesan</th>
           <th>Tgl Ambil</th>
           <th>Jam Ambil</th>
-          <th colspan="3">Aksi</th>
+          <th colspan="3"> <center> Aksi </center></th>
         </tr>
         <?php 
-        $no = 1;
         foreach ($data as $row){ ?>
         <tr>
-          <td><?php echo $no;?></td>
           <td><?php echo $row->id_pesan;?></td>
           <td><?php echo $row->nama_pemesan;?></td>
           <td><?php echo $row->no_telp;?></td>

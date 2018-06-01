@@ -45,6 +45,12 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Retur</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -83,7 +89,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
               <span class="badge badge-pill badge-primary">12 New</span>
@@ -114,7 +120,6 @@
     </div>
   </nav>
 
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -134,34 +139,62 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
-        <li class="breadcrumb-item active">Tables</li>
+        <li class="breadcrumb-item active">Penjualan</li>
       </ol>
       <!-- Example DataTables Card-->
-      <div class="jumbotron col-md-4" >
-       <?=form_open_multipart('produk/proses_input')?>
-        <div class="form-group">
-          <label for="nama">Nama :</label>
-          <input type="text" name="nama_roti" class="form-control" placeholder="Masukan Nama Roti" id="nama_roti" required>
-        </div>
-        <div class="form-group">
-          <label for="harga">Harga :</label>
-          <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Roti" id="harga" required>
-        </div>
-        <div class="form-group">
-          <label for="userfile">Gambar :</label>
-          <input type="file" name="userfile" class="file">
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-          </div><br>
-        </div>
-            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-     </div>
-           
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
-    </div>
+
+     <h1>Transaksi</h1>
+  <form action="http://localhost/RotiSIP-Web/Penjualan" method="post">
+    <div class="form-group">
+            <label class="control-label col-md-3" 
+              for="id_barang">Id Roti :</label>
+            <div class="col-md-5">
+              <input list="list_barang" class="form-control reset" 
+                placeholder="Isi id..." name="id_roti" id="id_roti" 
+                autocomplete="off" onchange="showBarang(this.value)">
+                    <datalist id="list_roti">
+                     <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
+                    </datalist>
+            </div>
+            
+          </div>
+          <div id="barang">
+            <div class="form-group">
+              <label class="control-label col-md-3" 
+                for="nama_barang">Nama Roti :</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control reset" 
+                  name="nama_roti" id="nama_roti" 
+                  readonly="readonly">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3" 
+                for="harga">Harga (Rp) :</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control reset" 
+                  name="harga" id="harga" 
+                  readonly="readonly">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3" 
+                for="qty">Quantity :</label>
+              <div class="col-md-4">
+                <input type="number" class="form-control reset" 
+                  autocomplete="off" onchange="subTotal(this.value)" 
+                  onkeyup="subTotal(this.value)" id="qty" min="0" 
+                  name="qty" placeholder="Isi qty...">
+              </div>
+            </div>
+          </div>
+    <input type='submit' name='btnSubmit' value="Tambah"><br>
+  </form>
+  
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

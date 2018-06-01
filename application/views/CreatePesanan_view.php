@@ -125,7 +125,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
@@ -143,15 +143,16 @@
             <div class="container">
             <div class="form-group row">
             <div class="col-xs-4">
-            <label  for="nama">Nama Pemesan :</label>
-            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>"><br/><br/>
+            <label  for="nama">Nama Pemesan:</label>
+            <input class="form-control" placeholder="Masukan Nama" type="text" name="nama_pemesan" value="<?php if(isset($data)) { echo $data[0]->nama_pemesan; } ?>">
             </div>
           </div>
 
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="nomor">Nomer Telepon: </label>
-              <input class="form-control" placeholder="Masukan Nama" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>"><br/><br/>
+              <input class="form-control" placeholder="Masukan Nomor" type="text" name="no_telp" value="<?php if(isset($data)) { echo $data[0]->no_telp; } ?>">
+    
                 </div>
           </div>
 
@@ -163,13 +164,15 @@
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>
                 </select>
-                <br/><br/>
+              </div>
+            </div>
+                
 
             <div class="container">
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="Jumlah">Jumlah Roti: </label>
-              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
+              <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>">
           </div>
           </div>
 </div>
@@ -178,7 +181,7 @@
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="Pesan">Tanggal Pesan:</label>
-              <input class="form-control" type="date" name="tgl_pesan" value="<?php if(isset($data)) { echo $data[0]->tgl_pesan; } ?>"><br/><br/>
+              <input class="form-control" type="date" name="tgl_pesan" value="<?php if(isset($data)) { echo $data[0]->tgl_pesan; } ?>">
             </div>
           </div>
         </div>
@@ -187,7 +190,7 @@
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="Pesan">Tanggal Ambil:</label>
-              <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>"><br/><br/>
+              <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>">
             </div>
           </div>
         </div>
@@ -196,7 +199,7 @@
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="Pesan">Jam Ambil:</label>
-              <input class="form-control" type="time" name="jam_ambil" value="<?php if(isset($data)) { echo $data[0]->jam_ambil; } ?>"><br/><br/>
+              <input class="form-control" type="time" name="jam_ambil" value="<?php if(isset($data)) { echo $data[0]->jam_ambil; } ?>">
           </div>
         </div>
       </div>

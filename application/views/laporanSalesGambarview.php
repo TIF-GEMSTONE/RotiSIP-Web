@@ -45,7 +45,7 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="http:/RotiSIP-Web/Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
@@ -140,46 +140,51 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
+          <a href="#">Stok</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
-      <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Data Stok</div>
+          <i class="fa fa-table"></i>Stok Sales</div>
         <div class="card-body">
           <div class="table-responsive">
-              <p><a class="btn btn-primary" href="<?php echo base_url()?>StokSIP/input">Tambah Stok</a></p>
-      <form action="StokSIP" method="post">
-      </form>
-      <p align="center">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <tr>
-          <th>Id Stok Pusat</th>
-          <th>Nama Roti</th>
-          <th>Tgl Produksi</th>
-          <th>Tgl Kadaluarsa</th>
-          <th>Jumlah</th>
-        </tr>
-        <?php 
-        foreach ($data as $row){ ?>
-        <tr>
-          <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->nama_roti;?></td>
-          <td><?php echo $row->tgl_produksi;?></td>
-          <td><?php echo $row->tgl_kadaluarsa;?></td>
-          <td><?php echo $row->jumlah_stok_pusat;?></td>
-        </tr>
-        <?php 
-      }?>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
+                 <th><img src="<?php echo base_url()?>assets/images/sales/sales1.png" alt="Sales1" style="width:100px"></th>
+                 
+                 <th><img src="<?php echo base_url()?>assets/images/sales/sales2.png" alt="Sales1" style="width:100px"></th>
+             
+                 <th><img src="<?php echo base_url()?>assets/images/sales/sales3.png" alt="Sales1" style="width:100px"></th>
+                 <tr>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Fahim Alfiyan</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Safira Azizah</a></td>
+                   <td><a href="<?php echo base_url()?>StokSalesGambar">Warda Novitasari</a></td>
+
+              </thead>
       </table>
-    </p>
-        </div>
+        
+        
+          <div class="table-responsive">
           </div>
-        </div>
-       
-    </div>
+        <div class="table-responsive">
+
+            <center><hr class='divider'>
+            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
+            </h2>
+            <hr class='divider'></center>
+            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
+            <p style='text-align:justify; margin:25px;'>
+
+          </div>
+                   </div>
+
+        </tr>
+
+      
+             
+             
+    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

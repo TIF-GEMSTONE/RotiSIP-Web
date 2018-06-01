@@ -148,34 +148,33 @@
         <div class="card-header">
           <i class="fa fa-table"></i>Stok Sales</div>
         <div class="card-body">
+          <p><a class="btn btn-primary" href="<?php echo base_url()?>StokSales/input">Tambah Stok</a></p>
+          <form action="StokSales" method="post">
+        <p><input type="text" name="nama_sales"><input type="submit" name="btnSubmit">
+      </form></p>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead>
                 <tr>
                   <th>Id Stok Sales</th>
-                  <th>Id Roti</th>
+                  <th>Nama Roti</th>
+                  <th>Nama Sales</th>
                   <th>Tanggal Ambil</th>
                   <th>Stok</th>
                   <th>Dibeli</th>
-                  <th colspan="1">Aksi</th>
                 </tr>
               </thead>
               <?php
                 $no = 1;
-                foreach ($data as $row): 
-
-     
-     // $id_roti = $_GET['id_roti'];
-      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
-
-        //if (mysqli_num_rows($query) == 0) {?>
+                foreach ($data as $row): ?>
         <tr>
           <td><?php echo $row->id_stok_sales;?></td>
-          <td><?php echo $row->id_roti;?></td>
+          <td><?php echo $row->nama_roti;?></td>
+          <td><?php echo $row->nama_sales;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jumlah_stok_sales  ;?></td>
           <td><?php echo $row->dibeli;?></td>
-          <td><a href="<?php echo base_url(); ?>StokSales<?php echo $row->id_stok_sales;?>">Tambah</a></td>
+          
         </tr>
         <tr></tr>
                 <?php $no++;
@@ -195,17 +194,15 @@
             <p style='text-align:justify; margin:25px;'>
 
           </div>
-                   </div>
+        </div>
 
         </tr>
 
-      
-             
-             
-    
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+
+    
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

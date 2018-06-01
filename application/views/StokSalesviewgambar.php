@@ -151,11 +151,7 @@
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead>
-                 <th><img src="<?php echo base_url()?>assets/images/sales/sales1.png" alt="Sales1" style="width:100px"></th>
                  
-                 <th><img src="<?php echo base_url()?>assets/images/sales/sales2.png" alt="Sales1" style="width:100px"></th>
-             
-                 <th><img src="<?php echo base_url()?>assets/images/sales/sales3.png" alt="Sales1" style="width:100px"></th>
                  <tr>
                    <td><a href="<?php echo base_url()?>StokSalesGambar">Fahim Alfiyan</a></td>
                    <td><a href="<?php echo base_url()?>StokSalesGambar">Safira Azizah</a></td>
