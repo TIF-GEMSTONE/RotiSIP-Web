@@ -137,8 +137,31 @@
           <div class="table-responsive">
           <div>
           <p>
+            <form action="input" method="post">
+            <table>
+                <tr><td>ID Stok</td><td><input type="text" onkeyup="isi_otomatis()" id="id_stok_pusat"></td></tr>
+                <tr><td>Nama Roti</td><td><input type="text" id="nama_roti"></td></tr>
+                <tr><td>Nama Sales</td><td><input type="text" id="nama_sales"></td></tr>
+                <tr><td>Tanggal Ambil</td><td><input type="date" id="tgl_ambil"></td></tr>
+                <tr><td>Jumlah</td><td><input type="number" id="jumlah_roti"></td></tr>
+            </table>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            function isi_otomatis(){
+                var id_stok_pusat = $("#id_stok_pusat").val();
+                $.ajax({
+                    url: 'proses-ajax.php',
+                    data:"id_stok_pusat="+id_stok_pusat ,
+                }).success(function (data) {
+                    var json = data,
+                    obj = JSON.parse(json);
+                    $('#nama_roti').val(obj.nama_roti);
+                });
+            }
+        </script>
 
-            <form method="post" action="input">
+            <!-- <form method="post" action="input"> 
               <div class="container">
               <div class="form-group row">
               <div class="col-xs-4">
@@ -179,7 +202,7 @@
               <a class="btn btn-warning" href="<?php echo base_url()?>StokSales">Kembali</a>
 
               </div>
-          </form>
+          </form> -->
 
           </p>
     </div>

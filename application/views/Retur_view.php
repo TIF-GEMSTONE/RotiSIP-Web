@@ -177,52 +177,7 @@
                 <?php $no++;
                 endforeach;?>
       </table>
-        
-        
-          <div class="table-responsive">
-          </div>
-        <div class="table-responsive">
-
-<<<<<<< HEAD
-             
-              Nama Roti:  
-			   <select name="nama_roti">
-                <?php foreach ($roti as $row){ ?>
-                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
-                  <?php }?>
-                </select>
-                <br/><br/>
-          
-              Jumlah Roti: <input type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>"><br/><br/>
-
-              Tanggal Kembali: <input type="date" name="tgl_kembali" value="<?php if(isset($data)) { echo $data[0]->tgl_kembali; } ?>"><br/><br/>
-			  Total retur : <input type="text" name="hitung_total" value="<?php if(isset($data)) { echo $data[0]->hitung_total; } ?>"><br/><br/>
-          
-              <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
-              <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
-          </form>
-          </p>
-    </div>
-        </div>
-=======
-            <center><hr class='divider'>
-            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
-            </h2>
-            <hr class='divider'></center>
-            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
-            <p style='text-align:justify; margin:25px;'>
-
->>>>>>> 98c4a80286cbc2836dc0ea3ce97793344e3f3491
-          </div>
-        </div>
-
-        </tr>
-
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
-
-    
+       
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
