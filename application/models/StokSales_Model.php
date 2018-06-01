@@ -25,7 +25,7 @@ class StokSales_Model extends CI_Model {
   }
 
 function cari($nama_sales){
-    $query = $this->db->query("SELECT * FROM tabel_stok_sales JOIN tabel_sales JOIN tabel_roti WHERE tabel_stok_sales.id_roti=tabel_roti.id_roti AND tabel_stok_sales.id_sales=tabel_sales.id_sales AND tabel_stok_sales.id_sales = '$nama_sales'");
+    $query = $this->db->query("SELECT * FROM tabel_stok_sales JOIN tabel_sales JOIN tabel_roti WHERE tabel_stok_sales.id_roti=tabel_roti.id_roti AND tabel_stok_sales.id_sales=tabel_sales.id_sales AND tabel_sales.nama_sales = '$nama_sales'");
     return $query->result();
   }
 
