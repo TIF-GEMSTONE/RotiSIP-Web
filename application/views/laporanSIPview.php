@@ -161,10 +161,10 @@
               <?php
                 foreach ($data as $row){ ?>
         <tr>
-          <td><?php echo $row->no_transaksi;?></td>
-          <td><?php echo $row->nama_pegawai;?></td>
-          <td><?php echo $row->tgl_transaksi;?></td>
-          <td><?php echo $row->total_jual;?></td>
+          <td><?= $row['no_transaksi'];?></td>
+          <td><?= $row['nama_pegawai'];?></td>
+          <td><?= $row['tgl_transaksi'];?></td>
+          <td><?= $row['total_jual'];?></td>
         </tr>
                 <?php } ?>
             </table>
