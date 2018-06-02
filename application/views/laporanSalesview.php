@@ -152,11 +152,12 @@
           <div class="table-responsive">
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <tr>
-                <th>No</th>
                 <th>No Transaksi</th>
+				<th>ID Sales</th>
                 <th>Tgl Transaksi</th>
                 <th>Total Jual</th>
                 <th>Cetak</th>
+				<th colspan="1"></th>
                 </tr>
               </thead>
               <?php
@@ -169,13 +170,11 @@
 
         //if (mysqli_num_rows($query) == 0) {?>
         <tr>
-          <td><?php echo $row->id_stok_sales;?></td>
-          <td><?php echo $row->id_stok_pusat;?></td>
-          <td><?php echo $row->id_sales;?></td>
-          <td><?php echo $row->tgl_ambil;?></td>
-          <td><?php echo $row->jumlah_stok_sales  ;?></td>
-          <td><?php echo $row->dibeli;?></td>
-          <td align="center"><a href="SalesBaru/update/<?php echo $row->id_sales; ?>">cetak</a>
+          <td><?php echo $row->no_transaksi;?></td>
+		  <td><?php echo $row->id_sales;?></td>
+          <td><?php echo $row->tgl_transaksi;?></td>
+          <td><?php echo $row->total;?></td>
+          <td align="center"><a href="LaporanSales/detail/<?php echo $row->id_sales; ?>">detail</a>
         </tr>
         <tr></tr>
                 <?php $no++;

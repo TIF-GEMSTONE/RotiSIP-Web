@@ -15,10 +15,11 @@ class LaporanSales extends CI_Controller{
 		//$this->load->view('App/list_mhs',['data' => $data]);
 		$this->load->view('laporanSalesGambarview',$data);
 	}
-	function cetak($id){
-		$this->Transaksi_Model->cetak($id);
-		redirect('RotiSIP-Web/LaporanSales');
-	}
-
+	
+ function detail($id){
+    	$data = array (
+				'detail' =>$this->TransaksiSales_Model->get_detail($id));
+		$this->load->view('DetailTransaksiSales_view', $data);
+    }
 }
 ?>
