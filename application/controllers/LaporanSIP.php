@@ -12,14 +12,14 @@ class LaporanSIP extends CI_Controller{
 		//$this->load->view('StokSalesview');
 		$data = array(
 				'data'=>$this->TransaksiSIP_Model->get_laporan());
-		//$this->load->view('App/list_mhs',['data' => $data]);
 		$this->load->view('laporanSIPview',$data);
 	}
-	function cetak($id){
-		$this->Transaksi_Model->cetak($id);
-		redirect('RotiSIP-Web/LaporanSIP');
-	}
-	
+
+    function detail($id){
+    	$data = array (
+				'detail' =>$this->TransaksiSIP_Model->get_detail($id));
+		$this->load->view('DetailTransaksiSIP_view', $data);
+    }
 
 }
 ?>

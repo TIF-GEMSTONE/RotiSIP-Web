@@ -114,13 +114,23 @@
           </div>
         </li>
         <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-
-
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -147,30 +157,38 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Laporan Roti SIP</div>
+          <i class="fa fa-table"></i>Laporan</div>
         <div class="card-body">
           <div class="table-responsive">
-             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <tr>
-                <th>No Transaksi</th>
-                <th>Nama Pegawai</th>
-                <th>Tgl Transaksi</th>
-                <th>Total</th>
-				<th colspan="1"></th>
-              </tr>
-            </thead>
-              <?php
-                foreach ($data as $row){ ?>
+      <form action="LaporanSIP" method="post">
+      </form>
+      <p align="center">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <tr>
+          <th>No Transaksi</th>
+          <th>Nama Roti</th>
+          <th>Jumlah Roti</th>
+          <th>Harga Roti</th>
+          <th>Tanggal Transaksi</th>
+		  <th>Total Transaksi</th>
+        </tr>
+        <?php 
+        $no = 1;
+        foreach ($detail as $row){ ?>
         <tr>
           <td><?= $row['no_transaksi'];?></td>
-          <td><?= $row['nama_pegawai'];?></td>
-          <td><?= $row['tgl_transaksi'];?></td>
+          <td><?= $row['nama_roti'];?></td>
+          <td><?= $row['jumlah'];?></td>
+          <td><?= $row['harga'];?></td>
+		  <td><?= $row['tgl_transaksi'];?></td>
           <td><?= $row['total_jual'];?></td>
-		  <td><a href="<?php echo base_url(); ?>LaporanSIP/detail/<?= $row['no_transaksi'];?>">Detail</a></td>
+
         </tr>
-                <?php 
-				} ?>
-            </table>
+        <?php 
+      }?>
+      </table>
+      <a class="btn btn-warning" href="<?php echo base_url()?>LaporanSIP">Kembali</a>
+    </p>
         </div>
           </div>
         </div>
@@ -216,4 +234,3 @@
 </body>
 
 </html>
-
