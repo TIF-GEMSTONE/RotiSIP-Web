@@ -9,6 +9,18 @@ class TransaksiSales_Model extends CI_Model {
 		$query = $this->db->query("SELECT * FROM tabel_detail_sales");
 		return $query->result();
 	}
+	function get_laporan(){
+		$this->db->select('tabel_transaksi_sales.*, tabel_sales.nama_sales');
+		$this->db->from('tabel_transaksi_sales');
+		$this->db->join('tabel_sales', 'tabel_sales.id_sales = tabel_transaksi_sales.id_sales');
+		$query = $this->db->get();
+		return $result = $query->result_array();
+	}
+	
+	function get_detail($id){
+    $query = $this->db->query("SELECT * FROM tabel_detail_sales JOIN tabel_roti JOIN tabel_transaksi_sales WHERE tabel_detail_sales.id_roti=tabel_roti.id_roti AND tabel_detail_sales.no_transaksi=tabel_transaksi_sip.no_transaksi AND tabel_detail_sales.no_transaksi = $id");
+    return $query->result();
+  }
 	}
       //$id_roti = $_GET['id_roti'];
      // $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");

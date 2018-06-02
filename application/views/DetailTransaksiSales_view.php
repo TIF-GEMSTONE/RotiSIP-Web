@@ -160,7 +160,7 @@
           <i class="fa fa-table"></i>Laporan</div>
         <div class="card-body">
           <div class="table-responsive">
-      <form action="LaporanSIP" method="post">
+      <form action="LaporanSales" method="post">
       </form>
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -179,7 +179,7 @@
           <td><?= $row['nama_roti'];?></td>
           <td><?= $row['jumlah'];?></td>
           <td><?= $row['harga'];?></td>
-		  <td><?= $row['total_jual'];?></td>
+		  <td><?= $row['total'];?></td>
 
         </tr>
         <?php 
