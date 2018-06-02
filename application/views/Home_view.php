@@ -42,9 +42,9 @@ body {
 
 /* Create four equal columns that sits next to each other */
 .column {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-    max-width: 25%;
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    max-width: 50%;
     padding: 0 4px;
 }
 
@@ -197,21 +197,24 @@ body {
                 <p><a href="<?php echo base_url();?>produk/input/" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data Roti</a></p>
             </div>
             
-            <div class="card mb-3">
+            <div class="container">
 
            <?php            
            foreach($produk as $p){            
             ?>
               <div class="column">
+                <div class="container">
+
              <a href="#">
-                <img src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt="">
+                <img width="150px" height="150px" src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt="">
               </a>
           </div>
               <div class="column">
-                <h6 class="card-title mb-1"><a href="#"><?php echo $p->nama_roti ?></a></h6>
-                <h4>Rp. <?php echo number_format($p->harga,0,",","."); ?></h4>
+                <h6><a href="#"><?php echo $p->nama_roti ?></a></h6>
+                <h6>Rp. <?php echo number_format($p->harga,0,",","."); ?></h6>
                 </p>
               </div>
+            </div>
           <?php } ?>
    
           </div>
