@@ -178,6 +178,12 @@
             </div>
           </div>
 
+           <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="id_stok_sales">ID Stok </label>
+              <input class="form-control" type="text" name="id_stok_sales" value="<?php if(isset($data)) { echo $data[0]->id_stok_sales; } ?>">
+
               <div class="container">
               <div class="form-group row">
               <div class="col-xs-4">

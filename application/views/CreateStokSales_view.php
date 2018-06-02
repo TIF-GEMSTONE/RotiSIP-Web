@@ -137,7 +137,7 @@
           <div class="table-responsive">
           <div>
           <p>
-            <form action="input" method="post">
+            <!-- <form action="input" method="post"> 
             <table>
                 <tr><td>ID Stok</td><td><input type="text" onkeyup="isi_otomatis()" id="id_stok_pusat"></td></tr>
                 <tr><td>Nama Roti</td><td><input type="text" id="nama_roti"></td></tr>
@@ -159,10 +159,18 @@
                     $('#nama_roti').val(obj.nama_roti);
                 });
             }
-        </script>
+        </script> -->
 
-            <!-- <form method="post" action="input"> 
+            <form method="post" action="input"> 
               <div class="container">
+
+                <div class="form-group row">
+            <div class="col-xs-4">
+            <label  for="id_stok_pusat">ID Stok:</label>
+            <input class="form-control" type="text" name="id_stok_pusat" value="<?php if(isset($data)) { echo $data[0]->id_stok_pusat; } ?>">
+            </div>
+          </div>
+
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="roti">Nama Roti:</label>
@@ -202,7 +210,7 @@
               <a class="btn btn-warning" href="<?php echo base_url()?>StokSales">Kembali</a>
 
               </div>
-          </form> -->
+          </form>
 
           </p>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2018 at 06:01 AM
+-- Generation Time: Jun 02, 2018 at 07:23 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -71,7 +71,9 @@ CREATE TABLE `tabel_detail_pesan` (
 INSERT INTO `tabel_detail_pesan` (`id_pesan`, `id_roti`, `jumlah_roti`) VALUES
 (10, 1, 12),
 (11, 1, 12),
-(12, 1, 23);
+(12, 1, 23),
+(13, 1, 2),
+(14, 3, 50);
 
 -- --------------------------------------------------------
 
@@ -94,8 +96,21 @@ CREATE TABLE `tabel_detail_sales` (
 CREATE TABLE `tabel_detail_sip` (
   `no_transaksi` int(11) NOT NULL,
   `id_roti` int(11) NOT NULL,
-  `jumlah_roti` int(11) NOT NULL
+  `id_stok_pusat` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Triggers `tabel_detail_sip`
+--
+DELIMITER $$
+CREATE TRIGGER `T_sip` AFTER INSERT ON `tabel_detail_sip` FOR EACH ROW BEGIN
+UPDATE tabel_stok_pusat SET jumlah_stok_pusat=jumlah_stok_pusat-NEW.jumlah
+WHERE id_stok_pusat = NEW.id_stok_pusat;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -141,7 +156,9 @@ CREATE TABLE `tabel_pesanan` (
 
 INSERT INTO `tabel_pesanan` (`id_pesan`, `nama_pemesan`, `no_telp`, `id_roti`, `jumlah_roti`, `tgl_pesan`, `tgl_ambil`, `jam_ambil`) VALUES
 (11, 'qqwe', '123', 1, 12, '2018-05-10', '2018-05-17', '12:21:00'),
-(12, 'rezhi', '1234567890', 1, 23, '2018-05-23', '2018-05-24', '12:12:00');
+(12, 'rezhi', '1234567890', 1, 23, '2018-05-23', '2018-05-24', '12:12:00'),
+(13, 'h', '5', 1, 2, '2018-05-03', '2018-05-24', '12:59:00'),
+(14, 'asd', '08123456789', 3, 50, '2018-05-23', '2018-05-24', '09:09:00');
 
 -- --------------------------------------------------------
 
@@ -150,11 +167,24 @@ INSERT INTO `tabel_pesanan` (`id_pesan`, `nama_pemesan`, `no_telp`, `id_roti`, `
 --
 
 CREATE TABLE `tabel_retur` (
-  `id_roti` int(10) NOT NULL,
-  `tgl_kembali` date NOT NULL,
+  `id_retur` int(11) NOT NULL,
+  `id_stok_sales` int(11) NOT NULL,
+  `id_sales` int(11) NOT NULL,
+  `id_roti` int(11) NOT NULL,
   `jumlah_roti` int(11) NOT NULL,
-  `total_retur` double NOT NULL
+  `tgl_kembali` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Triggers `tabel_retur`
+--
+DELIMITER $$
+CREATE TRIGGER `T_retur` AFTER INSERT ON `tabel_retur` FOR EACH ROW BEGIN
+UPDATE tabel_stok_sales SET jumlah_stok_sales=jumlah_stok_sales-NEW.jumlah_roti
+WHERE id_stok_sales = NEW.id_stok_sales;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -204,7 +234,8 @@ CREATE TABLE `tabel_sales` (
 INSERT INTO `tabel_sales` (`id_sales`, `nama_sales`, `alamat`, `no_telp`, `username`, `password`) VALUES
 (10001, 'Fahim Alfiyan', 'Jl Mastrip Sumbersari Jember', '085736795247', 'yans', '12345'),
 (10002, 'Safira Azizah', 'Perum Mastrip', '082233851764', 'safira', 'saf123'),
-(10003, 'Warda Novitasari', 'Arjasa', '08123456789', 'vita', 'vita123');
+(10003, 'Warda Novitasari', 'Arjasa', '08123456789', 'vita', 'vita123'),
+(10004, 'mardiana', 'jember', '08123456789', 'mard', '12345');
 
 -- --------------------------------------------------------
 
@@ -241,7 +272,10 @@ CREATE TABLE `tabel_stok_pusat` (
 --
 
 INSERT INTO `tabel_stok_pusat` (`id_stok_pusat`, `id_roti`, `tgl_produksi`, `tgl_kadaluarsa`, `jumlah_stok_pusat`, `dibeli`) VALUES
-(20001, 1, '2018-05-20', '2018-05-26', 75, 25);
+(20001, 1, '2018-05-20', '2018-05-26', 65, 25),
+(20002, 6, '2018-05-31', '2018-06-02', 30, 0),
+(20003, 2, '2018-06-01', '2018-06-05', 20, 0),
+(20004, 7, '2018-05-30', '2018-06-02', 12, 0);
 
 -- --------------------------------------------------------
 
@@ -264,7 +298,22 @@ CREATE TABLE `tabel_stok_sales` (
 --
 
 INSERT INTO `tabel_stok_sales` (`id_stok_sales`, `id_stok_pusat`, `id_roti`, `id_sales`, `tgl_ambil`, `jumlah_stok_sales`, `dibeli`) VALUES
-(30001, 20001, 1, 10001, '2018-05-20', 21, 4);
+(30002, 20002, 6, 10002, '2018-05-31', 5, 0),
+(30003, 20004, 7, 10002, '2018-05-30', 3, 0),
+(30004, 20001, 1, 10002, '2018-06-01', 5, 0),
+(30005, 20001, 1, 10001, '2018-06-02', 5, 0),
+(30006, 20002, 6, 10001, '2018-06-02', 4, 0);
+
+--
+-- Triggers `tabel_stok_sales`
+--
+DELIMITER $$
+CREATE TRIGGER `T_stok` AFTER INSERT ON `tabel_stok_sales` FOR EACH ROW BEGIN
+UPDATE tabel_stok_pusat SET jumlah_stok_pusat=jumlah_stok_pusat-NEW.jumlah_stok_sales
+WHERE id_stok_pusat = NEW.id_stok_pusat;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -287,8 +336,16 @@ CREATE TABLE `tabel_transaksi_sales` (
 CREATE TABLE `tabel_transaksi_sip` (
   `no_transaksi` int(11) NOT NULL,
   `id_pegawai` int(11) NOT NULL,
-  `tgl_transaksi` date NOT NULL
+  `tgl_transaksi` date NOT NULL,
+  `total_jual` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_transaksi_sip`
+--
+
+INSERT INTO `tabel_transaksi_sip` (`no_transaksi`, `id_pegawai`, `tgl_transaksi`, `total_jual`) VALUES
+(2, 1, '2018-06-04', 20);
 
 --
 -- Indexes for dumped tables
@@ -319,7 +376,8 @@ ALTER TABLE `tabel_detail_sales`
 --
 ALTER TABLE `tabel_detail_sip`
   ADD KEY `id_roti` (`id_roti`),
-  ADD KEY `no_transaksi` (`no_transaksi`);
+  ADD KEY `no_transaksi` (`no_transaksi`),
+  ADD KEY `id_stok_pusat` (`id_stok_pusat`);
 
 --
 -- Indexes for table `tabel_pegawai`
@@ -338,7 +396,10 @@ ALTER TABLE `tabel_pesanan`
 -- Indexes for table `tabel_retur`
 --
 ALTER TABLE `tabel_retur`
-  ADD KEY `id_roti` (`id_roti`);
+  ADD PRIMARY KEY (`id_retur`),
+  ADD KEY `id_sales` (`id_sales`),
+  ADD KEY `id_roti` (`id_roti`),
+  ADD KEY `id_stok_sales` (`id_stok_sales`);
 
 --
 -- Indexes for table `tabel_roti`
@@ -403,7 +464,7 @@ ALTER TABLE `app_data`
 -- AUTO_INCREMENT for table `tabel_detail_pesan`
 --
 ALTER TABLE `tabel_detail_pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tabel_pegawai`
 --
@@ -413,7 +474,12 @@ ALTER TABLE `tabel_pegawai`
 -- AUTO_INCREMENT for table `tabel_pesanan`
 --
 ALTER TABLE `tabel_pesanan`
-  MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `tabel_retur`
+--
+ALTER TABLE `tabel_retur`
+  MODIFY `id_retur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tabel_roti`
 --
@@ -423,7 +489,7 @@ ALTER TABLE `tabel_roti`
 -- AUTO_INCREMENT for table `tabel_sales`
 --
 ALTER TABLE `tabel_sales`
-  MODIFY `id_sales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10004;
+  MODIFY `id_sales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10005;
 --
 -- AUTO_INCREMENT for table `tabel_setoran`
 --
@@ -433,12 +499,12 @@ ALTER TABLE `tabel_setoran`
 -- AUTO_INCREMENT for table `tabel_stok_pusat`
 --
 ALTER TABLE `tabel_stok_pusat`
-  MODIFY `id_stok_pusat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20002;
+  MODIFY `id_stok_pusat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20005;
 --
 -- AUTO_INCREMENT for table `tabel_stok_sales`
 --
 ALTER TABLE `tabel_stok_sales`
-  MODIFY `id_stok_sales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30002;
+  MODIFY `id_stok_sales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30007;
 --
 -- Constraints for dumped tables
 --
@@ -459,7 +525,8 @@ ALTER TABLE `tabel_detail_sales`
 -- Constraints for table `tabel_detail_sip`
 --
 ALTER TABLE `tabel_detail_sip`
-  ADD CONSTRAINT `tabel_detail_sip_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`);
+  ADD CONSTRAINT `tabel_detail_sip_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`),
+  ADD CONSTRAINT `tabel_detail_sip_ibfk_2` FOREIGN KEY (`id_stok_pusat`) REFERENCES `tabel_stok_pusat` (`id_stok_pusat`);
 
 --
 -- Constraints for table `tabel_pesanan`
@@ -471,7 +538,9 @@ ALTER TABLE `tabel_pesanan`
 -- Constraints for table `tabel_retur`
 --
 ALTER TABLE `tabel_retur`
-  ADD CONSTRAINT `tabel_retur_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tabel_retur_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`),
+  ADD CONSTRAINT `tabel_retur_ibfk_2` FOREIGN KEY (`id_sales`) REFERENCES `tabel_sales` (`id_sales`),
+  ADD CONSTRAINT `tabel_retur_ibfk_3` FOREIGN KEY (`id_stok_sales`) REFERENCES `tabel_stok_sales` (`id_stok_sales`);
 
 --
 -- Constraints for table `tabel_setoran`
