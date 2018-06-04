@@ -135,11 +135,14 @@
           <i class="fa fa-table"></i>Data Pesanan</div>
         <div class="card-body">
           <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+               <thead>
           <div>
           <p>
-
             <form method="post" action="input">
-
+            <div class="container">
+              
+              <th>
             <div class="container">
             <div class="form-group row">
             <div class="col-xs-4">
@@ -168,15 +171,17 @@
             </div>
                 
 
-            <div class="container">
+
               <div class="form-group row">
               <div class="col-xs-4">
               <label for="Jumlah">Jumlah Roti: </label>
               <input class="form-control" placeholder="Masukan Jumlah" type="text" name="jumlah_roti" value="<?php if(isset($data)) { echo $data[0]->jumlah_roti; } ?>">
           </div>
           </div>
-</div>
 
+          </th>
+
+          <td>     
             <div class="container">
               <div class="form-group row">
               <div class="col-xs-4">
@@ -208,16 +213,18 @@
               <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
 
               </div>
+            </td>
           </form>
-
           </p>
     </div>
         </div>
+
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+
       </div>
     </div>
+
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
