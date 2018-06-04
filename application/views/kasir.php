@@ -159,23 +159,27 @@
           <div class="col-md-8">
     <div class="form-group">
             <label class="control-label col-md-3" 
-              for="id_roti">Id Roti :</label>
+              for="id_barang">Id Roti :</label>
             <div class="col-md-5">
-              <input list="list_roti" class="form-control reset" 
+              <input list="list_barang" class="form-control reset" 
                 placeholder="Isi id..." name="id_roti" id="id_roti" 
-                autocomplete="off" onchange="showRoti(this.value)">
+                autocomplete="off" onchange="showBarang(this.value)">
                     <datalist id="list_roti">
-                     <?php foreach ($tabel_roti as $tabel_roti): ?>
-                        <option value="<?= $tabel_roti->id_roti ?>"><?= $tabel_roti->nama_roti ?></option>
-                      <?php endforeach ?>
+                     <?php foreach ($roti as $row){ ?>
+                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
+                  <?php }?>
                     </datalist>
             </div>
             
           </div>
+<<<<<<< HEAD
           <div id="tabel_roti">
+=======
+          <div id="barang">
+>>>>>>> b19d4534efa8c33f92b0427abaecb562a39cf837
             <div class="form-group">
               <label class="control-label col-md-3" 
-                for="nama_roti">Nama Roti :</label>
+                for="nama_barang">Nama Roti :</label>
               <div class="col-md-8">
                 <input type="text" class="form-control reset" 
                   name="nama_roti" id="nama_roti" 
@@ -193,15 +197,16 @@
             </div>
             <div class="form-group">
               <label class="control-label col-md-3" 
-                for="jumlah_roti">Quantity :</label>
+                for="qty">Quantity :</label>
               <div class="col-md-4">
                 <input type="number" class="form-control reset" 
                   autocomplete="off" onchange="subTotal(this.value)" 
-                  onkeyup="subTotal(this.value)" id="jumlah_roti" min="0" 
-                  name="jumlah_roti" placeholder="Isi qty...">
+                  onkeyup="subTotal(this.value)" id="qty" min="0" 
+                  name="qty" placeholder="Isi qty...">
               </div>
             </div>
           </div>
+<<<<<<< HEAD
 
            <div class="form-group">
             <label class="control-label col-md-3" 
@@ -485,6 +490,10 @@
     }
 
   </script>
+=======
+    <input type='submit' name='btnSubmit' value="Tambah"><br>
+  </form>
+>>>>>>> b19d4534efa8c33f92b0427abaecb562a39cf837
   
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
