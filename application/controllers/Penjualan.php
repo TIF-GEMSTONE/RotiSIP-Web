@@ -13,31 +13,30 @@ class Penjualan extends CI_Controller{
 		$this->load->view('v_penjualan', $data);
 	}
 
-	function get_coba(){
-		$id_coba=$this->input->post('id_coba');
-		$x['roti']=$this->roti_model->get_roti($id_coba);
+	function get_roti(){
+		$id_roti=$this->input->post('id_roti');
+		$x['roti']=$this->roti_model->get_roti($id_roti);
 		$this->load->view('v_detail_jual',$x);
 	}
 
 	function add_to_cart(){
-		$id_coba=$this->input->post('id_coba');
-		$produk=$this->roti_model->get_coba($id_coba);
+		$id_roti=$this->input->post('id_roti');
+		$produk=$this->roti_model->get_roti($id_roti);
 		$i=$produk->row_array();
 		$data = array(
-               'id_coba'       => $i['id_coba'],
-               'nama_coba'     => $i['nama_coba'],
-               'stok'	     => $i['stok'],
+               'id_roti'       => $i['id_roti'],
+               'nama_roti'     => $i['nama_roti'],
                'qty'      	=> $this->input->post('qty'),
-               'amount'	  	=> str_replace(",", "", $this->input->post('harga'))
+               'amount'	  => str_replace(",", "", $this->input->post('harga'))
             );
 	if(!empty($this->cart->total_items())){
 		foreach ($this->cart->contents() as $items){
-			$id_coba=$items['id_coba'];
+			$id_roti=$items['id_roti'];
 			$qtylama=$items['qty'];
 			$rowid=$items['rowid'];
-			$id_coba=$this->input->post('id_coba');
+			$id_roti=$this->input->post('id_roti');
 			$qty=$this->input->post('qty');
-			if($id==$id_coba){
+			if($id==$id_roti){
 				$up=array(
 					'rowid'=> $rowid,
 					'qty'=>$qtylama+$qty
