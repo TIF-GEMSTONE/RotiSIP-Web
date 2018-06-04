@@ -13,30 +13,31 @@ class Penjualan extends CI_Controller{
 		$this->load->view('v_penjualan', $data);
 	}
 
-	function get_roti(){
-		$id_roti=$this->input->post('id_roti');
-		$x['roti']=$this->roti_model->get_roti($id_roti);
+	function get_coba(){
+		$id_coba=$this->input->post('id_coba');
+		$x['roti']=$this->roti_model->get_roti($id_coba);
 		$this->load->view('v_detail_jual',$x);
 	}
 
 	function add_to_cart(){
-		$id_roti=$this->input->post('id_roti');
-		$produk=$this->roti_model->get_roti($id_roti);
+		$id_coba=$this->input->post('id_coba');
+		$produk=$this->roti_model->get_coba($id_coba);
 		$i=$produk->row_array();
 		$data = array(
-               'id_roti'       => $i['id_roti'],
-               'nama_roti'     => $i['nama_roti'],
-               'qty'      => $this->input->post('qty'),
-               'amount'	  => str_replace(",", "", $this->input->post('harga'))
+               'id_coba'       => $i['id_coba'],
+               'nama_coba'     => $i['nama_coba'],
+               'stok'	     => $i['stok'],
+               'qty'      	=> $this->input->post('qty'),
+               'amount'	  	=> str_replace(",", "", $this->input->post('harga'))
             );
 	if(!empty($this->cart->total_items())){
 		foreach ($this->cart->contents() as $items){
-			$id_roti=$items['id_roti'];
+			$id_coba=$items['id_coba'];
 			$qtylama=$items['qty'];
 			$rowid=$items['rowid'];
-			$id_roti=$this->input->post('id_roti');
+			$id_coba=$this->input->post('id_coba');
 			$qty=$this->input->post('qty');
-			if($id==$id_roti){
+			if($id==$id_coba){
 				$up=array(
 					'rowid'=> $rowid,
 					'qty'=>$qtylama+$qty
@@ -72,8 +73,8 @@ class Penjualan extends CI_Controller{
 				echo $this->session->set_flashdata('msg','<label class="label label-danger">Jumlah Uang yang anda masukan Kurang</label>');
 				redirect('Penjualan');
 			}else{
-				$notrans=$this->enjualan_model->get_notrans();
-				$this->session->set_userdata('nofak',$nofak);
+				$notrans=$this->Penjualan_model->get_notrans();
+				$this->session->set_userdata('notrans',$notrans);
 				$order_proses=$this->Penjualan_model->simpan_penjualan($notrans,$total_jual,$uang,$kembalian);
 				if($order_proses){
 					$this->cart->destroy();
