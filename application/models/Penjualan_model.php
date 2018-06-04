@@ -1,65 +1,36 @@
 <?php
 class Penjualan_model extends CI_Model {
 
-	private $primary_key = 'id_roti';
-	private $table_name	= 'tabel_roti';
-	
-	function get_table(){
-        return $this->db->get("tabel_transaksi_sip");
-    }
-    
-	function get_data(){
-		$query = $this->db->query("SELECT * FROM tabel_transaksi_sip ");
-		return $query->result();
+	function simpan_penjualan($notrans,$total_jual,$uang,$kembalian){
+		$this->db->query("INSERT INTO tabel_transaksi_sip (no_transaksi,total_jual,uang,kembalian) VALUES ('$notrans',
+			'$uang','$kembalian')");
+		foreach ($this->cart->contents() as $item) {
+			$data=array(
+				'no_transaksi' 		=>	$notrans,
+				'id_roti'			=>	$item['id_roti'],
+				'harga'				=>	$item['amount'],
+				'jumlah'			=>	$item['qty'],
+				'total'				=>	$item['subtotal']
+			);
+			$this->db->insert('tabel_detail_sip',$data);
+			$this->db->query("update tabel_stok_pusat set jumlah_stok_pusat=jumlah_stok_pusat-'$item[qty]' where id_stok_pusat='$item[id_stok_pusat]'");
+		}
+		return true;
 	}
-	
-	function get_detail(){
-		$query = $this->db->query("SELECT * FROM tabel_detail_sip");
-		return $query->result();
+	function get_notrans(){
+		$q = $this->db->query("SELECT MAX(RIGHT(no_transaksi,6)) AS kd_max FROM tabel_transaksi_sip WHERE DATE(tgl_transaksi)=CURDATE()");
+        $kd = "";
+        if($q->num_rows()>0){
+            foreach($q->result() as $k){
+                $tmp = ((int)$k->kd_max)+1;
+                $kd = sprintf("%06s", $tmp);
+            }
+        }else{
+            $kd = "000001";
+        }
+        return date('dmy').$kd;
 	}
-	
-	function get_data_edit($no){
-		$query = $this->db->query("SELECT * FROM tabel_transaksi_sip WHERE no_transaksi = '$no'");
-		return $query->result_array();
-	}
-
-	function get_roti(){
-    $query = $this->db->query("SELECT * FROM tabel_roti");
-    return $query->result();
-  }
-	
-	// function input($data = array()){
-	// 	return $this->db->insert('tabel_detail_sip',$data);
-	// }
-	
-	function delete($no){
-		$this->db->where('no_transaksi', $no);
-        return $this->db->delete('tabel_transaksi_sip');
-	}
-	
-	function update($data = array(),$no){
-		$this->db->where('no_transaksi',$no);
-		return $this->db->update('tabel_transaksi_sip',$data);
-	}
-
-	public function get() 
-	{
-	  	
-	  	$this->db->select('id_roti,nama_roti');
-
-		return $this->db->get($this->table_name)->result();
-	
-	}
-
-	public function get_by_id($id)
-	{
-	  
-	  	$this->db->where($this->primary_key,$id); 
-	  
-	  	return $this->db->get($this->table_name)->row();
-	
-	}	
-
 }
+
 
 ?>

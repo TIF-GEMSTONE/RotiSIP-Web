@@ -2,165 +2,94 @@
 class Penjualan extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
-		$this->load->library('session');
 		$this->load->helper(array('url'));
+		$this->load->model('roti_model');
 		$this->load->model('Penjualan_model');
 	}
 
 	function index(){
-		if (isset($_POST['btnSubmit'])) {
-			$this->model->insert();
-				redirect('kasir');
-		}else{
+		$data = array (
+				'data' =>$this->roti_model->get_data());
+		$this->load->view('v_penjualan', $data);
+	}
+
+	function get_roti(){
+		$id_roti=$this->input->post('id_roti');
+		$x['roti']=$this->roti_model->get_roti($id_roti);
+		$this->load->view('v_detail_jual',$x);
+	}
+
+	function add_to_cart(){
+		$id_roti=$this->input->post('id_roti');
+		$produk=$this->roti_model->get_roti($id_roti);
+		$i=$produk->row_array();
 		$data = array(
-				'data'=>$this->Penjualan_model->get_data());
-		$this->load->view('ListPenjualan_view',$data);
-		}
-	}
-
-	function input(){
-		$data['tabel_roti'] = $this->Penjualan_model->get();
-			$this->load->view('kasir',$data);
-			}
-
-	function delete($no){
-		$this->Penjualan_model->delete($no);
-		redirect('Penjualan/home');
-
-	}
-
-public function getroti($id)
-	{
-
-		$this->load->model('Penjualan_model');
-
-		$tabel_roti = $this->Penjualan_model->get_by_id($id);
-
-		if ($tabel_roti) {
-			if ($tabel_roti->harga == '0') {
-				$disabled = 'disabled';
-				$info_stok = '<span class="help-block badge" id="reset" 
-					          style="background-color: #d9534f;">
-					          stok habis</span>';
+               'id_roti'       => $i['id_roti'],
+               'nama_roti'     => $i['nama_roti'],
+               'qty'      => $this->input->post('qty'),
+               'amount'	  => str_replace(",", "", $this->input->post('harga'))
+            );
+	if(!empty($this->cart->total_items())){
+		foreach ($this->cart->contents() as $items){
+			$id_roti=$items['id_roti'];
+			$qtylama=$items['qty'];
+			$rowid=$items['rowid'];
+			$id_roti=$this->input->post('id_roti');
+			$qty=$this->input->post('qty');
+			if($id==$id_roti){
+				$up=array(
+					'rowid'=> $rowid,
+					'qty'=>$qtylama+$qty
+					);
+				$this->cart->update($up);
 			}else{
-				$disabled = '';
-				$info_stok = '<span class="help-block badge" id="reset" 
-					          style="background-color: #5cb85c;">stok : '
-					          .$tabel_roti->harga.'</span>';
+				$this->cart->insert($data);
 			}
-
-			echo '<div class="form-group">
-				      <label class="control-label col-md-3" 
-				      	for="nama_roti">Nama Roti :</label>
-				      <div class="col-md-8">
-				        <input type="text" class="form-control reset" 
-				        	name="nama_roti" id="nama_roti" 
-				        	value="'.$tabel_roti->nama_roti.'"
-				        	readonly="readonly">
-				      </div>
-				    </div>
-				    <div class="form-group">
-				      <label class="control-label col-md-3" 
-				      	for="harga">Harga (Rp) :</label>
-				      <div class="col-md-8">
-				        <input type="text" class="form-control reset" id="harga" name="harga" 
-				        	value="'.number_format( $tabel_roti->harga, 0 ,
-				        	 '' , '.' ).'" readonly="readonly">
-				      </div>
-				    </div>
-				    ';
-	    }else{
-
-	    	echo '<div class="form-group">
-				      <label class="control-label col-md-3" 
-				      	for="nama_roti">Nama Roti :</label>
-				      <div class="col-md-8">
-				        <input type="text" class="form-control reset" 
-				        	name="nama_roti" id="nama_roti" 
-				        	readonly="readonly">
-				      </div>
-				    </div>
-				    <div class="form-group">
-				      <label class="control-label col-md-3" 
-				      	for="harga">Harga (Rp) :</label>
-				      <div class="col-md-8">
-				        <input type="text" class="form-control reset" 
-				        	name="harga" id="harga" 
-				        	readonly="readonly">
-				      </div>
-				    </div>
-				    <div class="form-group">
-				      <label class="control-label col-md-3" 
-				      	for="qty">Quantity :</label>
-				      <div class="col-md-4">
-				        <input type="number" class="form-control reset" 
-				        	autocomplete="off" onchange="subTotal(this.value)" 
-				        	onkeyup="subTotal(this.value)" id="jumlah_roti" min="0"  
-				        	name="qty" placeholder="Isi qty...">
-				      </div>
-				    </div>';
-	    }
-
+		}
+	}else{
+		$this->cart->insert($data);
 	}
 
-	public function ajax_list_transaksi()
-	{
-
-		$data = array();
-
-		$no = 1; 
-        
-        foreach ($this->cart->contents() as $items){
-        	
-			$row = array();
-			$row[] = $no;
-			$row[] = $items["id_roti"];
-			$row[] = $items["name"];
-			$row[] = 'Rp. ' . number_format( $items['price'], 
-                    0 , '' , '.' ) . ',-';
-			$row[] = $items["jumlah_roti"];
-			$row[] = 'Rp. ' . number_format( $items['subtotal'], 
-					0 , '' , '.' ) . ',-';
-
-			//add html for action
-			$row[] = '<a 
-				href="javascript:void()" style="color:rgb(255,128,128);
-				text-decoration:none" onclick="deleteroti('
-					."'".$items["rowid"]."'".','."'".$items['subtotal'].
-					"'".')"> <i class="fa fa-close"></i> Delete</a>';
-		
-			$data[] = $row;
-			$no++;
-        }
-
-		$output = array(
-						"data" => $data,
-				);
-		//output to json format
-		echo json_encode($output);
+		redirect('Penjualan');
 	}
 
-	public function addroti()
-	{
-
-		$data = array(
-				'id_roti' => $this->input->post('id_roti'),
-				'nama_roti' => $this->input->post('nama_roti'),
-				'harga' => str_replace('.', '', $this->input->post(
-					'harga')),
-				'jumlah_roti' => $this->input->post('jumlah_roti')
-			);
-		$insert = $this->cart->insert($data);
-		echo json_encode(array("status" => TRUE));
-	}
-
-	public function deleteroti($rowid) 
-	{
-
+	function remove(){
+		$row_id=$this->uri->segment(4);
 		$this->cart->update(array(
-				'rowid'=>$rowid,
-				'jumlah_roti'=>0,));
-		echo json_encode(array("status" => TRUE));
+               'rowid'      => $row_id,
+               'qty'     => 0
+            ));
+		redirect('Penjualan');
+	
+	}
+
+	function simpan_penjualan(){
+		$total=$this->input->post('total');
+		$jml_uang=str_replace(",", "", $this->input->post('jml_uang'));
+		$kembalian=$jml_uang-$total;
+		if(!empty($total) && !empty($jml_uang)){
+			if($jml_uang < $total){
+				echo $this->session->set_flashdata('msg','<label class="label label-danger">Jumlah Uang yang anda masukan Kurang</label>');
+				redirect('Penjualan');
+			}else{
+				$notrans=$this->enjualan_model->get_notrans();
+				$this->session->set_userdata('nofak',$nofak);
+				$order_proses=$this->Penjualan_model->simpan_penjualan($notrans,$total_jual,$uang,$kembalian);
+				if($order_proses){
+					$this->cart->destroy();
+					
+					$this->session->unset_userdata('tgl_transaksi');
+					$this->load->view('laporanSIPview');	
+				}else{
+					redirect('Penjualan');
+				}
+			}
+			
+		}else{
+			echo $this->session->set_flashdata('msg','<label class="label label-danger">Penjualan Gagal di Simpan, Mohon Periksa Kembali Semua Inputan Anda!</label>');
+			redirect('Penjualan');
+		}
+
 	}
 }
 ?>

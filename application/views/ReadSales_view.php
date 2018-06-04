@@ -158,7 +158,6 @@
             		<th>Alamat</th>
             		<th>No.Telp</th>
             		<th>Username</th>
-            		<th>Password</th>
             		<th>Aksi</th>
             	</tr>
             	<?php
@@ -170,7 +169,6 @@
 					<td><?php echo $row->alamat; ?></td>
 					<td><?php echo $row->no_telp; ?></td>
 					<td><?php echo $row->username; ?></td>
-					<td><?php echo $row->password; ?></td>
 					<td align="center"><a href="SalesBaru/update/<?php echo $row->id_sales; ?>">Ubah</a>
 					<a href="SalesBaru/delete/<?php echo $row->id_sales; ?>">Hapus</a></td>
 				</tr>

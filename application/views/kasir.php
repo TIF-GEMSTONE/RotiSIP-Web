@@ -16,6 +16,12 @@
   <link href="<?php echo base_url ('assets/vendor/datatables/dataTables.bootstrap4.css');?>" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url ('assets/css/sb-admin.css');?>" rel="stylesheet">
+
+  <script src="<?= base_url('assets/jquery-2.1.4.min.js') ?>"></script>
+  <script src="<?= base_url('assets/bootstrap-3.3.5/js/bootstrap.min.js') ?>"></script>
+  <script src="<?= base_url('assets/datatables/js/jquery.dataTables.min.js') ?>"></script>
+  <script src="<?= base_url('assets/datatables/js/dataTables.bootstrap.js') ?>"></script>
+  <script src="<?= base_url('assets/maskMoney/jquery.maskMoney.min.js') ?>"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -146,7 +152,11 @@
       <!-- Example DataTables Card-->
 
      <h1>Transaksi</h1>
-  <form action="http://localhost/RotiSIP-Web/Penjualan" method="post">
+     <div class="col-md-9">
+    <div class="panel panel-default">
+     <div class="panel-body">
+      <form class="form-horizontal" id="form_transaksi" role="form">
+          <div class="col-md-8">
     <div class="form-group">
             <label class="control-label col-md-3" 
               for="id_roti">Id Roti :</label>
@@ -162,7 +172,7 @@
             </div>
             
           </div>
-          <div id="nama_roti">
+          <div id="tabel_roti">
             <div class="form-group">
               <label class="control-label col-md-3" 
                 for="nama_roti">Nama Roti :</label>
@@ -212,14 +222,15 @@
             <!-- </div>
           </div> --><!-- end panel-->
           </div><!-- end col-md-8 -->
-          <div class="col-md-4 mb">
-        <div class="col-md-12">
+          <!-- <div class="col-md-4 mb">         <div class="col-md-12">
             <div class="form-group">
               <label for="total" class="besar">Total (Rp) :</label>
                 <input type="text" class="form-control input-lg" 
                 name="total" id="total" placeholder="0"
                 readonly="readonly"  value="<?= number_format( 
                       $this->cart->total(), 0 , '' , '.' ); ?>">
+                    </div>
+                    </div>
             </div>
             <div class="form-group">
               <label for="bayar" class="besar">Bayar (Rp) :</label>
@@ -235,8 +246,8 @@
             </div>
         </div>
           </div>
-    <!-- <input type='submit' name='btnSubmit' value="Tambah"><br> -->
-  </form>
+        </form> -->
+
 
   <div class="col-md-4 mb">
         <div class="col-md-12">

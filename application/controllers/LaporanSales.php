@@ -8,12 +8,9 @@ class LaporanSales extends CI_Controller{
 
 
 	public function index(){
-		$this->session->set_userdata('username', 'admin');
-		//$this->load->view('StokSalesview');
 		$data = array(
 				'data'=>$this->TransaksiSales_Model->get_data());
-		//$this->load->view('App/list_mhs',['data' => $data]);
-		$this->load->view('laporanSalesGambarview',$data);
+		$this->load->view('laporanSalesview',$data);
 	}
 	
  function detail($id){

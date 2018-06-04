@@ -161,7 +161,6 @@
                   <th>Nama Sales</th>
                   <th>Tanggal Ambil</th>
                   <th>Stok</th>
-                  <th>Dibeli</th>
                 </tr>
               </thead>
               <?php
@@ -172,8 +171,7 @@
           <td><?php echo $row->nama_roti;?></td>
           <td><?php echo $row->nama_sales;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
-          <td><?php echo $row->jumlah_stok_sales  ;?></td>
-          <td><?php echo $row->dibeli;?></td>
+          <td><?php echo $row->jumlah_stok_sales ;?></td>
           
         </tr>
         <tr></tr>

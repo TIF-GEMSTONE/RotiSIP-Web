@@ -160,6 +160,7 @@
               <div class="col-xs-4">
               <label for="roti">Nama Roti:</label>
                 <select class="form-control" name="nama_roti">
+                  <option value="0">-PILIH ROTI-</option>
                 <?php foreach ($roti as $row){ ?>
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>

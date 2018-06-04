@@ -113,18 +113,7 @@
             </a>
           </div>
         </li>
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
+      
         <li class="nav-item">
           <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
         </li>
@@ -166,6 +155,15 @@
             <form method="post" action="input">
 
               <div class="container">
+              <div class="form-group row">
+              <div class="col-xs-4">
+              <label for="id_stok_sales">ID Stok </label>
+              <input class="form-control" type="text" placeholder="Masukkan id.." name="id_stok_sales" value="<?php if(isset($data)) { echo $data[0]->id_stok_sales; } ?>">
+            </div>
+          </div>
+        </div>
+
+            <div class="container">
             <div class="form-group row">
               <div class="col-xs-4">
               <label for="sales">Nama Sales:</label>
@@ -177,12 +175,6 @@
               </div>
             </div>
           </div>
-
-           <div class="container">
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="id_stok_sales">ID Stok </label>
-              <input class="form-control" type="text" name="id_stok_sales" value="<?php if(isset($data)) { echo $data[0]->id_stok_sales; } ?>">
 
               <div class="container">
               <div class="form-group row">

@@ -23,6 +23,7 @@ class Retur extends CI_Controller{
 		if (isset($_POST['btnTambah'])){
 			$data = $this->Retur_model->input(array (
 			'id_retur' => $this->input->post('id_retur'),
+			'id_stok_sales' => $this->input->post('id_stok_sales'),
 			'id_sales' => $this->input->post('nama_sales'),
 			'id_roti' => $this->input->post('nama_roti'),
 			'jumlah_roti' => $this->input->post('jumlah_roti'),

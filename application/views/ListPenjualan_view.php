@@ -143,19 +143,15 @@
           <th>Tgl Transaksi</th>
           <th>Nama Pegawai</th>
           <th>Total</th>
-          <th>Detail</th>
         </tr>
         <?php
                 $no = 1;
                 foreach ($data as $row): ?>
         <tr>
-          <td><?php echo $no;?></td>
-          <td><?php echo $row->n0_transaksi;?></td>
+          <td><?php echo $row->no_transaksi;?></td>
           <td><?php echo $row->tgl_transaksi;?></td>
           <td><?php echo $row->id_pegawai;?></td>
-          <td><?php echo $row->total;?></td>
-          <td><a href="<?php echo base_url(); ?>Penjualan/edit/<?php echo $row->nim;?>">Edit</a></td>
-          <td><a href="<?php echo base_url(); ?>Penjualan/delete/<?php echo $row->nim;?>">Hapus</a></td>
+          <td><?php echo $row->total_jual;?></td>
         </tr>
         <?php $no++;
                 endforeach;?>

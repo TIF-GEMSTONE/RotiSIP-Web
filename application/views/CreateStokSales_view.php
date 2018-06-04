@@ -175,6 +175,7 @@
               <div class="col-xs-4">
               <label for="roti">Nama Roti:</label>
                 <select class="form-control" name="nama_roti">
+                  <option value="0">-PILIH ROTI-</option>
                 <?php foreach ($roti as $row){ ?>
                   <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
                   <?php }?>
@@ -185,6 +186,7 @@
               <div class="col-xs-4">
               <label for="roti">Nama Sales:</label>
                 <select class="form-control" name="nama_sales">
+                  <option value="0">-PILIH SALES-</option>
                 <?php foreach ($sales as $row){ ?>
                   <option value="<?php echo $row->id_sales;?>"><?php echo $row->nama_sales;?></option>
                   <?php }?>

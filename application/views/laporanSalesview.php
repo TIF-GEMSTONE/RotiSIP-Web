@@ -153,25 +153,17 @@
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <tr>
                 <th>No Transaksi</th>
-				<th>ID Sales</th>
+				        <th>Nama Sales</th>
                 <th>Tgl Transaksi</th>
-                <th>Total Jual</th>
-                <th>Cetak</th>
-				<th colspan="1"></th>
+                <th>Total</th>
                 </tr>
               </thead>
               <?php
                 $no = 1;
-                foreach ($data as $row): 
-
-     
-     // $id_roti = $_GET['id_roti'];
-      //$query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
-
-        //if (mysqli_num_rows($query) == 0) {?>
+                foreach ($data as $row): ?>
         <tr>
           <td><?php echo $row->no_transaksi;?></td>
-		  <td><?php echo $row->id_sales;?></td>
+		      <td><?php echo $row->id_sales;?></td>
           <td><?php echo $row->tgl_transaksi;?></td>
           <td><?php echo $row->total;?></td>
           <td align="center"><a href="LaporanSales/detail/<?php echo $row->id_sales; ?>">detail</a>
