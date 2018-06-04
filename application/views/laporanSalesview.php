@@ -147,30 +147,29 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Laporan Sales SIP</div>
+          <i class="fa fa-table"></i>Laporan Sales</div>
         <div class="card-body">
           <div class="table-responsive">
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <tr>
                 <th>No Transaksi</th>
-				        <th>Nama Sales</th>
+                <th>ID Sales</th>
                 <th>Tgl Transaksi</th>
                 <th>Total</th>
-                </tr>
-              </thead>
+				<th colspan="1"></th>
+              </tr>
+            </thead>
               <?php
-                $no = 1;
-                foreach ($data as $row): ?>
+                foreach ($data as $row){ ?>
         <tr>
-          <td><?php echo $row->no_transaksi;?></td>
-		      <td><?php echo $row->id_sales;?></td>
-          <td><?php echo $row->tgl_transaksi;?></td>
-          <td><?php echo $row->total;?></td>
-          <td align="center"><a href="LaporanSales/detail/<?php echo $row->id_sales; ?>">detail</a>
+          <td><?= $row['no_transaksi'];?></td>
+          <td><?= $row['id_sales'];?></td>
+          <td><?= $row['tgl_transaksi'];?></td>
+          <td><?= $row['total_jual'];?></td>
+		  <td><a href="<?php echo base_url(); ?>LaporanSales/detail/<?= $row['no_transaksi'];?>">Detail</a></td>
         </tr>
-        <tr></tr>
-                <?php $no++;
-                endforeach;?>
+                <?php 
+				} ?>
             </table>
         </div>
           </div>
