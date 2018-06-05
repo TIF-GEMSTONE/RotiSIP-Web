@@ -213,6 +213,7 @@
               <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
               <a class="btn btn-warning" href="<?php echo base_url()?>Pesanan">Kembali</a>
 
+
               </div>
             </td>
           </form>
