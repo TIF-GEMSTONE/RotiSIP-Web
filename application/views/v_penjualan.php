@@ -146,9 +146,9 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Transaksi
                     <small>Penjualan</small>
-                    <!-- <a href="#" data-toggle="modal" data-target="#largeModal" class="pull-right"><small>Cari Produk!</small></a> -->
+                     <a href="#" data-toggle="modal" data-target="#largeModal" class="pull-right"><small>Cari Roti</small></a>
                      <form action="Penjualan" method="post">
-      </form>
+                     </form>
                 </h1> 
             </div>
         </div>
@@ -222,6 +222,64 @@
         </div>
         <!-- /.row -->
         <!-- ============ MODAL ADD =============== -->
+
+         <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title" id="myModalLabel">Data Roti</h3>
+            </div>
+                <div class="modal-body" style="overflow:scroll;height:500px;">
+
+                  <table class="table table-bordered table-condensed" style="font-size:11px;" id="mydata">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;width:40px;">No</th>
+                            <th style="width:120px;">ID Roti</th>
+                            <th style="width:240px;">Nama Roti</th>
+                            <th style="width:100px;">Harga</th>
+                            <th style="width:100px;text-align:center;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                        $no=0;
+                        foreach ($data->result_array() as $a):
+                            $no++;
+                            $id_roti=$a['id_roti'];
+                            $nama_roti=$a['nama_roti'];
+                            $satuan=$a['harga'];
+                    ?>
+                        <tr>
+                            <td style="text-align:center;"><?php echo $no;?></td>
+                            <td><?php echo $id_roti;?></td>
+                            <td><?php echo $nama_roti;?></td>
+                            <td style="text-align:right;"><?php echo 'Rp '.number_format($harga);?></td>
+                            <td style="text-align:center;">
+                            <form action="<?php echo base_url().'Penjualan/add_to_cart'?>" method="post">
+                            <input type="hidden" name="id_roti" value="<?php echo $id_roti?>">
+                            <input type="hidden" name="nama_roti" value="<?php echo $nama_roti;?>">
+                            <input type="hidden" name="harga" value="<?php echo number_format($harga);?>">
+                            <input type="hidden" name="qty" value="1" required>
+                                <button type="submit" class="btn btn-xs btn-info" title="Pilih"><span class="fa fa-edit"></span> Pilih</button>
+                            </form>
+                            </td>
+                        </tr>
+                    <?php endforeach;?>
+                    </tbody>
+                </table>          
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+
       
         <!-- ============ MODAL HAPUS =============== -->
         

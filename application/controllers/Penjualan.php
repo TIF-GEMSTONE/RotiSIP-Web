@@ -26,7 +26,7 @@ class Penjualan extends CI_Controller{
 		$data = array(
                'id_roti'       => $i['id_roti'],
                'nama_roti'     => $i['nama_roti'],
-               'qty'      => $this->input->post('qty'),
+               'qty'      	=> $this->input->post('qty'),
                'amount'	  => str_replace(",", "", $this->input->post('harga'))
             );
 	if(!empty($this->cart->total_items())){
@@ -72,8 +72,8 @@ class Penjualan extends CI_Controller{
 				echo $this->session->set_flashdata('msg','<label class="label label-danger">Jumlah Uang yang anda masukan Kurang</label>');
 				redirect('Penjualan');
 			}else{
-				$notrans=$this->enjualan_model->get_notrans();
-				$this->session->set_userdata('nofak',$nofak);
+				$notrans=$this->Penjualan_model->get_notrans();
+				$this->session->set_userdata('notrans',$notrans);
 				$order_proses=$this->Penjualan_model->simpan_penjualan($notrans,$total_jual,$uang,$kembalian);
 				if($order_proses){
 					$this->cart->destroy();

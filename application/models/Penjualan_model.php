@@ -18,7 +18,7 @@ class Penjualan_model extends CI_Model {
 		return true;
 	}
 	function get_notrans(){
-		$q = $this->db->query("SELECT MAX(RIGHT(no_transaksi,6)) AS kd_max FROM tabel_transaksi_sip WHERE DATE(tgl_transaksi)=CURDATE()");
+		$q = $this->db->query("SELECT MAX(RIGHT(no_transaksi,1)) AS kd_max FROM tabel_transaksi_sip WHERE DATE(tgl_transaksi)=CURDATE()");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){

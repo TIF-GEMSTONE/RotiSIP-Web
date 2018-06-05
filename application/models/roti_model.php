@@ -2,26 +2,21 @@
 class roti_model extends CI_Model{
 
 	function get_data(){
-    $query = $this->db->query("SELECT * FROM tabel_roti");
+    $query = $this->db->query("SELECT * FROM tabel_coba");
     return $query->result();
   }
 
-  function update($data = array(),$id){
-    $this->db->where('id_pesan',$id);
-    return $this->db->update('tabel_pesanan',$data);
-  }
-
 	 function input($data = array()){
-    return $this->db->insert('tabel_pesanan',$data);
+    return $this->db->insert('tabel_detail_sip',$data);
   }
 
-	function get_roti($id_roti){
-		$hsl=$this->db->query("SELECT * FROM tabel_roti where id_roti='$id_roti'");
-		return $hsl;
+	function get_coba($id_coba){
+		$query=$this->db->query("SELECT * FROM tabel_coba where id_coba='$id_coba'");
+		return $query->result();
 	}
 
-	function get_id_roti(){
-		$q = $this->db->query("SELECT MAX(RIGHT(id_roti,1)) AS kd_max FROM tabel_roti");
+	function get_id_coba(){
+		$q = $this->db->query("SELECT MAX(RIGHT(id_coba,6)) AS kd_max FROM tabel_coba");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
