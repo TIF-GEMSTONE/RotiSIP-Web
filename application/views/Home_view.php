@@ -206,7 +206,7 @@ body {
                 <div class="container">
 
              <a href="#">
-                <img width="150px" height="150px" src="<?php echo base_url() . 'assets/images/'.$p->gambar  ?>" alt="">
+                <img width="150px" height="150px" src="<?php echo $p->gambar  ?>" alt="">
               </a>
           </div>
               <div class="column">
