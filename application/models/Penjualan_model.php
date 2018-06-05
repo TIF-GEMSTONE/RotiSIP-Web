@@ -2,7 +2,7 @@
 class Penjualan_model extends CI_Model {
 
 	function simpan_penjualan($notrans,$total_jual,$uang,$kembalian){
-		$this->db->query("INSERT INTO tabel_transaksi_sip (no_transaksi,total_jual,uang,kembalian) VALUES ('$notrans','$total_jual','$uang','$kembalian')");
+		$this->db->query("INSERT INTO tabel_transaksi (no_transaksi,total_jual,uang,kembalian) VALUES ('$notrans','$total_jual','$uang','$kembalian')");
 		foreach ($this->cart->contents() as $item) {
 			$data=array(
 				'no_transaksi' 		=>	$notrans,
@@ -18,7 +18,7 @@ class Penjualan_model extends CI_Model {
 		return true;
 	}
 	function get_notrans(){
-		$q = $this->db->query("SELECT MAX(RIGHT(no_transaksi,1)) AS kd_max FROM tabel_transaksi_sip");
+		$q = $this->db->query("SELECT MAX(RIGHT(no_transaksi,1)) AS kd_max FROM tabel_transaksi");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){

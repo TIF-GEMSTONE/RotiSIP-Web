@@ -162,7 +162,7 @@
                 <tr>
                     <th><input type="text" name="id_roti" id="id_roti" class="form-control input-sm"></th>                     
                 </tr>
-                    <div id="detail_barang" style="position:absolute;">
+                    <div id="detail_roti" style="position:absolute;">
                     </div>
             </table>
              </form>
@@ -234,7 +234,7 @@
                             <th style="text-align:center;width:40px;">No</th>
                             <th style="width:120px;">ID Roti</th>
                             <th style="width:240px;">Nama Roti</th>
-                            <!-- <th>stok</th> -->
+                            <th>stok</th>
                             <th style="width:100px;">Harga</th>
                             <th style="width:100px;text-align:center;">Aksi</th>
                         </tr>
@@ -246,14 +246,14 @@
                             $no++;
                             $id=$a['id_roti'];
                             $nm=$a['nama_roti'];
-                            // $stok=$a['stok'];
+                            $stok=$a['stok'];
                             $harga=$a['harga'];
                     ?>
                         <tr>
                             <td style="text-align:center;"><?php echo $no;?></td>
                             <td><?php echo $id;?></td>
                             <td><?php echo $nm;?></td>
-                            <!-- <td style="text-align:center;"><?php echo $stok;?></td> -->
+                            <td style="text-align:center;"><?php echo $stok;?></td>
                             <td style="text-align:right;"><?php echo 'Rp '.number_format($harga);?></td>
                             <td style="text-align:center;">
 
@@ -261,7 +261,7 @@
 
                             <input type="hidden" name="id_roti" value="<?php echo $id?>">
                             <input type="hidden" name="nama_roti" value="<?php echo $nm;?>">
-                            <!-- <input type="hidden" name="stok" value="<?php echo $stok;?>"> -->
+                            <input type="hidden" name="stok" value="<?php echo $stok;?>">
                             <input type="hidden" name="harga" value="<?php echo number_format($harga);?>">
                             <input type="hidden" name="qty" value="1" required>
                                 <button type="submit" class="btn btn-xs btn-info" title="Pilih"><span class="fa fa-edit"></span> Pilih</button>
@@ -363,7 +363,7 @@
                url : "<?php echo base_url().'Penjualan/get_roti';?>",
                data: id_roti,
                success: function(msg){
-               $('#detail_barang').html(msg);
+               $('#detail_roti').html(msg);
                }
             });
             }); 
