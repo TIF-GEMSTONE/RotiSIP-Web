@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2018 at 04:19 PM
+-- Generation Time: Jun 05, 2018 at 08:14 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -25,43 +25,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tabel_transaksi_sip`
+-- Table structure for table `tabel_detail_pesan`
 --
 
-CREATE TABLE `tabel_transaksi_sip` (
-  `no_transaksi` int(11) NOT NULL,
-  `id_pegawai` int(11) NOT NULL,
-  `tgl_transaksi` date NOT NULL,
-  `total_jual` int(11) NOT NULL
+CREATE TABLE `tabel_detail_pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `id_roti` int(11) NOT NULL,
+  `jumlah_roti` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tabel_transaksi_sip`
+-- Dumping data for table `tabel_detail_pesan`
 --
 
-INSERT INTO `tabel_transaksi_sip` (`no_transaksi`, `id_pegawai`, `tgl_transaksi`, `total_jual`) VALUES
-(2, 1, '2018-06-04', 20);
+INSERT INTO `tabel_detail_pesan` (`id_pesan`, `id_roti`, `jumlah_roti`) VALUES
+(21, 70002, 12);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tabel_transaksi_sip`
+-- Indexes for table `tabel_detail_pesan`
 --
-ALTER TABLE `tabel_transaksi_sip`
-  ADD PRIMARY KEY (`no_transaksi`),
-  ADD KEY `id_pegawai` (`id_pegawai`);
+ALTER TABLE `tabel_detail_pesan`
+  ADD PRIMARY KEY (`id_pesan`),
+  ADD KEY `id_roti` (`id_roti`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tabel_detail_pesan`
+--
+ALTER TABLE `tabel_detail_pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `tabel_transaksi_sip`
+-- Constraints for table `tabel_detail_pesan`
 --
-ALTER TABLE `tabel_transaksi_sip`
-  ADD CONSTRAINT `tabel_transaksi_sip_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `tabel_pegawai` (`id_pegawai`);
+ALTER TABLE `tabel_detail_pesan`
+  ADD CONSTRAINT `tabel_detail_pesan_ibfk_1` FOREIGN KEY (`id_roti`) REFERENCES `tabel_roti` (`id_roti`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
