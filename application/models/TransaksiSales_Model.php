@@ -17,10 +17,17 @@ class TransaksiSales_Model extends CI_Model {
 		return $result = $query->result_array();
 	}
 	
-	function get_detail($id){
-    $query = $this->db->query("SELECT * FROM tabel_detail_sales JOIN tabel_roti JOIN tabel_transaksi_sales WHERE tabel_detail_sales.id_roti=tabel_roti.id_roti AND tabel_detail_sales.no_transaksi=tabel_transaksi_sales.no_transaksi AND tabel_detail_sales.no_transaksi = $id");
-    return $query->result();
-  }
+  
+  function get_detail($id){
+		$this->db->select('tabel_detail_sales.*, tabel_roti.nama_roti, tabel_roti.harga');
+		$this->db->from('tabel_detail_sales');
+		$this->db->join('tabel_roti', 'tabel_roti.id_roti = tabel_detail_sales.id_roti');
+		$this->db->join('tabel_transaksi_sales', 'tabel_transaksi_sales.no_transaksi = tabel_detail_sales.no_transaksi');
+		$this->db->where(array('tabel_detail_sales.no_transaksi' => $id));
+		$query = $this->db->get();
+		return $result = $query->result_array();
+	}
+
 	}
      
 

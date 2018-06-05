@@ -165,8 +165,8 @@
           <td><?= $row['no_transaksi'];?></td>
           <td><?= $row['nama_sales'];?></td>
           <td><?= $row['tgl_transaksi'];?></td>
-          <td><?= $row['total'];?></td>
-		  <td><a href="<?php echo base_url(); ?>LaporanSales/detail/<?= $row['no_transaksi'];?>">Detail</a></td>
+          <td><?= $row['total_sales'];?></td>
+		  <td><a href="<?php echo base_url('LaporanSales/detail/'.$row['no_transaksi']);?>">Detail</a></td>
         </tr>
                 <?php 
 				} ?>

@@ -18,10 +18,15 @@ class TransaksiSIP_Model extends CI_Model {
 		return $result = $query->result_array();
 	}
 	
-	function get_detail($id){
-    $query = $this->db->query("SELECT * FROM tabel_detail_sip JOIN tabel_roti JOIN tabel_transaksi_sip WHERE tabel_detail_sip.id_roti=tabel_roti.id_roti AND tabel_detail_sip.no_transaksi=tabel_transaksi_sip.no_transaksi AND tabel_detail_sip.no_transaksi = $id");
-    return $query->result();
-  }
+  function get_detail($id){
+		$this->db->select('tabel_detail_sip.*, tabel_roti.nama_roti, tabel_roti.harga');
+		$this->db->from('tabel_detail_sip');
+		$this->db->join('tabel_roti', 'tabel_roti.id_roti = tabel_detail_sip.id_roti');
+		$this->db->join('tabel_transaksi_sip', 'tabel_transaksi_sip.no_transaksi = tabel_detail_sip.no_transaksi');
+		$this->db->where(array('tabel_detail_sip.no_transaksi' => $id));
+		$query = $this->db->get();
+		return $result = $query->result_array();
+	}
   
  
 	}
