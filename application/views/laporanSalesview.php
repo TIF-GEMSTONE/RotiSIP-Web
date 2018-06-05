@@ -163,9 +163,9 @@
                 foreach ($data as $row){ ?>
         <tr>
           <td><?= $row['no_transaksi'];?></td>
-          <td><?= $row['id_sales'];?></td>
+          <td><?= $row['nama_sales'];?></td>
           <td><?= $row['tgl_transaksi'];?></td>
-          <td><?= $row['total_jual'];?></td>
+          <td><?= $row['total'];?></td>
 		  <td><a href="<?php echo base_url(); ?>LaporanSales/detail/<?= $row['no_transaksi'];?>">Detail</a></td>
         </tr>
                 <?php 

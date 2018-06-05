@@ -18,11 +18,10 @@ class TransaksiSales_Model extends CI_Model {
 	}
 	
 	function get_detail($id){
-    $query = $this->db->query("SELECT * FROM tabel_detail_sales JOIN tabel_roti JOIN tabel_transaksi_sales WHERE tabel_detail_sales.id_roti=tabel_roti.id_roti AND tabel_detail_sales.no_transaksi=tabel_transaksi_sip.no_transaksi AND tabel_detail_sales.no_transaksi = $id");
+    $query = $this->db->query("SELECT * FROM tabel_detail_sales JOIN tabel_roti JOIN tabel_transaksi_sales WHERE tabel_detail_sales.id_roti=tabel_roti.id_roti AND tabel_detail_sales.no_transaksi=tabel_transaksi_sales.no_transaksi AND tabel_detail_sales.no_transaksi = $id");
     return $query->result();
   }
 	}
-      //$id_roti = $_GET['id_roti'];
-     // $query=mysqli_query($con,"SELECT * FROM tabel_roti WHERE id_roti='$id_roti'");
+     
 
       ?>
