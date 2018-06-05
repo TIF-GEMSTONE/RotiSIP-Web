@@ -138,17 +138,15 @@
           <div>
 
  <!-- Navigation -->
-    <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
+            <center><?php echo $this->session->flashdata('msg');?></center>
                 <h1 class="page-header">Transaksi
                     <small>Penjualan</small>
-                     <a href="#" data-toggle="modal" data-target="#largeModal" class="pull-right"><small>Cari Roti</small></a>
-                     <form action="Penjualan" method="post">
-                     </form>
+                    <a href="#" data-toggle="modal" data-target="#largeModal" class="pull-right"><small>Cari Roti</small></a>
                 </h1> 
             </div>
         </div>
@@ -164,7 +162,7 @@
                 <tr>
                     <th><input type="text" name="id_roti" id="id_roti" class="form-control input-sm"></th>                     
                 </tr>
-                    <div id="detail_roti" style="position:absolute;">
+                    <div id="detail_barang" style="position:absolute;">
                     </div>
             </table>
              </form>
@@ -184,8 +182,8 @@
                     <?php foreach ($this->cart->contents() as $items): ?>
                     <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
                     <tr>
-                         <td><?=$items['id_roti'];?></td>
-                         <td><?=$items['nama_roti'];?></td>
+                         <td><?=$items['id'];?></td>
+                         <td><?=$items['name'];?></td>
                          <td style="text-align:right;"><?php echo number_format($items['amount']);?></td>
                          <td style="text-align:center;"><?php echo number_format($items['qty']);?></td>
                          <td style="text-align:right;"><?php echo number_format($items['subtotal']);?></td>
@@ -201,7 +199,7 @@
             <table>
                 <tr>
                     <td style="width:760px;" rowspan="2"><button type="submit" class="btn btn-info btn-lg"> Simpan</button></td>
-                    <th style="width:140px;">Total (Rp)</th>
+                    <th style="width:140px;">Total(Rp)</th>
                     <th style="text-align:right;width:140px;"><input type="text" name="total2" value="<?php echo number_format($this->cart->total());?>" class="form-control input-sm" style="text-align:right;margin-bottom:5px;" readonly></th>
                     <input type="hidden" id="total" name="total" value="<?php echo $this->cart->total();?>" class="form-control input-sm" style="text-align:right;margin-bottom:5px;" readonly>
                 </tr>
@@ -222,8 +220,7 @@
         </div>
         <!-- /.row -->
         <!-- ============ MODAL ADD =============== -->
-
-         <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
@@ -247,21 +244,20 @@
                         $no=0;
                         foreach ($data->result_array() as $a):
                             $no++;
-                            $id_roti=$a['id_roti'];
-                            $nama_roti=$a['nama_roti'];
-                            $satuan=$a['harga'];
+                            $id=$a['id_roti'];
+                            $nm=$a['nama_roti'];
+                            $harga=$a['harga'];
                     ?>
                         <tr>
                             <td style="text-align:center;"><?php echo $no;?></td>
-                            <td><?php echo $id_roti;?></td>
-                            <td><?php echo $nama_roti;?></td>
+                            <td><?php echo $id;?></td>
+                            <td><?php echo $nm;?></td>
                             <td style="text-align:right;"><?php echo 'Rp '.number_format($harga);?></td>
                             <td style="text-align:center;">
                             <form action="<?php echo base_url().'Penjualan/add_to_cart'?>" method="post">
-                            <input type="hidden" name="id_roti" value="<?php echo $id_roti?>">
-                            <input type="hidden" name="nama_roti" value="<?php echo $nama_roti;?>">
+                            <input type="hidden" name="kode_brg" value="<?php echo $id?>">
+                            <input type="hidden" name="nabar" value="<?php echo $nm;?>">
                             <input type="hidden" name="harga" value="<?php echo number_format($harga);?>">
-                            <input type="hidden" name="qty" value="1" required>
                                 <button type="submit" class="btn btn-xs btn-info" title="Pilih"><span class="fa fa-edit"></span> Pilih</button>
                             </form>
                             </td>
@@ -280,7 +276,6 @@
             </div>
         </div>
 
-      
         <!-- ============ MODAL HAPUS =============== -->
         
 
@@ -353,6 +348,7 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
+            //Ajax kabupaten/kota insert
             $("#id_roti").focus();
             $("#id_roti").on("input",function(){
                 var id_roti = {id_roti:$(this).val()};
@@ -361,7 +357,7 @@
                url : "<?php echo base_url().'Penjualan/get_roti';?>",
                data: id_roti,
                success: function(msg){
-               $('#detail_roti').html(msg);
+               $('#detail_barang').html(msg);
                }
             });
             }); 
@@ -373,6 +369,7 @@
             });
         });
     </script>
+
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>

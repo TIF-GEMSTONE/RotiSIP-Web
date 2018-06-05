@@ -8,15 +8,16 @@ class Penjualan extends CI_Controller{
 	}
 
 	function index(){
-		$data = array (
-				'data' =>$this->roti_model->get_data());
-		$this->load->view('v_penjualan', $data);
+		$data['data']=$this->roti_model->tampil_roti();
+		$this->load->view('v_penjualan',$data);
+
 	}
 
 	function get_roti(){
 		$id_roti=$this->input->post('id_roti');
 		$x['roti']=$this->roti_model->get_roti($id_roti);
 		$this->load->view('v_detail_jual',$x);
+
 	}
 
 	function add_to_cart(){
@@ -24,14 +25,14 @@ class Penjualan extends CI_Controller{
 		$produk=$this->roti_model->get_roti($id_roti);
 		$i=$produk->row_array();
 		$data = array(
-               'id_roti'       => $i['id_roti'],
-               'nama_roti'     => $i['nama_roti'],
-               'qty'      	=> $this->input->post('qty'),
+               'id'       => $i['id_roti'],
+               'name'     => $i['nama_roti'],
+               'qty'      => $this->input->post('qty'),
                'amount'	  => str_replace(",", "", $this->input->post('harga'))
             );
 	if(!empty($this->cart->total_items())){
 		foreach ($this->cart->contents() as $items){
-			$id_roti=$items['id_roti'];
+			$id=$items['id'];
 			$qtylama=$items['qty'];
 			$rowid=$items['rowid'];
 			$id_roti=$this->input->post('id_roti');
@@ -51,6 +52,7 @@ class Penjualan extends CI_Controller{
 	}
 
 		redirect('Penjualan');
+
 	}
 
 	function remove(){
@@ -60,7 +62,7 @@ class Penjualan extends CI_Controller{
                'qty'     => 0
             ));
 		redirect('Penjualan');
-	
+
 	}
 
 	function simpan_penjualan(){
@@ -70,16 +72,17 @@ class Penjualan extends CI_Controller{
 		if(!empty($total) && !empty($jml_uang)){
 			if($jml_uang < $total){
 				echo $this->session->set_flashdata('msg','<label class="label label-danger">Jumlah Uang yang anda masukan Kurang</label>');
-				redirect('Penjualan');
+				redirect('admin/penjualan');
 			}else{
-				$notrans=$this->Penjualan_model->get_notrans();
-				$this->session->set_userdata('notrans',$notrans);
-				$order_proses=$this->Penjualan_model->simpan_penjualan($notrans,$total_jual,$uang,$kembalian);
+				$nofak=$this->m_penjualan->get_nofak();
+				$this->session->set_userdata('nofak',$nofak);
+				$order_proses=$this->m_penjualan->simpan_penjualan($nofak,$total,$jml_uang,$kembalian);
 				if($order_proses){
 					$this->cart->destroy();
 					
-					$this->session->unset_userdata('tgl_transaksi');
-					$this->load->view('laporanSIPview');	
+					$this->session->unset_userdata('tglfak');
+					$this->session->unset_userdata('suplier');
+					$this->load->view('admin/alert/alert_sukses');	
 				}else{
 					redirect('Penjualan');
 				}
@@ -91,5 +94,13 @@ class Penjualan extends CI_Controller{
 		}
 
 	}
+
+	function cetak_faktur(){
+		$x['data']=$this->m_penjualan->cetak_faktur();
+		$this->load->view('admin/laporan/v_faktur',$x);
+		//$this->session->unset_userdata('nofak');
+	}
+
+
 }
 ?>

@@ -162,6 +162,7 @@
           <th>Tgl Pesan</th>
           <th>Tgl Ambil</th>
           <th>Jam Ambil</th>
+          <!-- <th>Selesai</th> -->
           <th colspan="3"> <center> Aksi </center></th>
         </tr>
         <?php 
@@ -173,6 +174,17 @@
           <td><?php echo $row->tgl_pesan;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
           <td><?php echo $row->jam_ambil;?></td>
+          <!-- <td align="center"> 
+            <?php 
+            $sql = sprintf("SELECT * FROM tabel_transaksi where tabel_transaksi.no_transaksi = $row->id_pesan");
+            $query = $this->db->query($sql);
+            $row1 = $query->row_array();
+            if(!$row1){
+              echo'
+              <a class="btn-xs btn-primary" href="'; echo base_url(); echo 'Pesanan/'; echo $row->id_pesan; echo '"><span class="glyphicon-pencil">Ambil</span'?>
+              <?php }
+              else { echo "Selesai"; } ?>
+          </td> -->
           <td><a href="<?php echo base_url(); ?>Pesanan/detail/<?php echo $row->id_pesan;?>">Detail</a></td>
           <td><a href="<?php echo base_url(); ?>Pesanan/edit/<?php echo $row->id_pesan;?>">Edit</a></td>
           <td><a href="<?php echo base_url(); ?>Pesanan/delete/<?php echo $row->id_pesan;?>">Hapus</a></td>
