@@ -177,15 +177,15 @@
         <tr>
           <td><?= $row['no_transaksi'];?></td>
           <td><?= $row['nama_roti'];?></td>
-          <td><?= $row['jumlah'];?></td>
+          <td><?= $row['jumlah_roti'];?></td>
           <td><?= $row['harga'];?></td>
-		  <td><?= $row['total'];?></td>
+		  <td><?= $row['sub_total_sales'];?></td>
 
         </tr>
         <?php 
       }?>
       </table>
-      <a class="btn btn-warning" href="<?php echo base_url()?>LaporanSIP">Kembali</a>
+      <a class="btn btn-warning" href="<?php echo base_url()?>LaporanSales">Kembali</a>
     </p>
         </div>
           </div>

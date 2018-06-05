@@ -166,7 +166,7 @@
           <td><?= $row['nama_pegawai'];?></td>
           <td><?= $row['tgl_transaksi'];?></td>
           <td><?= $row['total_jual'];?></td>
-		  <td><a href="<?php echo base_url(); ?>LaporanSIP/detail/<?= $row['no_transaksi'];?>">Detail</a></td>
+		  <td><a href="<?php echo base_url('LaporanSIP/detail/'.$row['no_transaksi']);?>">Detail</a></td>
         </tr>
                 <?php 
 				} ?>
