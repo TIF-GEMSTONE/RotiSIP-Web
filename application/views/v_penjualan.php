@@ -28,25 +28,25 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http:/RotiSIP-Web/Penjualan">
+          <a class="nav-link" href="<?php echo base_url();?>Penjualan">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
-          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+          <a class="nav-link" href="<?php echo base_url();?>SalesBaru">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
+          <a class="nav-link" href="<?php echo base_url();?>Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="<?php echo base_url();?>Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
           </a>
@@ -58,10 +58,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
+              <a href="<?php echo base_url();?>StokSales">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
+              <a href="<?php echo base_url();?>StokSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -72,10 +72,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+               <a href="<?php echo base_url();?>LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
+              <a href="<?php echo base_url();?>LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -114,7 +114,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
+          <a class="nav-link" href="<?php echo base_url();?>Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -125,7 +125,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
+          <a href="<?php echo base_url();?>Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
@@ -234,7 +234,7 @@
                             <th style="text-align:center;width:40px;">No</th>
                             <th style="width:120px;">ID Roti</th>
                             <th style="width:240px;">Nama Roti</th>
-                            <th>stok</th>
+                            
                             <th style="width:100px;">Harga</th>
                             <th style="width:100px;text-align:center;">Aksi</th>
                         </tr>
@@ -246,14 +246,12 @@
                             $no++;
                             $id=$a['id_roti'];
                             $nm=$a['nama_roti'];
-                            $stok=$a['stok'];
                             $harga=$a['harga'];
                     ?>
                         <tr>
                             <td style="text-align:center;"><?php echo $no;?></td>
                             <td><?php echo $id;?></td>
                             <td><?php echo $nm;?></td>
-                            <td style="text-align:center;"><?php echo $stok;?></td>
                             <td style="text-align:right;"><?php echo 'Rp '.number_format($harga);?></td>
                             <td style="text-align:center;">
 
@@ -261,7 +259,6 @@
 
                             <input type="hidden" name="id_roti" value="<?php echo $id?>">
                             <input type="hidden" name="nama_roti" value="<?php echo $nm;?>">
-                            <input type="hidden" name="stok" value="<?php echo $stok;?>">
                             <input type="hidden" name="harga" value="<?php echo number_format($harga);?>">
                             <input type="hidden" name="qty" value="1" required>
                                 <button type="submit" class="btn btn-xs btn-info" title="Pilih"><span class="fa fa-edit"></span> Pilih</button>

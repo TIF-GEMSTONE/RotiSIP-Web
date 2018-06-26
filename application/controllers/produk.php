@@ -9,10 +9,16 @@ class Produk extends CI_Controller {
     public function input(){
       $this->load->view('input');
     }
+
+    public function tampil(){
+      $this->load->view('Home_view');
+    }
+
+
     public function proses_input(){
       //membuat konfigurasi
       $config = [
-        'upload_path' => './assets/images/',
+        'upload_path' => './asset/images',
         'allowed_types' => 'gif|jpg|png',
         'max_size' => 1000, 'max_width' => 1000,
         'max_height' => 1000
@@ -27,12 +33,12 @@ class Produk extends CI_Controller {
       {
           $file = $this->upload->data();
           //mengambil data di form
-          $data = ['gambar' => $file['file_name'],
+          $data = ['gambar' =>$file['file_name'],
            'nama_roti' => set_value('nama_roti'),
            'harga' => set_value('harga')
          ];
           $this->Produk_model->input($data); //memasukan data ke database
-          redirect('produk/input'); //mengalihkan halaman
+          redirect('produk/tampil'); //mengalihkan halaman
 
       }
   }

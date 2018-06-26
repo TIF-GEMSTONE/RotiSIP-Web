@@ -28,25 +28,25 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Penjualan">
+          <a class="nav-link" href="<?php echo base_url();?>Penjualan">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//SalesBaru">
+          <a class="nav-link" href="<?php echo base_url();?>SalesBaru">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Pesanan">
+          <a class="nav-link" href="<?php echo base_url();?>Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Retur">
+          <a class="nav-link" href="<?php echo base_url();?>Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
           </a>
@@ -58,10 +58,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="http://salessip.tifpolije2016.com//StokSales">Sales</a>
+              <a href="<?php echo base_url();?>StokSales">Sales</a>
             </li>
             <li>
-              <a href="http://salessip.tifpolije2016.com/StokSIP">SIP</a>
+              <a href="<?php echo base_url();?>StokSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -88,7 +88,7 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-fw fa-envelope"></i>
             <span class="d-lg-none">Messages
@@ -113,9 +113,8 @@
             </a>
           </div>
         </li>
-      
         <li class="nav-item">
-          <a class="nav-link" href="http://salessip.tifpolije2016.com/Login/Logout">Logout</a>
+          <a class="nav-link" href="<?php echo base_url();?>Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -139,7 +138,7 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://salessip.tifpolije2016.com/Login/Home">Home</a>
+          <a href="<?php echo base_url();?>Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>

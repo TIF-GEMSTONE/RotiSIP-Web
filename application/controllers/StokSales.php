@@ -27,19 +27,27 @@ class StokSales extends CI_Controller{
 			'id_roti' => $this->input->post('nama_roti'),
 			'id_sales' => $this->input->post('nama_sales'),
 			'tgl_ambil' => $this->input->post('tgl_ambil'),
-			'jumlah_stok_sales' => $this->input->post('jumlah_stok_sales')
+			'jumlah_stok_sales' => $this->input->post('jumlah_st ok_sales')
 			));
 			redirect('StokSales');
 		}else{
-			$x =$this->StokSales_Model->get_roti();
+			// $x =$this->StokSales_Model->get_roti();
 			$data = array(
-				'roti'=>$this->StokSales_Model->get_roti(),
 				'sales'=>$this->StokSales_Model->get_sales()
 				);
 			$this->load->view('CreateStokSales_view', $data);
+
 		}
 	}
-	
 
+	function select_roti(){
+            if('IS_AJAX') {
+	        	$data['roti'] = $this->StokSales_Model->get_roti();		
+				$this->load->view('pilihroti',$data);
+            }
+		
+	}
+
+	
 }
 ?>
