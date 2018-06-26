@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="sip">
   <meta name="author" content="sip">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/  css" media="all" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
+  
   <title>SIP</title>
   <!-- Bootstrap core CSS-->
   <link href="<?php echo base_url ('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -28,25 +33,25 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http:/RotiSIP-Web/Penjualan">
+          <a class="nav-link" href="<?php echo base_url();?>Penjualan">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
-          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+          <a class="nav-link" href="<?php echo base_url();?>SalesBaru">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
+          <a class="nav-link" href="<?php echo base_url();?>Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+          <a class="nav-link" href="<?php echo base_url();?>Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
           </a>
@@ -58,10 +63,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
+              <a href="<?php echo base_url();?>StokSales">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
+              <a href="<?php echo base_url();?>StokSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -72,10 +77,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+               <a href="<?php echo base_url();?>LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
+              <a href="<?php echo base_url();?>LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -114,7 +119,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
+          <a class="nav-link" href="<?php echo base_url();?>Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -125,7 +130,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
+          <a href="<?php echo base_url();?>Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
@@ -136,77 +141,44 @@
         <div class="card-body">
           <div class="table-responsive">
           <div>
-          <p>
-            <!-- <form action="input" method="post"> 
-            <table>
-                <tr><td>ID Stok</td><td><input type="text" onkeyup="isi_otomatis()" id="id_stok_pusat"></td></tr>
-                <tr><td>Nama Roti</td><td><input type="text" id="nama_roti"></td></tr>
-                <tr><td>Nama Sales</td><td><input type="text" id="nama_sales"></td></tr>
-                <tr><td>Tanggal Ambil</td><td><input type="date" id="tgl_ambil"></td></tr>
-                <tr><td>Jumlah</td><td><input type="number" id="jumlah_roti"></td></tr>
-            </table>
-        </form>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script type="text/javascript">
-            function isi_otomatis(){
-                var id_stok_pusat = $("#id_stok_pusat").val();
-                $.ajax({
-                    url: 'proses-ajax.php',
-                    data:"id_stok_pusat="+id_stok_pusat ,
-                }).success(function (data) {
-                    var json = data,
-                    obj = JSON.parse(json);
-                    $('#nama_roti').val(obj.nama_roti);
-                });
-            }
-        </script> -->
 
-            <form method="post" action="input"> 
-              <div class="container">
+          <form method="post" action="input"> 
+            <div class="container">
 
-                <div class="form-group row">
-            <div class="col-xs-4">
-            <label  for="id_stok_pusat">ID Stok:</label>
-            <input class="form-control" type="text" name="id_stok_pusat" value="<?php if(isset($data)) { echo $data[0]->id_stok_pusat; } ?>">
-            </div>
-          </div>
-
-              <div class="form-group row">
+          <div class="form-group row">
               <div class="col-xs-4">
-              <label for="roti">Nama Roti:</label>
-                <select class="form-control" name="nama_roti">
-                  <option value="0">-PILIH ROTI-</option>
-                <?php foreach ($roti as $row){ ?>
-                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
-                  <?php }?>
-                </select>
-              </div>
+
+         <?php echo form_open('chain/submit');?>
+            <div id="sales" style="width:250px;float:left;">
+              Nama Sales : <br/>
+              <?php
+                echo form_dropdown("id_sales",$sales,"","id='id_sales'");
+              ?>
             </div>
-              <div class="form-group row">
-              <div class="col-xs-4">
-              <label for="roti">Nama Sales:</label>
-                <select class="form-control" name="nama_sales">
-                  <option value="0">-PILIH SALES-</option>
-                <?php foreach ($sales as $row){ ?>
-                  <option value="<?php echo $row->id_sales;?>"><?php echo $row->nama_sales;?></option>
-                  <?php }?>
-                </select>
+            
+            <div id="roti">
+              Nama Roti :<br/>
+              <?php
+                echo form_dropdown("nama_roti",array('Pilih Roti'=>'Pilih Sales Dulu'),'','disabled');
+              ?>
+            </div>
+
               </div>
             </div>
 
             <div class="form-group row">
             <div class="col-xs-4">
-            <label  for="tgl_produksi">Tanggal Ambil:</label>
-            <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>">
+              <label  for="tgl_produksi">Tanggal Ambil:</label>
+              <input class="form-control" type="date" name="tgl_ambil" value="<?php if(isset($data)) { echo $data[0]->tgl_ambil; } ?>">
             </div>
-          </div>
+            </div>
 
               <div class="form-group row">
               <div class="col-xs-4">
-              <label for="Jumlah">Jumlah Roti: </label>
-              <input class="form-control" placeholder="Masukan Jumlah" type="number" name="jumlah_stok_sales" value="<?php if(isset($data)) { echo $data[0]->jumlah_stok_sales; } ?>">
-          </div>
-          </div>
+                <label for="Jumlah">Jumlah Roti: </label>
+                <input class="form-control" placeholder="Masukan Jumlah" type="number" name="jumlah_stok_sales" value="<?php if(isset($data)) { echo $data[0]->jumlah_stok_sales; } ?>">
+              </div>
+              </div>
 
               <input type="submit" class="btn btn-success" name="btnTambah" value="Simpan"/>
               <a class="btn btn-warning" href="<?php echo base_url()?>StokSales">Kembali</a>
@@ -214,6 +186,26 @@
               </div>
           </form>
 
+          <script type="text/javascript">
+            $("#id_sales").change(function(){
+                var selectValues = $("#id_sales").val();
+                if (selectValues == 0){
+                  var msg = "ID Roti :<br><select name=\"nama_roti\" disabled><option value=\"Pilih Roti\">Pilih Sales Dahulu</option></select>";
+                  $('#roti').html(msg);
+                }else{
+                  var id_sales = {id_sales:$("#id_sales").val()};
+                  $('#roti').attr("disabled",true);
+                  $.ajax({
+                    type: "POST",
+                    url : "<?php echo site_url('StokSales/select_roti')?>",
+                    data: id_sales,
+                    success: function(msg){
+                      $('#roti').html(msg);
+                    }
+                  });
+                }
+            });
+           </script>
           </p>
     </div>
         </div>

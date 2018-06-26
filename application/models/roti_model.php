@@ -1,17 +1,6 @@
 <?php
 class roti_model extends CI_Model{
 
-	function hapus_barang($id_roti){
-		$hsl=$this->db->query("DELETE FROM tabel_roti where id_roti='$id_roti'");
-		return $hsl;
-	}
-
-	function update_barang($kobar,$nabar,$kat,$satuan,$harpok,$harjul,$harjul_grosir,$stok,$min_stok){
-		$user_id=$this->session->userdata('idadmin');
-		$hsl=$this->db->query("UPDATE tbl_barang SET barang_nama='$nabar',barang_satuan='$satuan',barang_harpok='$harpok',barang_harjul='$harjul',barang_harjul_grosir='$harjul_grosir',barang_stok='$stok',barang_min_stok='$min_stok',barang_tgl_last_update=NOW(),barang_kategori_id='$kat',barang_user_id='$user_id' WHERE barang_id='$kobar'");
-		return $hsl;
-	}
-
 	function tampil_roti(){
 		$hsl=$this->db->query("SELECT * FROM tabel_roti");
 		return $hsl;

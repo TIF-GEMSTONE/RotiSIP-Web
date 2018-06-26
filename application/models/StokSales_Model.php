@@ -10,23 +10,49 @@ class StokSales_Model extends CI_Model {
 		return $query->result();
 	}
 	
-	function get_roti(){
-    $query = $this->db->query("SELECT * FROM tabel_roti");
-    return $query->result();
-  }
+//   function get_sales(){
+//     $query = $this->db->query("SELECT * FROM tabel_sales");
+//     return $query->result();
+//   }
+
+//    function input($data = array()){
+//     return $this->db->insert('tabel_stok_sales',$data);
+//   }
+
 
   function get_sales(){
-    $query = $this->db->query("SELECT * FROM tabel_sales");
-    return $query->result();
+    $result = array();
+    $this->db->select('*');
+    $this->db->from('tabel_sales');
+    $this->db->order_by('nama_sales','ASC');
+    $array_keys_values = $this->db->get();
+        foreach ($array_keys_values->result() as $row)
+        {
+            $result[0]= '-Pilih Sales-';
+            $result[$row->id_sales]= $row->nama_sales;
+        }
+        
+        return $result;
   }
 
-   function input($data = array()){
-    return $this->db->insert('tabel_stok_sales',$data);
-  }
+  function get_roti(){
+    $id_sales = $this->input->post('id_sales');
+    
+    $result = array();
+    $this->db->select('*');
+    $this->db->from('tabel_stok_sales','tabel_roti');
+    $this->db->join('tabel_roti', 'tabel_stok_sales.id_roti = tabel_roti.id_roti');
+    $this->db->where('tabel_stok_sales.id_sales',$id_sales);
+    $this->db->order_by('tabel_stok_sales.id_roti','ASC');
 
-function cari($nama_sales){
-    $query = $this->db->query("SELECT * FROM tabel_stok_sales JOIN tabel_sales JOIN tabel_roti WHERE tabel_stok_sales.id_roti=tabel_roti.id_roti AND tabel_stok_sales.id_sales=tabel_sales.id_sales AND tabel_sales.nama_sales = '$nama_sales'");
-    return $query->result();
+    $array_keys_values = $this->db->get();
+        foreach ($array_keys_values->result() as $row)
+        {
+            $result[0]= '-Pilih Roti-';
+            $result[$row->id_roti]= $row->nama_roti;
+        }
+        
+        return $result;
   }
 
 }

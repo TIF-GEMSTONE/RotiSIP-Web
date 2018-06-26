@@ -28,25 +28,25 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http:/RotiSIP-Web/Penjualan">
+          <a class="nav-link" href="<?php echo base_url();?>Penjualan">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
-          <a class="nav-link" href="http:/RotiSIP-Web/SalesBaru">
+          <a class="nav-link" href="<?php echo base_url();?>SalesBaru">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Pesanan">
+          <a class="nav-link" href="<?php echo base_url();?>Pesanan">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="http:/RotiSIP-Web/Retur">
+          <a class="nav-link" href="<?php echo base_url();?>Retur">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
           </a>
@@ -58,10 +58,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-              <a href="http:/RotiSIP-Web/StokSales">Sales</a>
+              <a href="<?php echo base_url();?>StokSales">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/StokSIP">SIP</a>
+              <a href="<?php echo base_url();?>StokSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -72,10 +72,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-               <a href="http:/RotiSIP-Web/LaporanSales">Sales</a>
+               <a href="<?php echo base_url();?>LaporanSales">Sales</a>
             </li>
             <li>
-              <a href="http:/RotiSIP-Web/LaporanSIP">SIP</a>
+              <a href="<?php echo base_url();?>LaporanSIP">SIP</a>
             </li>
           </ul>
         </li>
@@ -114,7 +114,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http:/RotiSIP-Web/Login/Logout">Logout</a>
+          <a class="nav-link" href="<?php echo base_url();?>Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -140,7 +140,7 @@
       <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost/RotiSIP-Web/Login/Home">Home</a>
+          <a href="<?php echo base_url();?>Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
@@ -151,7 +151,12 @@
         <div class="card-body">
           <p><strong>Tambah Data</strong></p>
           <div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<thead>
             <form action="create" method="post">
+<div class="container">
+
+<td>
               <!-- <?php echo $model->labels['id_sales']; ?><br/> 
               <input type="text" name="id_sales" /><br/><br/> -->
 
@@ -163,7 +168,8 @@
 
               <?php echo $model->labels['no_telp']; ?><br/>
               <input name="no_telp"><br/><br/>
-
+</td>
+<td>
               <?php echo $model->labels['username']; ?><br/>
               <input type="nama" name="username"><br/><br/>
 
@@ -172,12 +178,14 @@
 
               <input type="submit" class="btn btn-success" name="btnSubmit" value="simpan"/>
               <input type="button" value="Batal" class="btn btn-primary" onclick="javascript:history.go(-1);"/>
+</td>
+</div
             </form>
+</div>
         </div>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
+ 
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
