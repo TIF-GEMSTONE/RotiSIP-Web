@@ -162,7 +162,7 @@
         </tr>
         <?php 
         $no = 1;
-        foreach ($data as $row){ ?>
+        foreach ($detail as $row){ ?>
         <tr>
           <td><?php echo $no;?></td>
           <td><?php echo $row->id_pesan;?></td>

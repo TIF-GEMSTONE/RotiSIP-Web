@@ -28,41 +28,25 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-<<<<<<< HEAD
           <a class="nav-link" href="<?php echo base_url();?>Penjualan">
-=======
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Penjualan">
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Penjualan</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Form Sales">
-<<<<<<< HEAD
           <a class="nav-link" href="<?php echo base_url();?>SalesBaru">
-=======
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//SalesBaru">
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Sales</span>
           </a>
         </li>
        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-<<<<<<< HEAD
           <a class="nav-link" href="<?php echo base_url();?>Pesanan">
-=======
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Pesanan">
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-<<<<<<< HEAD
           <a class="nav-link" href="<?php echo base_url();?>Retur">
-=======
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Retur">
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Retur</span>
           </a>
@@ -74,17 +58,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseStok">
             <li>
-<<<<<<< HEAD
               <a href="<?php echo base_url();?>StokSales">Sales</a>
             </li>
             <li>
               <a href="<?php echo base_url();?>StokSIP">SIP</a>
-=======
-              <a href="http://salessip.tifpolije2016.com//StokSales">Sales</a>
-            </li>
-            <li>
-              <a href="http://salessip.tifpolije2016.com//StokSIP">SIP</a>
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
             </li>
           </ul>
         </li>
@@ -95,17 +72,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseLaporan">
             <li>
-<<<<<<< HEAD
                <a href="<?php echo base_url();?>LaporanSales">Sales</a>
             </li>
             <li>
               <a href="<?php echo base_url();?>LaporanSIP">SIP</a>
-=======
-               <a href="http://salessip.tifpolije2016.com//LaporanSales">Sales</a>
-            </li>
-            <li>
-              <a href="http://salessip.tifpolije2016.com//LaporanSIP">SIP</a>
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
             </li>
           </ul>
         </li>
@@ -144,11 +114,7 @@
           </div>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
           <a class="nav-link" href="<?php echo base_url();?>Login/Logout">Logout</a>
-=======
-          <a class="nav-link" href="http://salessip.tifpolije2016.com//Login/Logout">Logout</a>
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
         </li>
       </ul>
     </div>
@@ -159,11 +125,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-<<<<<<< HEAD
           <a href="<?php echo base_url();?>Login/Home">Home</a>
-=======
-          <a href="http://salessip.tifpolije2016.com//Login/Home">Home</a>
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>

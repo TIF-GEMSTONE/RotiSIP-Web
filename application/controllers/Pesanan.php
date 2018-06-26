@@ -43,10 +43,36 @@ class Pesanan extends CI_Controller{
 		$this->Pesanan_model->delete($id);
 		redirect('Pesanan');
 	}
+	function edit(){
+		$id = $this->uri->segment(3);
+		$data = array(
+            'user' => $this->Pesanan_model->get_data_edit($id),
+		);
+		$data['id_roti']= $this->Pesanan_model->get_roti();
+     	$data['nama_roti']= $this->Pesanan_model->get_roti();
+
+        $this->load->view("UpdatePesanan_view", $data);
+		
+	}
 	
+	function update(){
+		$id = $this->input->post('id_pesan');
+		$insert = $this->Pesanan_model->update(array(
+			'nama_pemesan' => $this->input->post('nama_pemesan'),
+			'no_telp' => $this->input->post('no_telp'),
+			'id_roti' => $this->input->post('nama_roti'),
+			'jumlah_roti' => $this->input->post('jumlah_roti'),
+			'tgl_pesan' => $this->input->post('tgl_pesan'),
+			'tgl_ambil' => $this->input->post('tgl_ambil'),
+			'jam_ambil' => $this->input->post('jam_ambil')
+            ), $id);
+
+        redirect('Pesanan');
+        }
+
     function detail($id){
     	$data = array (
-				'data' =>$this->Pesanan_model->get_detail($id));
+				'detail' =>$this->Pesanan_model->get_detail($id));
 		$this->load->view('DetailPesanan_view', $data);
     }
 

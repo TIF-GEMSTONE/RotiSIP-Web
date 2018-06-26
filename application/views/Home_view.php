@@ -203,13 +203,8 @@ body {
                 <div class="container">
                 <div class="column">
              <a href="#">
-<<<<<<< HEAD
                 <img width="150px" height="150px" src="<?php echo $p->gambar  ?> "  alt="">
                 </a>
-=======
-                <img width="150px" height="150px" src="<?php echo $p->gambar  ?>" alt="">
-              </a>
->>>>>>> dabf059bf668e3d57b3a650dfed7395cc267edbe
           </div>
               <div class="column">
                 <h6><a href="#"><?php echo $p->nama_roti ?></a></h6>
