@@ -15,18 +15,17 @@ class StokSIP extends CI_Controller{
 	function input(){
 		if (isset($_POST['btnTambah'])){
 			$data = $this->StokSIP_Model->input(array (
-			'id_stok_pusat' => $this->input->post('id_stok_pusat'),
 			'id_roti' => $this->input->post('nama_roti'),
 			'tgl_produksi' => $this->input->post('tgl_produksi'),
 			'tgl_kadaluarsa' => $this->input->post('tgl_kadaluarsa'),
-			'jumlah_stok_pusat' => $this->input->post('jumlah_stok_pusat')
+			'stok' => $this->input->post('stok')
 			));
 			redirect('StokSIP');
-		}else{
-			$x =$this->StokSIP_Model->get_roti();
-			$data = array(
-				'roti'=>$this->StokSIP_Model->get_roti()
-				);
+		}//else{
+			//$x =$this->StokSIP_Model->get_roti();
+			//$data = array(
+			//	'roti'=>$this->StokSIP_Model->get_roti()
+			//	);
 			$this->load->view('CreateStok_view', $data);
 		}
 	}
