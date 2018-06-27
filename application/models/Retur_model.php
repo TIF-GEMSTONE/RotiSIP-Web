@@ -10,15 +10,39 @@ class Retur_model extends CI_Model {
     return $query->result();
   }
 
-  function get_roti(){
-    $query = $this->db->query("SELECT * FROM tabel_roti WHERE id_roti=70007");
-    return $query->result();
-  }
+
 
     function get_sales(){
-    $query = $this->db->query("SELECT * FROM tabel_sales");
-    return $query->result();
+    $result = array();
+    $this->db->select('*');
+    $this->db->from('tabel_sales');
+    $this->db->order_by('nama_sales','ASC');
+    $array_keys_values = $this->db->get();
+        foreach ($array_keys_values->result() as $row)
+        {
+            $result[0]= '-Pilih Sales-';
+            $result[$row->id_sales]= $row->nama_sales;
+        }
+        
+        return $result;
   }
+   function get_roti(){
+    $id_sales = $this->input->post('id_sales');
+    
+    $result = array();
+    $this->db->select('*');
+    $this->db->from('tabel_stok_roti','tabel_roti');
+    $this->db->where('id_roti=70007',$id_roti);
+    $this->db->order_by('tabel_stok_sales.id_roti','ASC');
+
+    $array_keys_values = $this->db->get();
+        foreach ($array_keys_values->result() as $row)
+        {
+            $result[0]= '-Pilih Retur-';
+            $result[$row->id_roti]= $row->nama_roti;
+        }
+        
+        return $result;
  
   function input($data = array()){
     return $this->db->insert('tabel_retur',$data);
@@ -34,5 +58,6 @@ class Retur_model extends CI_Model {
     return $query->result();
   }
 
+}
 }
 ?>

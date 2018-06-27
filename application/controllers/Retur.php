@@ -1,6 +1,6 @@
 <?php
 class Retur extends CI_Controller{
-	function __construct(){
+	public function __construct(){
 		parent::__construct();
 		$this->load->helper(array('url'));
 		$this->load->model('Retur_model');
@@ -39,6 +39,12 @@ class Retur extends CI_Controller{
 		}
 
 	}
+	function select_roti(){
+            if('IS_AJAX') {
+	        	$data['roti'] = $this->StokSales_Model->get_roti();		
+				$this->load->view('pilihretur',$data);
+            }
 }	
+}
 	
 ?>
