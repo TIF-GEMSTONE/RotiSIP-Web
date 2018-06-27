@@ -156,7 +156,6 @@
       <p align="center">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
-          <th>Id Stok Pusat</th>
           <th>Nama Roti</th>
           <th>Tgl Produksi</th>
           <th>Tgl Kadaluarsa</th>
@@ -165,11 +164,10 @@
         <?php 
         foreach ($data as $row){ ?>
         <tr>
-          <td><?php echo $row->id_stok_pusat;?></td>
           <td><?php echo $row->nama_roti;?></td>
           <td><?php echo $row->tgl_produksi;?></td>
           <td><?php echo $row->tgl_kadaluarsa;?></td>
-          <td><?php echo $row->jumlah_stok_pusat;?></td>
+          <td><?php echo $row->stok;?></td>
         </tr>
         <?php 
       }?>
