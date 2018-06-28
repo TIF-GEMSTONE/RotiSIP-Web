@@ -244,10 +244,6 @@
                             type: "POST",
                             url : "<?php echo site_url('StokSales/select_stok')?>",
                             data: 
-                            // {
-                            //   id_sales : id_sales,
-                            //   id_roti : id_roti
-                            // }
                             "id_sales="+id_sales+"&id_roti="+id_roti,
                             success: function(msg){
                                 $('#stok').html(msg);

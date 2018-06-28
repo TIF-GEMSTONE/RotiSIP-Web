@@ -45,12 +45,6 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="<?php echo base_url();?>Retur">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Retur</span>
-          </a>
-        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -125,71 +119,103 @@
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       
+      <!-- Icon Cards-->
+      
+          <!-- Card Columns Example Social Feed-->
+          
+              <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+            
+            <!-- Example Social Card-->
+          
+          <!-- /Card Columns-->
+       
+      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Stok</a>
+          <a href="<?php echo base_url();?>Login/Home">Home</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i>Stok Sales</div>
-        <div class="card-body">
-          <form action="StokSales" method="post">
-      </form></p>
+      <!-- Example DataTables Card-->
+      <div class="jumbotron col-md-7" >
+       <!-- <?=form_open_multipart('StokSales/btnStok')?>
+
+        <div class="form-group">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead> 
-                  <br>
-                <tr>
-                  <th>Nama Sales</th>
-                  <th>Nama Roti</th>
-                  <th>Tanggal Ambil</th>
-                  <th>Stok</th>
-                  <th>Ubah</th>
-                </tr>
-              </thead>
-                          
-              <?php
+             <?php
                 $no = 1;
                 foreach ($data as $row): ?>
+
+                <?php echo $row->id_stok_sales?>
+            <tr>
+              <td>Nama Roti :</td>
+              <td><?php echo $row->nama_roti;?></td>
+            </tr>
+            <tr>
+              <td>Tanggal Ambil</td>
+              <td><?php echo $row->tgl_ambil;?></td>
+            </tr>
+            <tr>
+              <td>Jumlah Stok</td>
+              <td><input type="input" name="jumlah_stok"></td>
+            </tr>
+            <?php $no++;
+                endforeach;?>
+          </table> -->
+          <h3>Tambah Stok</h3>
+          <br>
+          <form action="StokSales" method="post">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable"  cellspacing="0">
+               <?php
+                $no = 1;
+                foreach ($data as $row): ?>
+                <tr>
+                  <td>Nama Roti</td>
+                  <td><?php echo $row->nama_roti;?></td>
+                </tr>
+                <tr>
+                  <td>Tanggal Ambil</td>
+                  <td><?php echo $row->tgl_ambil;?></td>
+                </tr>
+                <tr>
+                  <td>Jumlah Stok </td>
+                  <td><?php echo $row->jumlah_stok_sales?></td>
+                </tr>
+                <tr>
+                  <td>Jumlah Stok Tambah</td>
+                  <td><input type="input" name="jumlah_stok_tambah"></td>
+                </tr>
          
         <tr>
-         <td><?php echo $row->nama_sales;?></td>
-          <td><?php echo $row->nama_roti;?></td>
-          <td><?php echo $row->tgl_ambil;?></td>
-          <td><?php echo $row->jumlah_stok_sales ;?></td>
 
           <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/btnStok/'.$row->id_stok_sales)?>">
-                  Ubah</a></td>
+                  Simpan</a></td>
         </tr>
         <tr></tr>
                 <?php $no++;
                 endforeach;?>
       </table>
+    </div>
+  </form>
         
-        
-          <div class="table-responsive">
-          </div>
-        <div class="table-responsive">
-
-            <center><hr class='divider'>
-            <h2 class="card-title text-shadow text-black text-uppercase mb-0">
-            </h2>
-            <hr class='divider'></center>
-            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
-            <p style='text-align:justify; margin:25px;'>
-
-          </div>
+          <div class="input-group col-xs-12">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+          </div><br>
         </div>
-
-        </tr>
-
+      </div>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+     </div>
+           
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-
-    
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

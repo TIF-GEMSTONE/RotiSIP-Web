@@ -44,27 +44,20 @@ class StokSales extends CI_Controller{
 	function lihatstok(){
 		//$id=$this->input->post('id_sales');
 		$id= $this->uri->segment(3);
-		//$id=$this->input->post('id_sales');
 		$data=array(
 			'data'=>$this->StokSales_Model->get_lihatstok($id))
 		;
 		$this->load->view('LihatStok_view',$data);
-		echo "berhasil";
 	}
 
 	function btnStok(){
-		if(isset($_POST['btnStok'])){
-			$id=$this->input->post('id_stok_sales');
-			$data = array(
-				'data'=>$this->StokSales_Model->get_lihatstok());
-		$this->load->view('LihatStok_view',$data);
-		}
+		$id= $this->uri->segment(3);
+		$data=array(
+			'data'=>$this->StokSales_Model->get_lihatubah($id))
+		;
+		$this->load->view('UbahStok_view',$data);
 	}
 
-	function lihat_stok(){
-		$data['data'] = $this->StokSales_Model->get_lihatstok($id);
-		$this->load->view('LihatStok_view',$data);
-	}
 
 	function select_roti(){
             if('IS_AJAX') {
