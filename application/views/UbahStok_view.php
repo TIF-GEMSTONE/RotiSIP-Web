@@ -45,6 +45,12 @@
             <span class="nav-link-text">Pesanan</span>
           </a>
         </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="<?php echo base_url();?>Retur">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Retur</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseStok" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -117,21 +123,6 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      
-      <!-- Icon Cards-->
-      
-          <!-- Card Columns Example Social Feed-->
-          
-              <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-          
-          <!-- /Card Columns-->
-       
-      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="<?php echo base_url();?>Login/Home">Home</a>
@@ -140,59 +131,40 @@
       </ol>
       <!-- Example DataTables Card-->
       <div class="jumbotron col-md-7" >
-       <!-- <?=form_open_multipart('StokSales/btnStok')?>
-
-        <div class="form-group">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-             <?php
+        <?=form_open_multipart('StokSales/btnStok')?>
+          <?php
                 $no = 1;
                 foreach ($data as $row): ?>
 
-                <?php echo $row->id_stok_sales?>
-            <tr>
-              <td>Nama Roti :</td>
-              <td><?php echo $row->nama_roti;?></td>
-            </tr>
-            <tr>
-              <td>Tanggal Ambil</td>
-              <td><?php echo $row->tgl_ambil;?></td>
-            </tr>
-            <tr>
-              <td>Jumlah Stok</td>
-              <td><input type="input" name="jumlah_stok"></td>
-            </tr>
-            <?php $no++;
-                endforeach;?>
-          </table> -->
-          <h3>Tambah Stok</h3>
+          <h4>Tambah Stok</h4>
+          <h5><?php echo $row->nama_sales;?></h5>
           <br>
-          <form action="StokSales" method="post">
+          <form action="StokSales/ubah_stok" method="post">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable"  cellspacing="0">
-               <?php
-                $no = 1;
-                foreach ($data as $row): ?>
                 <tr>
                   <td>Nama Roti</td>
-                  <td><?php echo $row->nama_roti;?></td>
+                  <td><input type="text" name="nama_roti" value="<?php echo $row->nama_roti;?>" readonly></td>
                 </tr>
                 <tr>
                   <td>Tanggal Ambil</td>
-                  <td><?php echo $row->tgl_ambil;?></td>
+                  <td><input type="text" name="tgl_ambil" value="<?php echo $row->tgl_ambil;?>" readonly></td>
                 </tr>
                 <tr>
                   <td>Jumlah Stok </td>
-                  <td><?php echo $row->jumlah_stok_sales?></td>
+                  <td><input type="text" name="jumlah_stok" value="<?php echo $row->jumlah_stok_sales?>" readonly=""></td>
                 </tr>
                 <tr>
                   <td>Jumlah Stok Tambah</td>
                   <td><input type="input" name="jumlah_stok_tambah"></td>
                 </tr>
+                <tr>
+                  <input type="text" name="id_stok_sales" value="<?php echo $row->id_stok_sales;?>" hidden>
+                </tr>
          
         <tr>
 
-          <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/btnStok/'.$row->id_stok_sales)?>">
+          <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/ubah_stok/'.$row->id_stok_sales)?>">
                   Simpan</a></td>
         </tr>
         <tr></tr>

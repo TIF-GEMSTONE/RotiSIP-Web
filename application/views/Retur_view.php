@@ -123,21 +123,6 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      
-      <!-- Icon Cards-->
-      
-          <!-- Card Columns Example Social Feed-->
-          
-              <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-            
-            <!-- Example Social Card-->
-          
-          <!-- /Card Columns-->
-       
-      <!-- Example DataTables Card-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Stok</a>
@@ -148,36 +133,34 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Retur</div>
         <div class="card-body">
-          <p><a class="btn btn-primary" href="<?php echo base_url()?>Retur/input">Tambah</a></p>
-          <form action="Retur" method="post">
-        <p><input type="text" name="nama_sales"><input type="submit" name="btnSubmit">
-      </form></p>
+          <h3>Retur Roti Tawar</h3>
+          <br>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead>
                 <tr>
-                  <th>Id Retur</th>
                   <th>Nama Sales</th>
-                  <th>Nama Roti</th>
-                  <th>Jumlah</th>
-                  <th>Tanggal Kembali</th>
-                  
+                  <th>Tanggal Ambil</th>
+                  <th>Jumlah Stok</th>
+                  <th>Retur</th>
+
                 </tr>
               </thead>
               <?php
                 $no = 1;
                 foreach ($data as $row): ?>
         <tr>
-          <td><?php echo $row->id_retur;?></td>
           <td><?php echo $row->nama_sales;?></td>
-          <td><?php echo $row->nama_roti;?></td>
-          <td><?php echo $row->jumlah_roti;?></td>
-          <td><?php echo $row->tgl_kembali;?></td>
+          <td><?php echo $row->tgl_ambil;?></td>
+          <td><?php echo $row->jumlah_stok_sales;?></td>
+          <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/retur/'.$row->id_sales)?>" name="btnStok">
+                  Retur</a></td>
         </tr>
+        <tr></tr>
                 <?php $no++;
                 endforeach;?>
       </table>
-       
+
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

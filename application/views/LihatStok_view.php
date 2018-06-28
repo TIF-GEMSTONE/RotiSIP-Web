@@ -135,8 +135,6 @@
         <div class="card-header">
           <i class="fa fa-table"></i>Stok Sales</div>
         <div class="card-body">
-          <form action="StokSales" method="post">
-      </form></p>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead> 
