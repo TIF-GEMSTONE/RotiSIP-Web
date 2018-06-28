@@ -148,7 +148,7 @@
           <div class="form-group row">
               <div class="col-xs-4">
 
-         <?php echo form_open('chain/submit');?>
+         <?php echo form_open('StokSales/input');?>
             <div id="sales" style="width:250px;float:left;">
               Nama Sales : <br/>
               <?php
