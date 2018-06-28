@@ -16,8 +16,9 @@ class Retur extends CI_Controller{
 		$data = array(
 				'data'=>$this->Retur_model->get_data());
 		$this->load->view('Retur_view',$data);
+		}
 	}
-}
+
 	
 	function input(){
 		if (isset($_POST['btnTambah'])){
@@ -39,12 +40,13 @@ class Retur extends CI_Controller{
 		}
 
 	}
-	function select_roti(){
-            if('IS_AJAX') {
-	        	$data['roti'] = $this->StokSales_Model->get_roti();		
-				$this->load->view('pilihretur',$data);
-            }
-}	
+
+	function retur(){
+		$id= $this->uri->segment(3);
+		$data=['jumlah_stok_sales'=>$this->input->post('0')];
+		$this->Retur_model->retur($id,$data);
+		redirect('Retur');
+	}
 }
 	
 ?>

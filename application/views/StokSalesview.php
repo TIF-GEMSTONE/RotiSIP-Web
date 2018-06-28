@@ -127,7 +127,7 @@
       
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Stok</a>
+          <a href="<?php echo base_url()?>StokSales">Stok</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>

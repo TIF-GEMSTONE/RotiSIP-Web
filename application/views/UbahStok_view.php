@@ -152,11 +152,11 @@
                 </tr>
                 <tr>
                   <td>Jumlah Stok </td>
-                  <td><input type="text" name="jumlah_stok" value="<?php echo $row->jumlah_stok_sales?>" readonly=""></td>
+                  <td><input type="number" name="jumlah_stok" value="<?php echo $row->jumlah_stok_sales?>" readonly=""></td>
                 </tr>
                 <tr>
                   <td>Jumlah Stok Tambah</td>
-                  <td><input type="input" name="jumlah_stok_tambah"></td>
+                  <td><input type="number" name="jumlah_stok_tambah" ></td>
                 </tr>
                 <tr>
                   <input type="text" name="id_stok_sales" value="<?php echo $row->id_stok_sales;?>" hidden>

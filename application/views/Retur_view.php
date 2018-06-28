@@ -136,6 +136,7 @@
           <h3>Retur Roti Tawar</h3>
           <br>
           <div class="table-responsive">
+          <form>  
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                <thead>
                 <tr>
@@ -152,15 +153,15 @@
         <tr>
           <td><?php echo $row->nama_sales;?></td>
           <td><?php echo $row->tgl_ambil;?></td>
-          <td><?php echo $row->jumlah_stok_sales;?></td>
-          <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/retur/'.$row->id_sales)?>" name="btnStok">
+          <td><?php echo $row->jumlah_stok_sales;?><input type="text" name="jumlah_stok_sales" value="<?php echo $row->jumlah_stok_sales;?>" hidden ></td>
+          <td> <a class="btn btn-primary" href="<?php echo site_url('Retur/retur/'.$row->id_stok_sales)?>" name="btnStok">
                   Retur</a></td>
         </tr>
         <tr></tr>
                 <?php $no++;
                 endforeach;?>
       </table>
-
+      </form>
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

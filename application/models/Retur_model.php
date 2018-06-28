@@ -2,62 +2,33 @@
 class Retur_model extends CI_Model {
   
   function get_table(){
-        return $this->db->get("tabel_retur");
+        return $this->db->get("tabel_stok_sales");
     }
     
   function get_data(){
-    $query = $this->db->query("SELECT * FROM tabel_retur JOIN tabel_roti JOIN tabel_sales JOIN tabel_stok_sales WHERE tabel_retur.id_roti=tabel_roti.id_roti AND tabel_retur.id_stok_sales=tabel_stok_sales.id_stok_sales AND tabel_retur.id_sales=tabel_sales.id_sales");
+    $query = $this->db->query("SELECT * FROM tabel_stok_sales 
+      JOIN tabel_roti on tabel_stok_sales.id_roti=tabel_roti.id_roti
+      JOIN tabel_sales on tabel_stok_sales.id_sales=tabel_sales.id_sales 
+      WHERE tabel_stok_sales.id_roti='70007' ");
     return $query->result();
   }
 
-
-
-    function get_sales(){
-    $result = array();
-    $this->db->select('*');
-    $this->db->from('tabel_sales');
-    $this->db->order_by('nama_sales','ASC');
-    $array_keys_values = $this->db->get();
-        foreach ($array_keys_values->result() as $row)
-        {
-            $result[0]= '-Pilih Sales-';
-            $result[$row->id_sales]= $row->nama_sales;
-        }
-        
-        return $result;
-  }
-   function get_roti(){
-    $id_sales = $this->input->post('id_sales');
-    
-    $result = array();
-    $this->db->select('*');
-    $this->db->from('tabel_stok_sales','tabel_roti');
-    $this->db->where('id_roti=70007');
-    $this->db->order_by('tabel_stok_sales.id_roti','ASC');
-
-    $array_keys_values = $this->db->get();
-        foreach ($array_keys_values->result() as $row)
-        {
-            $result[0]= '-Pilih Retur-';
-            $result[$row->id_roti]= $row->nama_roti;
-        }
-        
-        return $result;
- 
   function input($data = array()){
-    return $this->db->insert('tabel_retur',$data);
+    return $this->db->insert('tabel_stok_sales',$data);
   }
 
-  function delete($id){
-    $this->db->where('id_retur', $id);
-        return $this->db->delete('tabel_retur');
+  function retur($id,$data){
+    try{
+       $this->db->where('id_stok_sales',$id)->limit(1)->update('tabel_stok_sales', $data);
+       return true;
+     }catch(Exception $e){}
   }
   
-  function cari($nama_sales){
-   $query = $this->db->query("SELECT * FROM tabel_retur JOIN tabel_roti JOIN tabel_sales WHERE tabel_retur.id_roti=tabel_roti.id_roti AND tabel_retur.id_sales=tabel_sales.id_sales AND tabel_sales.nama_sales = '$nama_sales'");
-    return $query->result();
-  }
+  // function cari($nama_sales){
+  //  $query = $this->db->query("SELECT * FROM tabel_retur JOIN tabel_roti JOIN tabel_sales WHERE tabel_retur.id_roti=tabel_roti.id_roti AND tabel_retur.id_sales=tabel_sales.id_sales AND tabel_sales.nama_sales = '$nama_sales'");
+  //   return $query->result();
+  // }
 
 }
-}
+
 ?>
