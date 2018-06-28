@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 11:02 AM
+-- Generation Time: Jun 28, 2018 at 02:07 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -88,8 +88,8 @@ CREATE TABLE `tabel_detail_sip` (
 --
 DELIMITER $$
 CREATE TRIGGER `T_sip` AFTER INSERT ON `tabel_detail_sip` FOR EACH ROW BEGIN
-UPDATE tabel_stok_pusat SET jumlah_stok_pusat=jumlah_stok_pusat-NEW.jumlah
-WHERE id_stok_pusat = NEW.id_stok_pusat;
+UPDATE tabel_roti SET stok=stok-NEW.jumlah
+WHERE id_roti = NEW.id_roti;
 END
 $$
 DELIMITER ;
