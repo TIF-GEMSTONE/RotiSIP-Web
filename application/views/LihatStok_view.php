@@ -136,22 +136,31 @@
           <i class="fa fa-table"></i>Stok Sales</div>
         <div class="card-body">
           <form action="StokSales" method="post">
-        
       </form></p>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-               <thead>
+               <thead> 
+                  <br>
                 <tr>
                   <th>Nama Sales</th>
-                  <th>Lihat Stok</th>
+                  <th>Nama Roti</th>
+                  <th>Tanggal Ambil</th>
+                  <th>Stok</th>
+                  <th>Ubah</th>
                 </tr>
               </thead>
+                          
               <?php
                 $no = 1;
                 foreach ($data as $row): ?>
+         
         <tr>
-          <td><?php echo $row->nama_sales;?></td>
-          <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/lihatstok/'.$row->id_sales)?>" name="btnStok">
+         <td><?php echo $row->nama_sales;?></td>
+          <td><?php echo $row->nama_roti;?></td>
+          <td><?php echo $row->tgl_ambil;?></td>
+          <td><?php echo $row->jumlah_stok_sales ;?></td>
+
+          <td> <a class="btn btn-primary" href="<?php echo site_url('StokSales/btnStok/'.$row->id_sales)?>">
                   View </a></td>
         </tr>
         <tr></tr>
@@ -168,6 +177,7 @@
             <h2 class="card-title text-shadow text-black text-uppercase mb-0">
             </h2>
             <hr class='divider'></center>
+            <center><td><!--<img class='card-img img-fluid w-50' src='<?php echo base_url();?>admin/panen/img/"<?php echo $data['password'];?>'>--></td></center><br>
             <p style='text-align:justify; margin:25px;'>
 
           </div>
