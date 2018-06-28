@@ -165,28 +165,23 @@
             <div class="container">
             <div class="form-group row">
               <div class="col-xs-4">
-              <label for="sales">Nama Sales:</label>
-                <select class="form-control" name="nama_sales">
-                <?php foreach ($sales as $row){ ?>
-                  <option value="<?php echo $row->id_sales;?>"><?php echo $row->nama_sales;?></option>
-                  <?php }?>
-                </select>
-              </div>
-            </div>
-          </div>
-
-              <div class="container">
             <div class="form-group row">
               <div class="col-xs-4">
-              <label for="roti">Nama Roti:</label>
-                <select class="form-control" name="nama_roti">
-                <?php foreach ($roti as $row){ ?>
-                  <option value="<?php echo $row->id_roti;?>"><?php echo $row->nama_roti;?></option>
-                  <?php }?>
-                </select>
-              </div>
+              
+            <?php echo form_open('Retur/input');?>
+            <div id="sales" style="width:250px;float:left;">
+              Nama Sales : <br/>
+              <?php
+                echo form_dropdown("id_sales",$sales,"","id='id_sales'");
+              ?>
             </div>
-          </div>                
+            
+            <div id="roti">
+              Nama Roti :<br/>
+              <?php
+                echo form_dropdown("id_roti",array('Pilih Roti'=>'Pilih Sales Dulu'),'','disabled');
+              ?>
+            </div>
 
             <div class="container">
               <div class="form-group row">

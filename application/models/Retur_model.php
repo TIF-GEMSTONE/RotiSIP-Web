@@ -31,8 +31,8 @@ class Retur_model extends CI_Model {
     
     $result = array();
     $this->db->select('*');
-    $this->db->from('tabel_stok_roti','tabel_roti');
-    $this->db->where('id_roti=70007',$id_roti);
+    $this->db->from('tabel_stok_sales','tabel_roti');
+    $this->db->where('id_roti=70007');
     $this->db->order_by('tabel_stok_sales.id_roti','ASC');
 
     $array_keys_values = $this->db->get();
