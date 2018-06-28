@@ -148,7 +148,7 @@
           <div class="form-group row">
               <div class="col-xs-4">
 
-         <?php echo form_open('chain/submit');?>
+         <?php echo form_open('StokSales/input');?>
             <div id="sales" style="width:250px;float:left;">
               Nama Sales : <br/>
               <?php
@@ -243,7 +243,12 @@
                     $.ajax({
                             type: "POST",
                             url : "<?php echo site_url('StokSales/select_stok')?>",
-                            data: id_roti + id_sales,
+                            data: 
+                            // {
+                            //   id_sales : id_sales,
+                            //   id_roti : id_roti
+                            // }
+                            "id_sales="+id_sales+"&id_roti="+id_roti,
                             success: function(msg){
                                 $('#stok').html(msg);
                             }

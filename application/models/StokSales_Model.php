@@ -6,14 +6,14 @@ class StokSales_Model extends CI_Model {
     }
     
 	function get_data(){
-		$query = $this->db->query("SELECT * FROM tabel_stok_sales JOIN tabel_roti JOIN tabel_sales WHERE tabel_stok_sales.id_roti=tabel_roti.id_roti AND tabel_stok_sales.id_sales=tabel_sales.id_sales");
+		$query = $this->db->query("SELECT * FROM tabel_sales ");
 		return $query->result();
 	}
 	
 
-   function input($id,$data){
+   function input($id){
     try{
-        $this->db->where('id_stok_sales',$id)->limit(1)->update('tabel_stok_sales',$data);
+      //  $this->db->where('id_sales',$id)->limit(1)->update('tabel_stok_sales',$data);
         return true;
     }catch(Exception $error){}
 
@@ -33,6 +33,14 @@ class StokSales_Model extends CI_Model {
         }
         
         return $result;
+  }
+
+  function get_lihatstok($id_sales){
+    $query = $this->db->query("SELECT * FROM tabel_stok_sales 
+            JOIN tabel_roti on tabel_roti.id_roti = tabel_stok_sales.id_roti
+            JOIN tabel_sales on tabel_sales.id_sales = tabel_stok_sales.id_sales
+            where tabel_stok_sales.id_sales='$id_sales' ");
+        return $query->result();
   }
 
   function get_roti(){
@@ -61,9 +69,8 @@ class StokSales_Model extends CI_Model {
     $result = array();
     $this->db->select('*');
     $this->db->from('tabel_stok_sales');
-    // $where = array('id_roti'=>$id_roti, 'id_sales'=>$id_sales);
-    $this->db->where('id_roti',$id_roti);
-    $this->db->where('id_sales',$id_sales);
+    $where = array('id_roti'=>$id_roti, 'id_sales'=>$id_sales);
+    $this->db->where($where);
     $this->db->order_by('id_roti','ASC');
 
     $array_keys_values = $this->db->get();
