@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 09:19 AM
+-- Generation Time: Jun 28, 2018 at 11:02 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -41,7 +41,8 @@ CREATE TABLE `tabel_detail_pesan` (
 INSERT INTO `tabel_detail_pesan` (`id_pesan`, `id_roti`, `jumlah_roti`) VALUES
 (32, 70002, 45),
 (33, 70001, 23),
-(34, 70004, 50);
+(34, 70004, 50),
+(39, 70010, 15);
 
 -- --------------------------------------------------------
 
@@ -142,10 +143,7 @@ INSERT INTO `tabel_pesanan` (`id_pesan`, `id_roti`, `id_sales`, `nama_pemesan`, 
 (32, 70002, NULL, 'Safira', '08123456789', 45, '2018-06-05 21:46:18', '2018-06-09', '09:00:00', NULL, NULL),
 (33, 70001, NULL, 'lala', '23423442', 23, '2018-06-06 01:02:38', '2018-06-06', '00:03:00', NULL, NULL),
 (34, 70003, 80001, 'Gigi', '086532164325', 56, '2018-06-06 01:22:13', '2018-06-13', '00:00:00', 'Kaliurang', 1),
-(35, 70001, 80001, 'Diana', '086345123641', 5, '2018-06-06 01:22:28', '2018-06-13', '00:00:00', 'Jombang', 1),
-(36, 70003, 80001, 'Saiful', '083845633945', 20, '2018-06-06 01:35:17', '2018-06-22', '00:00:00', 'Jl. Nias V no.102', 1),
-(37, 70003, 80001, 'Rian', '083552643967', 23, '2018-06-06 01:37:31', '2018-06-14', '00:00:00', 'Jl. Kalimantan no.48', 0),
-(38, 70004, NULL, 'lala', '0812345678', 50, '2018-06-06 02:08:20', '2018-06-08', '09:00:00', NULL, NULL);
+(39, 70010, 80003, 'nisa', '08123456789', 15, '2018-06-28 06:17:00', '2018-06-29', '09:00:00', 'mastrip', NULL);
 
 -- --------------------------------------------------------
 
@@ -191,6 +189,8 @@ CREATE TABLE `tabel_roti` (
   `nama_roti` varchar(30) NOT NULL,
   `stok` int(11) NOT NULL,
   `harga` int(6) NOT NULL,
+  `tgl_produksi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tgl_kadaluarsa` date NOT NULL,
   `gambar` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -198,16 +198,16 @@ CREATE TABLE `tabel_roti` (
 -- Dumping data for table `tabel_roti`
 --
 
-INSERT INTO `tabel_roti` (`id_roti`, `nama_roti`, `stok`, `harga`, `gambar`) VALUES
-(70001, 'Roti Pisang', 30, 3000, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotipisang.jpg'),
-(70002, 'Roti Keju', 530, 3500, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotikeju.jpg'),
-(70003, 'Roti Coklat', 30, 3500, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/roticoklat.jpg'),
-(70004, 'Roti Sisir', 40, 8000, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotisisir.jpg'),
-(70005, 'Roti Kenong', 30, 9000, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotikenong.jpg'),
-(70006, 'Roti Sobek', 20, 8500, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotisobek.jpg'),
-(70007, 'Roti Tawar', 20, 10000, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotitawar.jpg'),
-(70009, 'Roti Strawberry', 20, 2000, 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP-Web/master/assets/images/rotistrw.jpg'),
-(70010, 'Roti Maryam', 20, 3500, 'cetak.PNG');
+INSERT INTO `tabel_roti` (`id_roti`, `nama_roti`, `stok`, `harga`, `tgl_produksi`, `tgl_kadaluarsa`, `gambar`) VALUES
+(70001, 'Roti Pisang', 30, 3000, '2018-06-28 06:56:32', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotipisang.jpg'),
+(70002, 'Roti Keju', 530, 3500, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotikeju.jpg'),
+(70003, 'Roti Coklat', 30, 3500, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/roticoklat.jpg'),
+(70004, 'Roti Sisir', 40, 8000, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotisisir.jpg'),
+(70005, 'Roti Kenong', 30, 9000, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotikenong.jpg'),
+(70006, 'Roti Sobek', 20, 8500, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotisobek.jpg'),
+(70007, 'Roti Tawar', 20, 10000, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP/master/images/rotitawar.jpg'),
+(70009, 'Roti Strawberry', 20, 2000, '2018-06-28 06:56:33', '2018-06-30', 'https://raw.githubusercontent.com/TIF-GEMSTONE/RotiSIP-Web/master/assets/images/rotistrw.jpg'),
+(70010, 'Roti Maryam', 20, 3500, '2018-06-28 06:56:33', '2018-06-30', 'cetak.PNG');
 
 -- --------------------------------------------------------
 
@@ -460,7 +460,7 @@ ALTER TABLE `tabel_transaksi_sip`
 -- AUTO_INCREMENT for table `tabel_detail_pesan`
 --
 ALTER TABLE `tabel_detail_pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `tabel_pegawai`
 --
@@ -470,7 +470,7 @@ ALTER TABLE `tabel_pegawai`
 -- AUTO_INCREMENT for table `tabel_pesanan`
 --
 ALTER TABLE `tabel_pesanan`
-  MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_pesan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `tabel_retur`
 --

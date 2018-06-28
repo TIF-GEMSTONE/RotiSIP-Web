@@ -34,5 +34,4 @@ class StokSIP extends CI_Controller{
 		redirect('StokSIP');
 	}
 	
-}
 ?>
