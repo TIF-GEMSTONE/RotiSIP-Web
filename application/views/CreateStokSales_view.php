@@ -159,10 +159,16 @@
             <div id="roti">
               Nama Roti :<br/>
               <?php
-                echo form_dropdown("nama_roti",array('Pilih Roti'=>'Pilih Sales Dulu'),'','disabled');
+                echo form_dropdown("id_roti",array('Pilih Roti'=>'Pilih Sales Dulu'),'','disabled');
               ?>
             </div>
 
+            <div id="stok">
+              Stok Roti :<br/>
+              <?php
+                echo form_dropdown("id_stok_sales",array('Pilih Stok'=>'Pilih Roti Dulu'),'','disabled');
+              ?>
+            </div>
               </div>
             </div>
 
@@ -188,24 +194,63 @@
 
           <script type="text/javascript">
             $("#id_sales").change(function(){
+            //     var selectValues = $("#id_sales").val();
+            //     if (selectValues == 0){
+                  
+            //       var msg = "ID Roti :<br><select name=\"nama_roti\" disabled><option value=\"Pilih Roti\">Pilih Sales Dahulu</option></select>";
+            //       $('#roti').html(msg);
+            //     }else if{
+            //       var id_sales = {id_sales:$("#id_sales").val()};
+            //       $('#roti').attr("disabled",true);
+            //       $.ajax({
+            //         type: "POST",
+            //         url : "<?php echo site_url('StokSales/select_roti')?>",
+            //         data: id_sales,
+            //         success: function(msg){
+            //           $('#roti').html(msg);
+            //         }
+            //       });
+            //     }
+            // });
+
+           var selectValues = $("#id_sales").val();
+                if (selectValues == 0){
+                    var msg = "province / Region :<br><select name=\"id_roti\" disabled><option value=\"Pilih province / Kabupaten\">Pilih country Dahulu</option></select>";
+                    $('#roti').html(msg);
+                }else{
+                    var id_sales = {id_sales:$("#id_sales").val()};
+                    $('#id_roti').attr("disabled",true);
+                    $.ajax({
+                            type: "POST",
+                            url : "<?php echo site_url('StokSales/select_roti')?>",
+                            data: id_sales,
+                            success: function(msg){
+                                $('#roti').html(msg);
+                            }
+                    });
+                }
+        });
+            $('body').delegate("#id_roti","change", function() {
+                var selectValues = $("#nama_roti").val();
                 var selectValues = $("#id_sales").val();
                 if (selectValues == 0){
-                  var msg = "ID Roti :<br><select name=\"nama_roti\" disabled><option value=\"Pilih Roti\">Pilih Sales Dahulu</option></select>";
-                  $('#roti').html(msg);
+                    var msg = "Kota / Kabupaten :<br><select name=\"id_stok_sales\" disabled><option value=\"Pilih Kota / Kabupaten\">Pilih Propinsi Dahulu</option></select>";
+                    $('#stok').html(msg);
                 }else{
-                  var id_sales = {id_sales:$("#id_sales").val()};
-                  $('#roti').attr("disabled",true);
-                  $.ajax({
-                    type: "POST",
-                    url : "<?php echo site_url('StokSales/select_roti')?>",
-                    data: id_sales,
-                    success: function(msg){
-                      $('#roti').html(msg);
-                    }
-                  });
+                    var id_roti = {id_roti:$("#id_roti").val()};
+                    var id_sales = {id_sales:$("#id_sales").val()};
+                    $('#id_stok_sales').attr("disabled",true);
+                    $.ajax({
+                            type: "POST",
+                            url : "<?php echo site_url('StokSales/select_stok')?>",
+                            data: id_roti + id_sales,
+                            success: function(msg){
+                                $('#stok').html(msg);
+                            }
+                    });
                 }
-            });
-           </script>
+        });
+       </script>
           </p>
     </div>
         </div>

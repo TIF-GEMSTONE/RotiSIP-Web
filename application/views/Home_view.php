@@ -168,7 +168,7 @@ body {
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://salessip.tifpolije2016.com/Login/Logout">Logout</a>
+          <a class="nav-link" href="<?php echo base_url();?>Login/Logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -219,7 +219,7 @@ body {
            </div>
            <div class="column">
                 
-                <p><a href="<?php echo base_url();?>produk/input/" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data Roti</a></p>
+                <p><a href="<?php echo base_url();?>login/input" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Tambah Data Roti</a></p>
             </div>
             
 

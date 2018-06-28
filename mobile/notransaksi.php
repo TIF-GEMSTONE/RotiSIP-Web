@@ -5,9 +5,10 @@
 	$id_sales = $_POST['id_sales'];
 
 	//Membuat SQL Query
-	$query = "SELECT * FROM tabel_transaksi_sales, tabel_sales WHERE tabel_transaksi_sales.id_sales=tabel_sales.id_sales AND tabel_transaksi_sales.id_sales = '$id_sales' ORDER BY no_transaksi DESC ";
-	
-// 	$query = "SELECT * FROM tabel_transaksi_sales JOIN tabel_sales WHERE tabel_transaksi_sales.id_sales=tabel_sales.id_sales ";
+	$query = "SELECT * FROM tabel_transaksi_sales
+			JOIN tabel_sales on tabel_transaksi_sales.id_sales=tabel_sales.id_sales
+			WHERE tabel_transaksi_sales.id_sales = '$id_sales' 
+			ORDER BY no_transaksi DESC ";
 	
 	//Mendapatkan Hasil
 	$sql= mysqli_query($con,$query);

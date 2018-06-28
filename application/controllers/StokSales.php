@@ -21,14 +21,15 @@ class StokSales extends CI_Controller{
 
 	function input(){
 		if (isset($_POST['btnTambah'])){
+			$id=$this->input->post('id_stok_sales');
 			$data = $this->StokSales_Model->input(array (
 			'id_stok_sales' => $this->input->post('id_stok_sales'),
-			'id_stok_pusat' => $this->input->post('id_stok_pusat'),
 			'id_roti' => $this->input->post('nama_roti'),
 			'id_sales' => $this->input->post('nama_sales'),
 			'tgl_ambil' => $this->input->post('tgl_ambil'),
 			'jumlah_stok_sales' => $this->input->post('jumlah_st ok_sales')
 			));
+			$this->StokSales_Model->input($id,$data);
 			redirect('StokSales');
 		}else{
 			// $x =$this->StokSales_Model->get_roti();
@@ -42,12 +43,25 @@ class StokSales extends CI_Controller{
 
 	function select_roti(){
             if('IS_AJAX') {
-	        	$data['roti'] = $this->StokSales_Model->get_roti();		
+	        	$data['roti'] = $this->StokSales_Model->get_roti();	
 				$this->load->view('pilihroti',$data);
+
             }
-		
 	}
 
+	function select_stok(){
+            if('IS_AJAX') {
+	        	$data['stok'] = $this->StokSales_Model->get_stok();	
+				$this->load->view('pilihstok',$data);
+
+            }
+	}
+	// function select_stok(){
+	// 	if('IS_AJAX') {
+	//         	$data['stok'] = $this->StokSales_Model->get_stok();
+	// 			$this->load->view('pilihstok',$data);
+	// 	})
+	// }
 	
 }
 ?>
